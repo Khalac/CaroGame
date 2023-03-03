@@ -9,7 +9,7 @@ int main()
     FixConsoleWindow();
     StartGame();
     system("pause");
-    cout << 123;//1 2 3 4 5 6
+   
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
