@@ -7,7 +7,7 @@ int main()
 {
     FixConsoleWindow();
     StartGame();
-    return 0;
+    system("pause");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

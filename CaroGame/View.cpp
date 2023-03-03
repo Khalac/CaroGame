@@ -9,6 +9,7 @@ void FixConsoleWindow() {
 	LONG style = GetWindowLong(consoleWindow, GWL_STYLE);
 	style = style & ~(WS_MAXIMIZEBOX) & ~(WS_THICKFRAME);
 	SetWindowLong(consoleWindow, GWL_STYLE, style);
+	SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
 }
 void GotoXY(int x, int y) {
 	COORD coord;
