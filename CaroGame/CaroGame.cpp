@@ -3,12 +3,13 @@
 
 #include <iostream>
 #include"View.h"
+using namespace std;
 int main()
 {
     FixConsoleWindow();
     StartGame();
     system("pause");
-    //anh em dau roi
+    cout << 123;//1 2 3 4 5 6
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
