@@ -33,91 +33,22 @@ void ResetData() {
 	}
 	_TURN = true; _COMMAND = -1; // Gán lượt và phím mặc định _X = _A[0][0].x; _Y = _A[0][0].y;
 }
-void DrawBoard(int pSize) {
-	GotoXY(0, 0);
-	for (int i = 0; i <= LEFT + 4 * BOARD_SIZE + 1; i++)
-	{
-		if (i == 0) putchar(201);
-		else if (i == LEFT + 4 * BOARD_SIZE + 1) putchar(187);
-		else putchar(205);
-
-	}
-	for (int i = 1; i <= TOP + 2 * BOARD_SIZE; i++)
-	{
-		GotoXY(0, i); putchar(186);
-		GotoXY(LEFT + 4 * BOARD_SIZE + 1, i); putchar(186);
-	}
-	GotoXY(0, TOP + 2 * BOARD_SIZE + 1);
-	for (int i = 0; i <= LEFT + 4 * BOARD_SIZE + 1; i++)
-	{
-		if (i == 0) putchar(200);
-		else if (i == LEFT + 4 * BOARD_SIZE + 1) putchar(188);
-		else putchar(205);
-	}
-		for (int i = 0; i <= pSize; i++) {
-				for (int j = 0; j <= pSize; j++) {
-					GotoXY(LEFT + 4 * i, TOP + 2 * j);
-					printf(".");
-				}
-		}
-		GotoXY(LEFT + 4 * BOARD_SIZE + 10, 0);
-		for (int i = LEFT + 4 * BOARD_SIZE + 10; i <= LEFT + 4 * BOARD_SIZE + 100; i++)
-		{
-			if (i == LEFT + 4 * BOARD_SIZE + 10) putchar(201);
-			else if (i == LEFT + 4 * BOARD_SIZE + 100) putchar(187);
-			else putchar(205);
-		}
-		for (int i = 1; i <= 8; i++)
-		{
-			GotoXY(LEFT + 4 * BOARD_SIZE + 10, i); putchar(186);
-			GotoXY(LEFT + 4 * BOARD_SIZE + 100, i); putchar(186);
-		}
-		GotoXY(LEFT + 4 * BOARD_SIZE + 10, 8);
-		for (int i = LEFT + 4 * BOARD_SIZE + 10; i <= LEFT + 4 * BOARD_SIZE + 100; i++)
-		{
-			if (i == LEFT + 4 * BOARD_SIZE + 10) putchar(200);
-			else if (i == LEFT + 4 * BOARD_SIZE + 100) putchar(188);
-			else putchar(205);
-		}
-		GotoXY(LEFT + 4 * BOARD_SIZE + 10, 10);
-		for (int i = LEFT + 4 * BOARD_SIZE + 10; i <= LEFT + 4 * BOARD_SIZE + 100; i++)
-		{
-			if (i == LEFT + 4 * BOARD_SIZE + 10) putchar(201);
-			else if (i == LEFT +4 * BOARD_SIZE + 100) putchar(187);
-			else putchar(205);
-		}
-		for (int i = 11; i <= 16; i++)
-		{
-			GotoXY(LEFT + 4 * BOARD_SIZE + 10, i); putchar(186);
-			GotoXY(LEFT + 4 * BOARD_SIZE + 100, i); putchar(186);
-		}
-		GotoXY(LEFT + 4 * BOARD_SIZE + 10, 17);
-		for (int i = LEFT + 4 * BOARD_SIZE + 10; i <= LEFT + 4 * BOARD_SIZE + 100; i++)
-		{
-			if (i == LEFT + 4 * BOARD_SIZE + 10) putchar(200);
-			else if (i == LEFT + 4 * BOARD_SIZE + 100) putchar(188);
-			else putchar(205);
-		}
-		GotoXY(LEFT + 4 * BOARD_SIZE + 10, 18);
-		for (int i = LEFT + 4 * BOARD_SIZE + 10; i <= LEFT + 4 * BOARD_SIZE + 100; i++)
-		{
-			if (i == LEFT + 4 * BOARD_SIZE + 10) putchar(201);
-			else if (i == LEFT + 4 * BOARD_SIZE + 100) putchar(187);
-			else putchar(205);
-		}
-		for (int i = 19; i <= 33; i++)
-		{
-			GotoXY(LEFT + 4 * BOARD_SIZE + 10, i); putchar(186);
-			GotoXY(LEFT + 4 * BOARD_SIZE + 100, i); putchar(186);
-		}
-		GotoXY(LEFT + 4 * BOARD_SIZE + 10, 33);
-		for (int i = LEFT + 4 * BOARD_SIZE + 10; i <= LEFT + 4 *  + 100; i++)
-		{
-			if (i == LEFT + 4 * BOARD_SIZE + 10) putchar(200);
-			else if (i == LEFT + 4 * BOARD_SIZE + 100) putchar(188);
-			else putchar(205);
-		}
-
+void TextColor(int color) {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); //Làm màu 
+}
+void Nocursortype()
+{
+	CONSOLE_CURSOR_INFO Info;
+	Info.bVisible = FALSE;
+	Info.dwSize = 20;
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
+}
+void UnNocursortype()
+{
+	CONSOLE_CURSOR_INFO Info;
+	Info.bVisible = TRUE;
+	Info.dwSize = 20;
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
 }
 void StartGame() {
 		system("cls");

@@ -5,3 +5,6 @@ struct _POINT { int x, y, c; }; // x: tọa độ dòng, y: tọa độ cột, c
 void ResetData();
 void DrawBoard(int pSize);
 void StartGame();
+void TextColor(int color);
+void UnNocursortype();
+void Nocursortype();
