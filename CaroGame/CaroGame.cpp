@@ -9,6 +9,7 @@ int main()
     FixConsoleWindow();
     StartGame();
     system("pause");
+    printf("Hello");
    
 }
 
