@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include "Board.h"
+#include<Windows.h>
 using namespace std;
 void gotoxy(int x, int y)//x,y là tọa điểm x,y trên màn hình
 {
@@ -102,6 +103,4 @@ void draw()
     printf("%c", 196);
     gotoxy(57, 27);// ve vien ben phai
     printf("%c", 217);
-
-
 }

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include"View.h"
+#include"Board.h"
 using namespace std;
 int main()
 {
