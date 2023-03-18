@@ -9,7 +9,9 @@ int main()
 {
     FixConsoleWindow();
     StartGame();
+    ResetData();//Khoi tao du lieu mac dinh ban dau
     system("pause");
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
