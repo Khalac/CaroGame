@@ -87,4 +87,34 @@ void bangtinhdiem()//Ve bang tinh diem
 	printf("%c", 192);
 	gotoxy(119, 27);
 	printf("%c", 217);
+	for (int i = 55; i < 119; i++)//Chia bang lam 2 theo chieu ngang
+	{
+		gotoxy(i, 8);
+		printf("%c", 205);
+	}
+	for (int j = 9; j < 13; j++)//Chia bang lam 2 theo chieu doc
+	{
+		gotoxy(87, j);
+		printf("%c", 186);
+	}
+	for (int i = 55; i < 119; i++)//Ke duong ngang cho bang thu 2
+	{
+		gotoxy(i, 13);
+		printf("%c", 205);
+	}
+	for (int j = 10; j < 23; j++)
+	{
+		gotoxy(87, j);
+		printf("%c", 186);
+	}
+	for (int i = 55; i < 119; i++)
+	{
+		gotoxy(i, 23);
+		printf("%c", 205);
+	}
+	system("color 2");
+	gotoxy(66, 5);
+	printf("PLAYER 1\t");
+	gotoxy(101, 5);
+	printf("PLAYER 2");
 }
