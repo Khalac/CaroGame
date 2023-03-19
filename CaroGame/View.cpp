@@ -76,5 +76,6 @@ void bangtinhdiem()//Ve bang tinh diem
 		gotoxy(i, 27);
 		printf("%c", 196);
 	}
-	
+	gotoxy(119, 27);
+	printf("%c", 217);
 }
