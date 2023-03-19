@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include "Board.h"
+#include"View.h"
 #include<Windows.h>
 using namespace std;
 void gotoxy(int x, int y)//x,y là tọa điểm x,y trên màn hình
@@ -21,11 +22,10 @@ void draw()
             }
             if (i == 1)//Ve vien tren cung
             {
+                TextColor(1);
                 gotoxy(1, 1);
-                system("color 1");//Ve mau cho ban co
                 printf("%c", 218);
                 gotoxy(53, 1);//57
-                system("color 1");//Ve mau cho ban co
                 printf("%c", 191);
                 for (int k = 2; k < 53; k++)
                 {

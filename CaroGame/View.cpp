@@ -57,8 +57,24 @@ void StartGame() {
         draw(); // Vẽ màn hình game
         bangtinhdiem();
 }
-void bangtinhdiem()
+void bangtinhdiem()//Ve bang tinh diem
 {
-    gotoxy(10, 0);
-    printf("a");
+	for (int i = 54; i < 120; i++)
+	{
+		gotoxy(i, 1);
+		printf("%c", 196);
+	}
+	gotoxy(119, 1);
+	printf("%c", 191);
+	for (int i = 2; i < 28; i++)
+	{
+		gotoxy(119, i);
+		printf("%c", 179);
+	}
+	for (int i = 54; i < 119; i++)
+	{
+		gotoxy(i, 27);
+		printf("%c", 196);
+	}
+	
 }
