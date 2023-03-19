@@ -9,7 +9,6 @@ int main()
 {
     FixConsoleWindow();
     StartGame();
-    ResetData();//Khoi tao du lieu mac dinh ban dau
     system("pause");
     
 }
