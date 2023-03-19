@@ -59,7 +59,14 @@ void StartGame() {
 }
 void bangtinhdiem()//Ve bang tinh diem
 {
-	for (int i = 54; i < 120; i++)
+	gotoxy(54, 1);
+	printf("%c", 218);
+	for (int j = 2; j < 27; j++)
+	{
+		gotoxy(54, j);
+		printf("%c", 179);
+	}
+	for (int i = 55; i < 120; i++)
 	{
 		gotoxy(i, 1);
 		printf("%c", 196);
@@ -76,6 +83,8 @@ void bangtinhdiem()//Ve bang tinh diem
 		gotoxy(i, 27);
 		printf("%c", 196);
 	}
+	gotoxy(54, 27);
+	printf("%c", 192);
 	gotoxy(119, 27);
 	printf("%c", 217);
 }
