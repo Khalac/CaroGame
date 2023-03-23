@@ -1,10 +1,23 @@
 ﻿#pragma once
+#include "Data.h"
+
+#include "Model.h"
+//Function for console
+void CreateConsoleWindow(int pWidth, int pHeight);
 void FixConsoleWindow();
-void GotoXY(int x, int y);
-struct _POINT { int x, y, c; }; // x: tọa độ dòng, y: tọa độ cột, c: đánh dấu
-void ResetData();
-void StartGame();
+
+//Move cursor pointer
+void GoToXY(int x, int y);
+
+//Draw board
+void DrawBoard();
+
+
+
 void TextColor(int color);
 void UnNocursortype();
 void Nocursortype();
-void bangtinhdiem();//Bang ben canh ban co
+
+
+
+void BangTinhDiem();
