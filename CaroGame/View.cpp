@@ -1,4 +1,17 @@
 ﻿#include "View.h"
+using namespace std;
+//define cac ky tu dung trong ham DrawBoard
+#define Line (char)196//dau gach:-
+#define Connect (char)197//dau thap gia, noi cac o voi nhau.
+#define Vertical (char)179//dau gach thang: |
+#define Topleft (char)218//dau bo goc tren cung ben trai
+#define Topright (char)191//dau bo goc tren cung ben phai
+#define Botright (char)217//dau bo goc cuoi ben phai
+#define Botleft (char)192//dau bo goc cuoi ben trai
+#define Connecttop (char)194//dau noi cua vien tren, co dang hinh thap gia bi mat canh tren
+#define Connectleft (char)195//dau noi cua vien trai, co dang hinh thap gia bi mat canh ben trai
+#define Connectright (char)180//dau noi cua vien phai, co dang hinh thap gia bi mat canh ben phai
+#define Connectbot (char)193//dau noi cau vien duoi, co dang hinh thap gia bi mat canh duoi
 void CreateConsoleWindow(int pWidth, int pHeight)
 {
 	HWND consoleWindow = GetConsoleWindow();
@@ -41,35 +54,32 @@ void UnNocursortype()
 }
 
 
-void DrawBoard()
+void DrawBoard()//ve ban co
 {
-	const char TL = 218;
-	const char TR = 191;
-	const char R = 196;
 	for (int i = 0; i <= 27; i++)
 	{
 		for (int j = 0; j <= 16; j++)
 		{
 			if (i < 1)//tao khoang cach ben tren
 			{
-				cout<<(" ");
+				cout << " ";
 			}
 			if (i == 1)//Ve vien tren cung
 			{
 				GoToXY(1, 1);
-				cout << TL;
+				cout << Topleft;
 				GoToXY(53, 1);//57
-				cout << TR;
+				cout << Topright;
 				for (int k = 2; k < 53; k++)
 				{
 					GoToXY(k, 1);
-					cout << R;
+					cout << Line;
 
 				}
 				for (int k = 5; k < 53; )
 				{
 					GoToXY(k, 1);
-					printf("%c", 194);
+					cout << Connecttop;
 					k += 4;
 
 				}
@@ -77,65 +87,64 @@ void DrawBoard()
 
 			else if (j < 1)//Tao khoang cach ben trai
 			{
-				printf(" ");
+				cout << " ";
 			}
 			else if (i % 2 == 1 && j > 1 && j < 15 && i>1) {
-				printf("%c%c%c%c", 197, 196, 196, 196);
-
+				cout << Connect << Line << Line << Line;
 			}
 			else if (i % 2 == 0 && j > 1 && j < 15 && i>1)
 			{
-				printf("%c   ", 179);
-
+				cout << Vertical << "   ";
 			}
 
 			else if (i % 2 == 1 && j == 15 && i > 1 && j > 2 && i < 27)
-				printf("%c", 197);
+				cout << Connect;
+
 			else if (i % 2 == 0 && j == 15 && i > 1 && i < 27)
-				printf("%c", 179);
+				cout << Vertical;
 
 		}
 
-		printf("\n");
+		cout << "\n";
 	}
 	for (int i = 3; i < 27; i++)//ve vien ben trai
 	{
 		if (i % 2 == 1)
 		{
 			GoToXY(1, i);
-			printf("%c", 195);
+			cout << Connectleft;
 		}
 	}
 	GoToXY(53, 27);// ve vien ben phai
-	printf("%c", 217);
+	cout << Botright;
 	for (int m = 3; m < 27; m++)
 	{
 		if (m % 2 == 1)
 		{
 			GoToXY(53, m);
-			printf("%c", 180);
+			cout << Connectright;
 		}
 	}
 	GoToXY(1, 27);//ve vien ben duoi
-	printf("%c", 192);
+	cout << Botleft;
 	for (int k = 2; k < 53; k++)
 	{
 		GoToXY(k, 27);
-		printf("%c", 196);
+		cout << Line;
 
 	}
 	for (int m = 5; m < 53; )
 	{
 		GoToXY(m, 27);
-		printf("%c", 193);
+		cout << Connectbot;
 		m += 4;
 	}
 	GoToXY(51, 27);
-	printf("%c", 196);
+	cout << Line;
 	GoToXY(52, 27);
-	printf("%c", 196);
+	cout << Line;
 	GoToXY(53, 27);
-	printf("%c", 217);
+	cout << Botright;
 }
 
 void BangTinhDiem()//Ve bang tinh diem
