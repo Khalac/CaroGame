@@ -43,26 +43,27 @@ void UnNocursortype()
 
 void DrawBoard()
 {
-
+	const char TL = 218;
+	const char TR = 191;
+	const char R = 196;
 	for (int i = 0; i <= 27; i++)
 	{
 		for (int j = 0; j <= 16; j++)
 		{
 			if (i < 1)//tao khoang cach ben tren
 			{
-				printf(" ");
+				cout<<(" ");
 			}
 			if (i == 1)//Ve vien tren cung
 			{
-				TextColor(1);
 				GoToXY(1, 1);
-				printf("%c", 218);
+				cout << TL;
 				GoToXY(53, 1);//57
-				printf("%c", 191);
+				cout << TR;
 				for (int k = 2; k < 53; k++)
 				{
 					GoToXY(k, 1);
-					printf("%c", 196);
+					cout << R;
 
 				}
 				for (int k = 5; k < 53; )
@@ -139,89 +140,110 @@ void DrawBoard()
 
 void BangTinhDiem()//Ve bang tinh diem
 {
+	char TL = 218;
+	char TR = 191;
+	char BL = 192;
+	char BR = 217;
+	char R = 196;
+	char C = 179;
+	char ngang = 205;
+	char doc = 186;
 	GoToXY(54, 1);
-	printf("%c", 218);
-	for (int j = 2; j < 27; j++)
+	cout << TL;
+	for (int j = 2; j < 27; j++)//Ve bien doc ben trai
 	{
 		GoToXY(54, j);
-		printf("%c", 179);
+		cout << C;
 	}
-	for (int i = 55; i < 120; i++)
+	for (int i = 55; i < 120; i++)//Ve bien ngang tren
 	{
 		GoToXY(i, 1);
-		printf("%c", 196);
+		cout << R;
 	}
 	GoToXY(119, 1);
-	printf("%c", 191);
-	for (int i = 2; i < 28; i++)
+	cout << TR;//Ve goc ben phai
+	for (int j = 2; j < 28; j++)//Ve bien doc ben phai
 	{
-		GoToXY(119, i);
-		printf("%c", 179);
+		GoToXY(119, j);
+		cout << C;
 	}
-	for (int i = 54; i < 119; i++)
+	for (int i = 54; i < 119; i++)//Ve bien ngang duoi
 	{
 		GoToXY(i, 27);
-		printf("%c", 196);
+		cout << R;
 	}
-	GoToXY(54, 27);
-	printf("%c", 192);
+	GoToXY(54, 27);//Ve goc ben trai
+	cout << BL;
 	GoToXY(119, 27);
-	printf("%c", 217);
+	cout << BR;
 	for (int i = 55; i < 119; i++)//Chia bang lam 2 theo chieu ngang
 	{
 		GoToXY(i, 8);
-		printf("%c", 205);
+		cout << ngang;
 	}
 	for (int j = 9; j < 13; j++)//Chia bang lam 2 theo chieu doc
 	{
 		GoToXY(87, j);
-		printf("%c", 186);
+		cout << doc;
 	}
 	for (int i = 55; i < 119; i++)//Ke duong ngang cho bang thu 2
 	{
 		GoToXY(i, 15);
-		printf("%c", 205);
+		cout << ngang;
 	}
 	for (int j = 10; j < 23; j++)
 	{
 		GoToXY(87, j);
-		printf("%c", 186);
+		cout << doc;
 	}
 	for (int i = 55; i < 119; i++)
 	{
 		GoToXY(i, 23);
-		printf("%c", 205);
+		cout << ngang;
 	}
-	system("color 2");
 	GoToXY(68, 5);
-	printf("PLAYER 1\t");
+	cout << "PLAYER 1\t";
 	GoToXY(101, 5);
-	printf("PLAYER 2");
-	GoToXY(68, 9);//VE CHU X
-	printf("%c     %c\n", 196, 196);
+	cout<<"PLAYER 2";
+	//VIET CHU STEP AND SCORE
+	GoToXY(68, 18);
+	cout << "STEP:";
+	GoToXY(68, 19);
+	cout << "SCORE:";
+	GoToXY(100, 18);
+	cout << "STEP:";
+	GoToXY(100, 19);
+	cout << "SCORE:";
+	//GoToXY(68, 9);//VE CHU X
+	//cout << R << "     " << R << "\n";
+	GoToXY(68, 9);
+	cout<<"*     *\n";
 	GoToXY(68, 10);
-	printf("%c %c %c %c\n", 92, 92, 47, 47);
+	cout << " *   *";
 	GoToXY(68, 11);
-	printf(" %c V %c\n", 92, 47);
+	cout << "  * *";
 	GoToXY(68, 12);
-	printf("  > <\n");
+	cout << "   *";
 	GoToXY(68, 13);
-	printf(" %c . %c\n", 47, 92);
+	cout << "  * *";
 	GoToXY(68, 14);
-	printf("%c_%c %c_%c\n", 47, 47, 92, 92);
+	cout << " *   *";
+	//VE CHU O
 	GoToXY(100, 9);//VE CHU O
-	printf("  ****\n");
+	cout<<"  ****\n";
 	GoToXY(100, 10);
-	printf(" *    *\n");
+	cout<<" *    *\n";
 	GoToXY(100, 11);
-	printf(" *    *\n");
+	cout<<" *    *\n";
 	GoToXY(100, 12);
-	printf(" *    *\n");
+	cout<<" *    *\n";
 	GoToXY(100, 13);
-	printf(" *    *\n");
+	cout<<" *    *\n";
 	GoToXY(100, 14);
-	printf("  ****\n");
+	cout<<"  ****\n";
 	GoToXY(83, 25);
-	printf("GOOD LUCK!!");
+	cout<<"GOOD LUCK!!";
 	GoToXY(0, 28);
+	
+
 }
