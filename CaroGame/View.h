@@ -21,3 +21,6 @@ void Nocursortype();
 
 
 void BangTinhDiem();
+
+
+void DrawCARO();
