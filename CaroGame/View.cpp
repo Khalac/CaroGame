@@ -54,9 +54,10 @@ void UnNocursortype()
 }
 
 
-void DrawBoard()//ve ban co
+void DrawBoard()//ve ban co (Toa do:x=61, y=31)
 {
-	for (int i = 0; i <= 31; i++)
+	//VE KHUNG NGOAI:
+	for (int i = 0; i <= 31; i++)//ve vien tren cung + tao khoang cach voi le cua console
 	{
 		for (int j = 0; j <= 18; j++)
 		{
@@ -80,7 +81,6 @@ void DrawBoard()//ve ban co
 					GoToXY(k, 1);
 					cout << Connecttop;
 					k += 4;
-
 				}
 			}
 
@@ -88,40 +88,35 @@ void DrawBoard()//ve ban co
 			{
 				cout << " ";
 			}
-			else if (i % 2 == 1 && j > 1 && j < 17 && i>1) {
-				cout << Connect << Line << Line << Line;
-			}
-			else if (i % 2 == 0 && j > 1 && j < 17 && i>1)
-			{
-				cout << Vertical << "   ";
-			}
-
-			else if (i % 2 == 1 && j == 17 && i > 1 && j > 2 && i < 31)
-				cout << Connect;
-
-			else if (i % 2 == 0 && j == 17 && i > 1 && i < 31)
-				cout << Vertical;
-
+			cout << endl;
 		}
-
-		cout << "\n";
 	}
-	for (int i = 3; i < 31; i++)//ve vien ben trai
+	for (int i = 2; i < 31; i++)//ve vien ben trai
 	{
 		if (i % 2 == 1)
 		{
 			GoToXY(1, i);
 			cout << Connectleft;
 		}
+		if (i % 2 == 0)
+		{
+			GoToXY(1, i);
+			cout << Vertical;
+		}
 	}
 	GoToXY(61, 31);// ve vien ben phai
 	cout << Botright;
-	for (int m = 3; m < 31; m++)
+	for (int m = 2; m < 31; m++)
 	{
 		if (m % 2 == 1)
 		{
 			GoToXY(61, m);
 			cout << Connectright;
+		}
+		if (m % 2 == 0)
+		{
+			GoToXY(61, m);
+			cout << Vertical;
 		}
 	}
 	GoToXY(1, 31);//ve vien ben duoi
@@ -138,8 +133,38 @@ void DrawBoard()//ve ban co
 		cout << Connectbot;
 		m += 4;
 	}
-	
-
+	//VE CAC DUONG THANG BEN TRONG BAN CO:
+	for (int j = 3; j < 31; j++)//Ve cac duong ngang
+	{
+		if (j % 2 == 1)
+		{
+			for (int i = 2; i < 61;)
+			{
+				GoToXY(i, j);
+				cout << Line << Line << Line;
+				i += 3;
+				GoToXY(i, j);
+				if (i < 61)
+				{
+					cout << Connect;
+					i++;
+				}
+			}
+		}
+	}
+	for (int j = 2; j < 31; j++)//ve cac duong doc
+	{
+		if (j % 2 == 0)
+		{
+			for (int i = 5; i < 61;)
+			{
+				GoToXY(i, j);
+				cout << Vertical;
+				i += 4;
+			}
+		}
+	}
+	cout << endl;
 }
 
 void BangTinhDiem()//Ve bang tinh diem
