@@ -56,9 +56,9 @@ void UnNocursortype()
 
 void DrawBoard()//ve ban co
 {
-	for (int i = 0; i <= 27; i++)
+	for (int i = 0; i <= 31; i++)
 	{
-		for (int j = 0; j <= 16; j++)
+		for (int j = 0; j <= 18; j++)
 		{
 			if (i < 1)//tao khoang cach ben tren
 			{
@@ -68,15 +68,14 @@ void DrawBoard()//ve ban co
 			{
 				GoToXY(1, 1);
 				cout << Topleft;
-				GoToXY(53, 1);//57
+				GoToXY(61, 1);
 				cout << Topright;
-				for (int k = 2; k < 53; k++)
+				for (int k = 2; k < 61; k++)
 				{
 					GoToXY(k, 1);
 					cout << Line;
-
 				}
-				for (int k = 5; k < 53; )
+				for (int k = 5; k < 61; )
 				{
 					GoToXY(k, 1);
 					cout << Connecttop;
@@ -89,25 +88,25 @@ void DrawBoard()//ve ban co
 			{
 				cout << " ";
 			}
-			else if (i % 2 == 1 && j > 1 && j < 15 && i>1) {
+			else if (i % 2 == 1 && j > 1 && j < 17 && i>1) {
 				cout << Connect << Line << Line << Line;
 			}
-			else if (i % 2 == 0 && j > 1 && j < 15 && i>1)
+			else if (i % 2 == 0 && j > 1 && j < 17 && i>1)
 			{
 				cout << Vertical << "   ";
 			}
 
-			else if (i % 2 == 1 && j == 15 && i > 1 && j > 2 && i < 27)
+			else if (i % 2 == 1 && j == 17 && i > 1 && j > 2 && i < 31)
 				cout << Connect;
 
-			else if (i % 2 == 0 && j == 15 && i > 1 && i < 27)
+			else if (i % 2 == 0 && j == 17 && i > 1 && i < 31)
 				cout << Vertical;
 
 		}
 
 		cout << "\n";
 	}
-	for (int i = 3; i < 27; i++)//ve vien ben trai
+	for (int i = 3; i < 31; i++)//ve vien ben trai
 	{
 		if (i % 2 == 1)
 		{
@@ -115,36 +114,32 @@ void DrawBoard()//ve ban co
 			cout << Connectleft;
 		}
 	}
-	GoToXY(53, 27);// ve vien ben phai
+	GoToXY(61, 31);// ve vien ben phai
 	cout << Botright;
-	for (int m = 3; m < 27; m++)
+	for (int m = 3; m < 31; m++)
 	{
 		if (m % 2 == 1)
 		{
-			GoToXY(53, m);
+			GoToXY(61, m);
 			cout << Connectright;
 		}
 	}
-	GoToXY(1, 27);//ve vien ben duoi
+	GoToXY(1, 31);//ve vien ben duoi
 	cout << Botleft;
-	for (int k = 2; k < 53; k++)
+	for (int k = 2; k < 61; k++)
 	{
-		GoToXY(k, 27);
+		GoToXY(k, 31);
 		cout << Line;
 
 	}
-	for (int m = 5; m < 53; )
+	for (int m = 5; m < 61; )
 	{
-		GoToXY(m, 27);
+		GoToXY(m, 31);
 		cout << Connectbot;
 		m += 4;
 	}
-	GoToXY(51, 27);
-	cout << Line;
-	GoToXY(52, 27);
-	cout << Line;
-	GoToXY(53, 27);
-	cout << Botright;
+	
+
 }
 
 void BangTinhDiem()//Ve bang tinh diem
@@ -254,5 +249,4 @@ void BangTinhDiem()//Ve bang tinh diem
 	cout<<"GOOD LUCK!!";
 	GoToXY(0, 28);
 	
-
 }
