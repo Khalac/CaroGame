@@ -9,8 +9,7 @@ void FixConsoleWindow();
 //Move cursor pointer
 void GoToXY(int x, int y);
 
-//Draw board
-void DrawBoard();
+
 
 
 
