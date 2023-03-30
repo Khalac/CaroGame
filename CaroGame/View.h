@@ -25,3 +25,4 @@ void BangTinhDiem();
 void DrawCARO();
 void DrawXWIN();
 void DrawOWIN();
+void LoadingBar();

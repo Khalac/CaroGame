@@ -196,4 +196,32 @@ void DrawOWIN()
 	cout << "   \\:\\_\\ \\ \\    \\:\\\\:\\\\:\\ \\/__\\::\\__/\\\\. \\`-\\  \\ \\" << endl;
 	cout << "    \\_____\\/     \\_______\\/\\________\\/ \\__\\/ \\__\\/" << endl;
 }
+void LoadingBar()//thanh loading truoc khi di vao giao dien.
+{
+	
+	system("color 01");//blue
 
+	// Initialize char for printing
+	// loading bar
+	char a = 177, b = 219;
+
+	cout << "\n\n\n\n";
+	cout << "\n\n\n\n\t\t\t\t\t";
+	cout << " + Loading...\n\n";
+	cout << "\t\t\t\t\t";
+
+	// Print initial loading bar
+	for (int i = 0; i < 26; i++)
+		cout << a;
+
+	// Set the cursor again starting
+	// point of loading bar
+	cout << "\r";
+	cout << "\t\t\t\t\t";
+
+	// Print loading bar progress
+	for (int i = 0; i < 26; i++) {
+		cout << b;
+		Sleep(100);
+	}
+}
