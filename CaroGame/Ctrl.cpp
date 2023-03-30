@@ -281,4 +281,6 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 	cout << "   " << lineString(BL, BM, BR, HORZ, 3, numPerLine) << endl;
 	if (luot != 0)
 		cout << "Luot cua nguoi choi " << luot << "....";
+	GoToXY(69, 1);
+	BangTinhDiem();
 }
