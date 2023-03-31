@@ -207,7 +207,7 @@ void LoadingBar()//thanh loading truoc khi di vao giao dien.
 
 	cout << "\n\n\n\n";
 	cout << "\n\n\n\n\t\t\t\t\t";
-	cout << " + Loading...\n\n";
+	cout << "LOADING...\n\n";
 	cout << "\t\t\t\t\t";
 
 	// Print initial loading bar
@@ -224,4 +224,5 @@ void LoadingBar()//thanh loading truoc khi di vao giao dien.
 		cout << b;
 		Sleep(100);
 	}
+	system("cls");
 }
