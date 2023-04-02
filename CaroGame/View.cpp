@@ -24,8 +24,10 @@ void GoToXY(int x, int y) {
 	coord.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
-void TextColor(int color) {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); //Làm màu 
+void SetColor(int color) {
+	HANDLE hConsole;
+	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, color);
 }
 void Nocursortype()
 {
@@ -40,6 +42,14 @@ void UnNocursortype()
 	Info.bVisible = TRUE;
 	Info.dwSize = 20;
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
+}
+
+void PrintString(string s, int color, int x, int y)//In text
+{
+	GoToXY(x, y);
+	SetColor(color);
+	cout << s;
+
 }
 
 void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
@@ -59,15 +69,15 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 		{
 			if (i == now.i && j == now.j)
 			{
-				if (arr[i][j] == NA) printf(" _ %c", VERT);
-				if (arr[i][j] == X) printf(" X %c", VERT);
-				if (arr[i][j] == O) printf(" O %c", VERT);
+				if (arr[i][j] == NA) cout << " _ " << VERT;
+				if (arr[i][j] == X)cout << " X " << VERT;
+				if (arr[i][j] == O) cout << " O " << VERT;
 			}
 			else
 			{
-				if (arr[i][j] == NA) printf("   %c", VERT);
-				if (arr[i][j] == X) printf(" X %c", VERT);
-				if (arr[i][j] == O) printf(" O %c", VERT);
+				if (arr[i][j] == NA) cout << "   " << VERT;
+				if (arr[i][j] == X)cout << " X " << VERT;
+				if (arr[i][j] == O) cout << " O " << VERT;
 			}
 		}
 		cout << endl;
@@ -90,118 +100,120 @@ void BangTinhDiem()//Ve bang tinh diem
 	char C = 179;
 	char ngang = 205;
 	char doc = 186;
-	GoToXY(54, 1);
+	GoToXY(70, 1);
 	cout << TL;
 	for (int j = 2; j < 27; j++)//Ve bien doc ben trai
 	{
-		GoToXY(54, j);
+		GoToXY(70, j);
 		cout << C;
 	}
-	for (int i = 55; i < 120; i++)//Ve bien ngang tren
+	for (int i = 71; i < 136; i++)//Ve bien ngang tren
 	{
 		GoToXY(i, 1);
 		cout << R;
 	}
-	GoToXY(119, 1);
+	GoToXY(135, 1);
 	cout << TR;//Ve goc ben phai
 	for (int j = 2; j < 28; j++)//Ve bien doc ben phai
 	{
-		GoToXY(119, j);
+		GoToXY(135, j);
 		cout << C;
 	}
-	for (int i = 54; i < 119; i++)//Ve bien ngang duoi
+	for (int i = 70; i < 135; i++)//Ve bien ngang duoi
 	{
 		GoToXY(i, 27);
 		cout << R;
 	}
-	GoToXY(54, 27);//Ve goc ben trai
+	GoToXY(70, 27);//Ve goc ben trai
 	cout << BL;
-	GoToXY(119, 27);
+	GoToXY(135, 27);
 	cout << BR;
-	for (int i = 55; i < 119; i++)//Chia bang lam 2 theo chieu ngang
+	for (int i = 71; i < 135; i++)//Chia bang lam 2 theo chieu ngang
 	{
 		GoToXY(i, 8);
 		cout << ngang;
 	}
 	for (int j = 9; j < 13; j++)//Chia bang lam 2 theo chieu doc
 	{
-		GoToXY(87, j);
+		GoToXY(103, j);
 		cout << doc;
 	}
-	for (int i = 55; i < 119; i++)//Ke duong ngang cho bang thu 2
+	for (int i = 71; i < 135; i++)//Ke duong ngang cho bang thu 2
 	{
 		GoToXY(i, 15);
 		cout << ngang;
 	}
 	for (int j = 10; j < 23; j++)
 	{
-		GoToXY(87, j);
+		GoToXY(103, j);
 		cout << doc;
 	}
-	for (int i = 55; i < 119; i++)
+	for (int i = 71; i < 135; i++)
 	{
 		GoToXY(i, 23);
 		cout << ngang;
 	}
-	GoToXY(68, 5);
+	GoToXY(84, 5);
 	cout << "PLAYER 1\t";
-	GoToXY(101, 5);
+	GoToXY(117, 5);
 	cout<<"PLAYER 2";
 	//VIET CHU STEP AND SCORE
-	GoToXY(68, 18);
+	GoToXY(84, 18);
 	cout << "STEP:";
-	GoToXY(68, 19);
+	GoToXY(84, 19);
 	cout << "SCORE:";
-	GoToXY(100, 18);
+	GoToXY(116, 18);
 	cout << "STEP:";
-	GoToXY(100, 19);
+	GoToXY(116, 19);
 	cout << "SCORE:";
 	//GoToXY(68, 9);//VE CHU X
 	//cout << R << "     " << R << "\n";
-	GoToXY(68, 9);
+	GoToXY(84, 9);
 	cout<<"*     *\n";
-	GoToXY(68, 10);
+	GoToXY(84, 10);
 	cout << " *   *";
-	GoToXY(68, 11);
+	GoToXY(84, 11);
 	cout << "  * *";
-	GoToXY(68, 12);
+	GoToXY(84, 12);
 	cout << "   *";
-	GoToXY(68, 13);
+	GoToXY(84, 13);
 	cout << "  * *";
-	GoToXY(68, 14);
+	GoToXY(84, 14);
 	cout << " *   *";
 	//VE CHU O
-	GoToXY(100, 9);//VE CHU O
+	GoToXY(116, 9);//VE CHU O
 	cout<<"  ****\n";
-	GoToXY(100, 10);
+	GoToXY(116, 10);
 	cout<<" *    *\n";
-	GoToXY(100, 11);
+	GoToXY(116, 11);
 	cout<<" *    *\n";
-	GoToXY(100, 12);
+	GoToXY(116, 12);
 	cout<<" *    *\n";
-	GoToXY(100, 13);
+	GoToXY(116, 13);
 	cout<<" *    *\n";
-	GoToXY(100, 14);
+	GoToXY(116, 14);
 	cout<<"  ****\n";
-	GoToXY(83, 25);
+	GoToXY(99, 25);
 	cout<<"GOOD LUCK!!";
-	GoToXY(0, 28);
+	GoToXY(16, 28);
 	
 }
-void DrawCARO()//ve chu caro trong start game
+
+void PrintFile(string filename, int color, int x, int y) //In du lieu tep tin
 {
-	TextColor(11);
-	cout << " ____________     ___________        _____________        ______________\n";
-	cout << "/           ||   /           \\\\     |            \\\\      /              \\\\\n";
-	cout << "|    _______||  |    ______   ||    |    ______   ||     |    ______    ||\n";
-	TextColor(4);
-	cout << "|   ||          |    |    ||  ||    |   |      |  ||     |   |      ||  ||\n";
-	cout << "|   ||          |    |____||  ||    |   |______|  ||     |   |      ||  ||\n";
-	cout << "|   ||          |    |____||  ||    |   |______\\  \\\\     |   |      ||  ||\n";
-	TextColor(9);
-	cout << "|   \\\\_______   |    |    ||  ||    |   |       \\  \\\\    |   |______||  ||\n";
-	cout << "|            || |    |    ||  ||    |   |        \\  \\\\   |              ||\n";
-	cout << "\\____________|| |____|    ||__||    |___|         \\__\\\\  \\______________//\n";
+	fstream f;
+	f.open(filename, ios::in);
+
+	string line;
+	vector<string> subline;
+	while (!f.eof())
+	{
+		getline(f, line);
+		subline.push_back(line);
+	}
+	for (int i = 0; i < subline.size(); i++)
+		PrintString(subline[i], color, x, y++);
+	f.close();
 }
 void DrawXWIN()
 {
@@ -253,15 +265,16 @@ void LoadingBar()//thanh loading truoc khi di vao giao dien.
 	}
 	system("cls");
 }
-void playgame(int& thoat)//ham tao lua chon cho menu
+
+/*void playgame(int& thoat)//ham tao lua chon cho menu
 {
-	DrawCARO();
-	//TextColor(14);//xanh mint
-	TextColor(202);//mau cam
+
+	//SetColor(14);//xanh mint
+	SetColor(202);//mau cam
 	GoToXY(70, 24);
 	//printf("%c PLAY GAME  ", 175);
 	printf("PLAY GAME  ");
-	TextColor(14);
+	SetColor(14);
 	GoToXY(70, 25);
 	printf("HELP");
 	GoToXY(70, 26);
@@ -280,49 +293,68 @@ void playgame(int& thoat)//ham tao lua chon cho menu
 		else if (chon == 2 && toado > 24) toado--;
 		if (toado == 24)
 		{
-			TextColor(202);
+			SetColor(202);
 			GoToXY(70, 24); cout << "PLAY GAME  ";
-			TextColor(14);
+			SetColor(14);
 			GoToXY(70, 25); cout << "HELP         ";
 			GoToXY(70, 26); cout << "ABOUT        ";
 			GoToXY(70, 27); cout << "EXIT       ";
-			TextColor(0);//0 la mau den
+			SetColor(0);//0 la mau den
 		}
 		if (toado == 25)
 		{
-			TextColor(14);
+			SetColor(14);
 			GoToXY(70, 24); cout << "PLAY GAME    ";
-			TextColor(202);
+			SetColor(202);
 			GoToXY(70, 25); cout << "HELP       ";
-			TextColor(14);
+			SetColor(14);
 			GoToXY(70, 26); cout << "ABOUT        ";
 			GoToXY(70, 27); cout << "EXIT       ";
-			TextColor(0);
+			SetColor(0);
 		}
 		if (toado == 26)
 		{
-			TextColor(14);
+			SetColor(14);
 			GoToXY(70, 24); cout << "PLAY GAME  ";
 			GoToXY(70, 25); cout << "HELP       ";
-			TextColor(202);
+			SetColor(202);
 			GoToXY(70, 26); cout << "ABOUT      ";
-			TextColor(14);
+			SetColor(14);
 			GoToXY(70, 27); cout << "EXIT       ";
-			TextColor(0);
+			SetColor(0);
 		}
 		if (toado == 27)
 		{
-			TextColor(14);
+			SetColor(14);
 			GoToXY(70, 24); cout << "PLAY GAME    ";
 			GoToXY(70, 25); cout << "HELP         ";
 			GoToXY(70, 26); cout << "ABOUT        ";
-			TextColor(202);
+			SetColor(202);
 			GoToXY(70, 27);
-			cout << "EXIT       "; TextColor(70);
+			cout << "EXIT       "; SetColor(70);
 		}
 	} while (chon != 3);
 	system("cls");
 	//if (toado == 16) help(thoat);
 	//else if (toado == 17) about(thoat);
 	//else if (toado == 18) thoat = 1;
+}*/
+
+void MainMenu() {
+	Menu menu;
+	
+	menu.choices = 5; // man hinh meny co 5 su lua chon
+	menu.x = WIDTH_CENTER - 15;
+	menu.y = HEIGHT_CENTER;
+
+	system("cls");
+	PrintFile("Carotext.txt",253,40,3);
+
+	PrintString("    Welcome to Caro Game   ", 253, menu.x, menu.y - 2);
+	PrintString("         Start Game        ", 253, menu.x, menu.y +1);
+	PrintString("         Load Game         ", 253, menu.x, menu.y + 2);
+	PrintString("          Ranking          ", 253, menu.x, menu.y + 3);
+	PrintString("           Help            ", 253, menu.x, menu.y + 4);
+	PrintString("         Exit Game         ", 253, menu.x, menu.y + 5);
+
 }

@@ -1,4 +1,5 @@
 ﻿#include "Ctrl.h"
+
 void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 	enum Stone game[15][15];
 	for (int i = 0; i < MAX_SIZE; i++)

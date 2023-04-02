@@ -11,7 +11,7 @@ int main()
     int _COMMAND=1; // Biến nhận giá trị phím người dùng nhập
     int _X, _Y; //Tọa độ hiện hành trên màn hình bàn cờ
 
-    CreateConsoleWindow(1100, HEIGHT);
+    CreateConsoleWindow(WIDTH, HEIGHT);
     FixConsoleWindow();
    /* do {
         StartGame(_A, _TURN, _COMMAND);
@@ -19,7 +19,8 @@ int main()
     */
     GoToXY(100, 5);
     cout << (char)65;
-    StartGame(_A, _TURN, _COMMAND);
+    //StartGame(_A, _TURN, _COMMAND);
+    MainMenu();
     GoToXY(100, 5);
     cout << (char)65;
     system("pause");
