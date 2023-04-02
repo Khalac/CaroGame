@@ -274,13 +274,13 @@ void LoadingBar()//thanh loading truoc khi di vao giao dien.
 	GoToXY(70, 24);
 	//printf("%c PLAY GAME  ", 175);
 	printf("PLAY GAME  ");
-	SetColor(14);
+	TextColor(14);
 	GoToXY(70, 25);
-	printf("HELP");
+	cout << "HELP";
 	GoToXY(70, 26);
-	printf("ABOUT");
+	cout << "ABOUT";
 	GoToXY(70, 27);
-	printf("EXIT       ");
+	cout << "EXIT       ";
 	int chon = 0;
 	int toado = 24;
 	do {
