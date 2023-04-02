@@ -2,6 +2,7 @@
 #include "Data.h"
 
 #include "Model.h"
+
 //Function for console
 void CreateConsoleWindow(int pWidth, int pHeight);
 void FixConsoleWindow();

@@ -53,6 +53,44 @@ void UnNocursortype()
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
 }
 
+void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
+{
+	cout << "    ";
+	for (int i = 0; i < size; i++) {
+		if ((i + 1) < 10)
+			cout << " " << i + 1 << "  ";
+		else cout << " " << i + 1 << " ";
+	}
+	cout << endl;
+	cout << "   " << lineString(TL, TM, TR, HORZ, 3, numPerLine) << endl;
+	for (int i = 0; i < size; i++)
+	{
+		printf("%2d %c", i + 1, VERT);
+		for (int j = 0; j < size; j++)
+		{
+			if (i == now.i && j == now.j)
+			{
+				if (arr[i][j] == NA) printf("* *%c", VERT);
+				if (arr[i][j] == X) printf("*X*%c", VERT);
+				if (arr[i][j] == O) printf("*O*%c", VERT);
+			}
+			else
+			{
+				if (arr[i][j] == NA) printf("   %c", VERT);
+				if (arr[i][j] == X) printf(" X %c", VERT);
+				if (arr[i][j] == O) printf(" O %c", VERT);
+			}
+		}
+		cout << endl;
+		if (i != size - 1)
+			cout << "   " << lineString(VERT_START, VERT_MID, VERT_END, HORZ, 3, numPerLine) << endl;
+	}
+	cout << "   " << lineString(BL, BM, BR, HORZ, 3, numPerLine) << endl;
+	if (luot != 0)
+		cout << "Luot cua nguoi choi " << luot << "....";
+	GoToXY(69, 1);
+	BangTinhDiem();
+}
 void BangTinhDiem()//Ve bang tinh diem
 {
 	char TL = 218;
