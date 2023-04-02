@@ -260,14 +260,14 @@ void playgame(int& thoat)//ham tao lua chon cho menu
 	TextColor(202);//mau cam
 	GoToXY(70, 24);
 	//printf("%c PLAY GAME  ", 175);
-	printf("PLAY GAME  ");
+	cout << "PLAY GAME  ";
 	TextColor(14);
 	GoToXY(70, 25);
-	printf("HELP");
+	cout << "HELP";
 	GoToXY(70, 26);
-	printf("ABOUT");
+	cout << "ABOUT";
 	GoToXY(70, 27);
-	printf("EXIT       ");
+	cout << "EXIT       ";
 	int chon = 0;
 	int toado = 24;
 	do {
