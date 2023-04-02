@@ -14,4 +14,3 @@ void makeMove(enum Stone board[][15], int size, ToaDo playerMove, int luot);
 
 bool checkMakeMove(enum Stone board[][15], int size, ToaDo now);
 
-void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot);
