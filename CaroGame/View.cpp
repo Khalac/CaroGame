@@ -253,3 +253,76 @@ void LoadingBar()//thanh loading truoc khi di vao giao dien.
 	}
 	system("cls");
 }
+void playgame(int& thoat)//ham tao lua chon cho menu
+{
+	DrawCARO();
+	//TextColor(14);//xanh mint
+	TextColor(202);//mau cam
+	GoToXY(70, 24);
+	//printf("%c PLAY GAME  ", 175);
+	printf("PLAY GAME  ");
+	TextColor(14);
+	GoToXY(70, 25);
+	printf("HELP");
+	GoToXY(70, 26);
+	printf("ABOUT");
+	GoToXY(70, 27);
+	printf("EXIT       ");
+	int chon = 0;
+	int toado = 24;
+	do {
+		char a = _getch();
+		if (a == 80 || a == 's' || a == 'S' || a == '2') chon = 1;
+		else if (a == 72 || a == 'w' || a == 'W' || a == '8') chon = 2;
+		else if (a == 13 || a == 'e' || a == 'e' || a == '5') chon = 3;
+		else chon = 0;
+		if (chon == 1 && toado < 27) toado++;
+		else if (chon == 2 && toado > 24) toado--;
+		if (toado == 24)
+		{
+			TextColor(202);
+			GoToXY(70, 24); cout << "PLAY GAME  ";
+			TextColor(14);
+			GoToXY(70, 25); cout << "HELP         ";
+			GoToXY(70, 26); cout << "ABOUT        ";
+			GoToXY(70, 27); cout << "EXIT       ";
+			TextColor(0);//0 la mau den
+		}
+		if (toado == 25)
+		{
+			TextColor(14);
+			GoToXY(70, 24); cout << "PLAY GAME    ";
+			TextColor(202);
+			GoToXY(70, 25); cout << "HELP       ";
+			TextColor(14);
+			GoToXY(70, 26); cout << "ABOUT        ";
+			GoToXY(70, 27); cout << "EXIT       ";
+			TextColor(0);
+		}
+		if (toado == 26)
+		{
+			TextColor(14);
+			GoToXY(70, 24); cout << "PLAY GAME  ";
+			GoToXY(70, 25); cout << "HELP       ";
+			TextColor(202);
+			GoToXY(70, 26); cout << "ABOUT      ";
+			TextColor(14);
+			GoToXY(70, 27); cout << "EXIT       ";
+			TextColor(0);
+		}
+		if (toado == 27)
+		{
+			TextColor(14);
+			GoToXY(70, 24); cout << "PLAY GAME    ";
+			GoToXY(70, 25); cout << "HELP         ";
+			GoToXY(70, 26); cout << "ABOUT        ";
+			TextColor(202);
+			GoToXY(70, 27);
+			cout << "EXIT       "; TextColor(70);
+		}
+	} while (chon != 3);
+	system("cls");
+	//if (toado == 16) help(thoat);
+	//else if (toado == 17) about(thoat);
+	//else if (toado == 18) thoat = 1;
+}

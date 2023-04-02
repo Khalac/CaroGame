@@ -39,7 +39,7 @@ struct Move {
 
 #include<iostream>
 #include<Windows.h>
-
+#include "conio.h"
 using namespace std;
 static char* lineString(char left, char mid, char right, char horz, int wcell, int ncell) {
 	static char result[100];

@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "Data.h"
-
+#include
 #include "Model.h"
 
 //Function for console

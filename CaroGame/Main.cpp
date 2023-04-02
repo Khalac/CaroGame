@@ -11,7 +11,7 @@ int main()
     int _COMMAND=1; // Biến nhận giá trị phím người dùng nhập
     int _X, _Y; //Tọa độ hiện hành trên màn hình bàn cờ
 
-    CreateConsoleWindow(WIDTH, HEIGHT);
+    CreateConsoleWindow(1100, HEIGHT);
     FixConsoleWindow();
    /* do {
         StartGame(_A, _TURN, _COMMAND);
