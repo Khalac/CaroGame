@@ -59,9 +59,9 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 		{
 			if (i == now.i && j == now.j)
 			{
-				if (arr[i][j] == NA) printf("* *%c", VERT);
-				if (arr[i][j] == X) printf("*X*%c", VERT);
-				if (arr[i][j] == O) printf("*O*%c", VERT);
+				if (arr[i][j] == NA) printf(" _ %c", VERT);
+				if (arr[i][j] == X) printf(" X %c", VERT);
+				if (arr[i][j] == O) printf(" O %c", VERT);
 			}
 			else
 			{
