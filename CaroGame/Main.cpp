@@ -17,12 +17,12 @@ int main()
         StartGame(_A, _TURN, _COMMAND);
     } while (true);
     */
-    GoToXY(100, 5);
-    cout << (char)65;
-    StartGame(_A, _TURN, _COMMAND);
+   // GoToXY(100, 5);
+    //cout << (char)65;
+    //StartGame(_A, _TURN, _COMMAND);
     MainMenu();
-    GoToXY(100, 5);
-    cout << (char)65;
+    //GoToXY(100, 5);
+    //cout << (char)65;
     system("pause");
     return 0;
 }
