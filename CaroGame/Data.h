@@ -25,7 +25,7 @@ const int numPerLine = 15;
 const char VERT_START = 195;
 const char VERT_END = 180;
 const char VERT_MID = 197;
-enum Stone { NA, X, O };
+enum Stone { NA, X, O }; //Kiểu dữ liệu tùy biến. Tự động nhận NA=0, X=1, O=2. Kiểu dữ liệu này khi khai báo thì sẽ chỉ nhận các giá trị đã khai báo trước//
 struct ToaDo
 {
 	int i;
@@ -70,7 +70,7 @@ static char* lineString(char left, char mid, char right, char horz, int wcell, i
 	strncat(cellRight, &right, 1);
 	strcat(result, cellRight);
 	return result;
-}
+} //Một hàng của ma trận//
 
 struct _POINT { 
 	int x, y, c; // x: tọa độ dòng, y: tọa độ cột, c: đánh dấu
