@@ -73,7 +73,7 @@ void ExitGame() {
 }
 
 
-bool hasWon(enum Stone board[][15], int size, int luot)
+bool hasWon(enum Stone board[][15], int size, int luot) //Kiểm tra điều kiện thắng thua//
 {
 	int h = 0, i, j, m, n, e, bd, kt;
 	enum Stone b, d;
@@ -214,14 +214,14 @@ bool hasWon(enum Stone board[][15], int size, int luot)
 	return false;
 }
 
-void makeMove(enum Stone board[][15], int size, ToaDo playerMove, int luot)
+void makeMove(enum Stone board[][15], int size, ToaDo playerMove, int luot) //Hàm đổi lượt chơi//
 {
 	if (luot == 1)
 		board[playerMove.i][playerMove.j] = X;
 	else board[playerMove.i][playerMove.j] = O;
 }
 
-bool checkMakeMove(enum Stone board[][15], int size, ToaDo now)
+bool checkMakeMove(enum Stone board[][15], int size, ToaDo now) //Kiểm tra ô có hợp lệ để đánh không//
 {
 	if (board[now.i][now.j] != NA)
 		return false;
