@@ -354,7 +354,7 @@ void MainMenu() {
 	PrintString("         Start Game        ", 253, menu.x, menu.y +1);
 	PrintString("         Load Game         ", 253, menu.x, menu.y + 2);
 	PrintString("          Ranking          ", 253, menu.x, menu.y + 3);
-	PrintString("           Help            ", 253, menu.x, menu.y + 4);
+	PrintString("        Instruction            ", 253, menu.x, menu.y + 4);
 	PrintString("         Exit Game         ", 253, menu.x, menu.y + 5);
 
 }
