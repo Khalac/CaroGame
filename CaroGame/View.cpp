@@ -29,6 +29,12 @@ void SetColor(int color) {
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, color);
 }
+void TextColor(int x)//X lla ma mau
+{
+
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(h, x);
+}
 void Nocursortype()
 {
 	CONSOLE_CURSOR_INFO Info;
@@ -266,81 +272,8 @@ void LoadingBar()//thanh loading truoc khi di vao giao dien.
 	system("cls");
 }
 
-/*void playgame(int& thoat)//ham tao lua chon cho menu
-{
 
-	//SetColor(14);//xanh mint
-	SetColor(202);//mau cam
-	GoToXY(70, 24);
-	//printf("%c PLAY GAME  ", 175);
-	printf("PLAY GAME  ");
-	TextColor(14);
-	GoToXY(70, 25);
-	cout << "HELP";
-	GoToXY(70, 26);
-	cout << "ABOUT";
-	GoToXY(70, 27);
-	cout << "EXIT       ";
-	int chon = 0;
-	int toado = 24;
-	do {
-		char a = _getch();
-		if (a == 80 || a == 's' || a == 'S' || a == '2') chon = 1;
-		else if (a == 72 || a == 'w' || a == 'W' || a == '8') chon = 2;
-		else if (a == 13 || a == 'e' || a == 'e' || a == '5') chon = 3;
-		else chon = 0;
-		if (chon == 1 && toado < 27) toado++;
-		else if (chon == 2 && toado > 24) toado--;
-		if (toado == 24)
-		{
-			SetColor(202);
-			GoToXY(70, 24); cout << "PLAY GAME  ";
-			SetColor(14);
-			GoToXY(70, 25); cout << "HELP         ";
-			GoToXY(70, 26); cout << "ABOUT        ";
-			GoToXY(70, 27); cout << "EXIT       ";
-			SetColor(0);//0 la mau den
-		}
-		if (toado == 25)
-		{
-			SetColor(14);
-			GoToXY(70, 24); cout << "PLAY GAME    ";
-			SetColor(202);
-			GoToXY(70, 25); cout << "HELP       ";
-			SetColor(14);
-			GoToXY(70, 26); cout << "ABOUT        ";
-			GoToXY(70, 27); cout << "EXIT       ";
-			SetColor(0);
-		}
-		if (toado == 26)
-		{
-			SetColor(14);
-			GoToXY(70, 24); cout << "PLAY GAME  ";
-			GoToXY(70, 25); cout << "HELP       ";
-			SetColor(202);
-			GoToXY(70, 26); cout << "ABOUT      ";
-			SetColor(14);
-			GoToXY(70, 27); cout << "EXIT       ";
-			SetColor(0);
-		}
-		if (toado == 27)
-		{
-			SetColor(14);
-			GoToXY(70, 24); cout << "PLAY GAME    ";
-			GoToXY(70, 25); cout << "HELP         ";
-			GoToXY(70, 26); cout << "ABOUT        ";
-			SetColor(202);
-			GoToXY(70, 27);
-			cout << "EXIT       "; SetColor(70);
-		}
-	} while (chon != 3);
-	system("cls");
-	//if (toado == 16) help(thoat);
-	//else if (toado == 17) about(thoat);
-	//else if (toado == 18) thoat = 1;
-}*/
-
-void MainMenu() {
+/*void MainMenu() {
 	Menu menu;
 	
 	menu.choices = 5; // man hinh meny co 5 su lua chon
@@ -356,5 +289,149 @@ void MainMenu() {
 	PrintString("          Ranking          ", 253, menu.x, menu.y + 3);
 	PrintString("           Help            ", 253, menu.x, menu.y + 4);
 	PrintString("         Exit Game         ", 253, menu.x, menu.y + 5);
+}*/
+void thanh_sang(int x, int y, int w, int h, int b_color, string nd)//de len de nguoi dung biet dang chon muc nao
+{
+	TextColor(b_color);
+	for (int iy = y + 1; iy <= y + h - 1; iy++)
+	{
+		for (int ix = x + 1; ix <= x + w - 1; ix++)
+		{
+			GoToXY(ix, iy); cout << " ";
+		}
+	}
+	//SetColor(7);
+	GoToXY(x + 1, y + 1);
+	cout << nd;
+}
+void demau(int x, int y, int w, int h, int b_color, string nd)
+{
+	TextColor(b_color);
+	for (int iy = y; iy <= y + h; iy++)
+	{
+		for (int ix = x; ix <= x + w; ix++)
+		{
+			GoToXY(ix, iy); cout << " ";
+		}
+	}
+	//SetColor(7);
+	GoToXY(x + 1, y + 1);
+	cout << nd;
+}
 
+void MainMenu() {
+	Menu menu;
+	Nocursortype();//xoa con tro nhap nhay tren man hinh.
+	menu.choices = 5; // man hinh meny co 5 su lua chon
+	menu.x = WIDTH_CENTER - 15;
+	menu.y = HEIGHT_CENTER;
+
+	system("cls");
+	ShowCursor(0);
+	PrintFile("Carotext.txt", 253, 40, 3);
+
+	PrintString("    Welcome to Caro Game   ", 253, menu.x, menu.y - 5);
+
+	int background_bright = 75;
+	//ve cac hop co chua chu truoc
+	string x = "         START GAME        ";
+
+	demau(menu.x, menu.y - 3, 28, 2, 94, x);//chu duoc in o x+1 va y+1
+
+
+	string b = "         LOAD GAME         ";
+	demau(menu.x, menu.y + 1, 28, 2, 94, b);
+
+	string c = "          RANKING          ";
+	demau(menu.x, menu.y + 5, 28, 2, 94, c);
+
+	string d = "           HELP            ";
+	demau(menu.x, menu.y + 9, 28, 2, 94, d);
+
+	string e = "         EXITGAME          ";
+	demau(menu.x, menu.y + 13, 28, 2, 94, e);
+	
+
+	string str = "ERROR";//luu giu string cua toa do dang tro toi
+	int choice = 0;//lua chon 
+	int toado = menu.y - 2;//luu giu toa do
+	int odau = 0;
+
+	//thanh_sang(menu.x, menu.y - 3, 28, 2, 240, x);//de len truoc o dau
+	demau(menu.x, menu.y - 3, 28, 2, 75, x);
+	while (choice != 3)
+	{
+		char a = _getch();
+		if (a == 80 || a == 's' || a == 'S' || a == '2')
+		{
+			choice = 1;//nhan nut xuong
+			if (odau == 0)
+			{
+				demau(menu.x, menu.y - 3, 28, 2, 94, x);
+			}
+			else if (str != "ERROR" && toado < menu.y + 13)//de dua o tro ve trang thai binh thuong 
+			{
+				demau(menu.x, toado - 1, 28, 2, 94, str);
+
+			}
+			odau += 1;
+
+		}
+		else if (a == 72 || a == 'w' || a == 'W' || a == '8')
+		{
+			choice = 2;//nhan nut len
+			if (str != "ERROR" && toado > menu.y - 2)
+			{
+				demau(menu.x, toado - 1, 28, 2, 94, str);
+
+			}
+		}
+		else if (a == 13 || a == 'e' || a == 'e' || a == '5') choice = 3;//nhan nut enter
+		else choice = 0;//trong truong hop khong phai nut du chuyen cach nhau 4 don vi moi o//tong 19 o
+		if (choice == 1 && toado < menu.y + 13)
+		{
+			toado += 4;
+		}
+		if (choice == 2 && toado > menu.y - 2)
+		{
+			toado -= 4;
+		}
+		if (toado == menu.y - 2)
+		{
+			//thanh_sang(menu.x, menu.y-3 , 28, 2, 240, x);
+			demau(menu.x, menu.y - 3, 28, 2, 75, x);
+
+			str = x;
+		}
+		if (toado == menu.y + 2)
+		{
+			//thanh_sang(menu.x, menu.y + 1, 28, 2, 240, b);
+			demau(menu.x, menu.y + 1, 28, 2, 75, b);
+
+			str = b;
+		}
+		if (toado == menu.y + 6)
+		{
+			//thanh_sang(menu.x, menu.y + 5, 28, 2, 240, c);
+			demau(menu.x, menu.y + 5, 28, 2, 75, c);
+			str = c;
+
+		}
+		if (toado == menu.y + 10)
+		{
+			//thanh_sang(menu.x, menu.y + 9, 28, 2, 240, d);
+			demau(menu.x, menu.y + 9, 28, 2, 75, d);
+			str = d;
+
+
+		}
+		if (toado == menu.y + 14)
+		{
+			//thanh_sang(menu.x, menu.y + 13, 28, 2, 240, e);
+			demau(menu.x, menu.y + 13, 28, 2, 75, e);
+			str = e;
+
+		}
+	}
+	system("cls");
 }

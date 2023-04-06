@@ -29,6 +29,6 @@ void LoadingBar();
 
 void PrintFile(string filename, int color, int x, int y); //In du lieu file txt
 
-
-
+void thanh_sang(int x, int y, int w, int h, int b_color, string nd);
+void demau(int x, int y, int w, int h, int b_color, string nd);
 void MainMenu();
