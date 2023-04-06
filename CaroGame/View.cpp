@@ -384,7 +384,6 @@ void MainMenu() {
 	int toado = menu.y - 2;//luu giu toa do
 	int odau = 0;
 
-	//thanh_sang(menu.x, menu.y - 3, 28, 2, 240, x);//de len truoc o dau
 	demau(menu.x, menu.y - 3, 28, 2, 75, x);
 	while (choice != 3)
 	{
