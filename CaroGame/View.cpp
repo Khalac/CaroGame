@@ -76,14 +76,20 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 			if (i == now.i && j == now.j)
 			{
 				if (arr[i][j] == NA) cout << " _ " << VERT;
+				SetColor(253);
 				if (arr[i][j] == X)cout << " X " << VERT;
+				SetColor(251);
 				if (arr[i][j] == O) cout << " O " << VERT;
+				SetColor(252);
 			}
 			else
 			{
 				if (arr[i][j] == NA) cout << "   " << VERT;
+				SetColor(253);
 				if (arr[i][j] == X)cout << " X " << VERT;
+				SetColor(251);
 				if (arr[i][j] == O) cout << " O " << VERT;
+				SetColor(252);
 			}
 		}
 		cout << endl;
@@ -98,6 +104,8 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 }
 void BangTinhDiem()//Ve bang tinh diem
 {
+	int score1 = 0; int step1 = 0;
+	int score2 = 0; int step2 = 0;
 	char TL = 218;
 	char TR = 191;
 	char BL = 192;
@@ -166,12 +174,31 @@ void BangTinhDiem()//Ve bang tinh diem
 	//VIET CHU STEP AND SCORE
 	GoToXY(84, 18);
 	cout << "STEP:";
+	GoToXY(89, 18);
+	cout << step1;
 	GoToXY(84, 19);
 	cout << "SCORE:";
+	GoToXY(90, 19);
+	cout << score1;
 	GoToXY(116, 18);
 	cout << "STEP:";
+	GoToXY(121, 18);
+	cout << step2;
 	GoToXY(116, 19);
 	cout << "SCORE:";
+	GoToXY(122, 19);
+	cout << score2;
+
+	/*GoToXY(89, 18);
+	cout << step1;
+	GoToXY(90, 19);
+	cout << score1;
+	GoToXY(121, 18);
+	cout << step2;
+	GoToXY(122, 19);
+	cout << score2;
+	*/
+
 	//GoToXY(68, 9);//VE CHU X
 	//cout << R << "     " << R << "\n";
 	GoToXY(84, 9);
@@ -287,7 +314,7 @@ void LoadingBar()//thanh loading truoc khi di vao giao dien.
 	PrintString("         Start Game        ", 253, menu.x, menu.y +1);
 	PrintString("         Load Game         ", 253, menu.x, menu.y + 2);
 	PrintString("          Ranking          ", 253, menu.x, menu.y + 3);
-	PrintString("           Help            ", 253, menu.x, menu.y + 4);
+	PrintString("        Instruction            ", 253, menu.x, menu.y + 4);
 	PrintString("         Exit Game         ", 253, menu.x, menu.y + 5);
 }*/
 void thanh_sang(int x, int y, int w, int h, int b_color, string nd)//de len de nguoi dung biet dang chon muc nao
