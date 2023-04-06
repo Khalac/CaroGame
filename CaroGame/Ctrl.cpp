@@ -2,6 +2,9 @@
 
 void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 	enum Stone game[15][15];
+	int step1 = 0; int score1 = 0;
+     int step2 = 0; int score2 = 0;
+	 int k = 0;
 	for (int i = 0; i < MAX_SIZE; i++)
 		for (int j = 0; j < MAX_SIZE; j++)
 			game[i][j] = NA;
@@ -12,6 +15,14 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 	{
 		system("cls");
 		displayBoard(game, MAX_SIZE, now, luot);
+	    GoToXY(89, 18);
+	    cout << step1;
+	    GoToXY(90, 19);
+	    cout << score1;
+	    GoToXY(121, 18);
+	    cout << step2;
+	    GoToXY(122, 19);
+	    cout << score2;
 		lenh = _getch();
 		if (lenh == 'W' || lenh == 'w')
 		{
@@ -47,8 +58,33 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 			lenh = _getch();
 			return;
 		}
-		if (lenh == 13)
+		if (lenh == 13 || lenh == 'e' || lenh == 'e' || lenh == '5')
 		{
+			k++; //CAP NHAT SCORE VA STEP
+			if (k % 2 != 0)
+			{
+				step1++; score1++;
+				GoToXY(89, 18);
+				cout << step1;
+				GoToXY(90, 19);
+				cout << score1;
+				GoToXY(121, 18);
+				cout << step2;
+				GoToXY(122, 19);
+				cout << score2;
+			}
+			if (k % 2 == 0)
+			{
+				step2++; score2++;
+				GoToXY(89, 18);
+				cout << step1;
+				GoToXY(90, 19);
+				cout << score1;
+				GoToXY(121, 18);
+				cout << step2;
+				GoToXY(122, 19);
+				cout << score2;
+			}
 			if (checkMakeMove(game, MAX_SIZE, now) != true)
 				continue;
 			makeMove(game, MAX_SIZE, now, luot);

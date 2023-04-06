@@ -19,8 +19,8 @@ int main()
     */
    // GoToXY(100, 5);
     //cout << (char)65;
-    //StartGame(_A, _TURN, _COMMAND);
-    MainMenu();
+    StartGame(_A, _TURN, _COMMAND);
+    //MainMenu();
     //GoToXY(100, 5);
     //cout << (char)65;
     system("pause");
