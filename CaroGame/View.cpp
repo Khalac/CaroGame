@@ -472,10 +472,49 @@ void MainMenu() {
 	{
 		//ranking
 	}
-	if (toado == menu.y + 10)
+	if (toado == menu.y + 10) //Help
 	{
-		//help
-	}
+		int i = 0;
+
+		//system("cls");
+		do
+		{
+			TextColor(i++);
+			system("cls");
+			GoToXY(36, 6);
+			cout << "###" << "\n";
+			GoToXY(36, 7);
+			cout << " #  #    #  ####  ##### #####  #    #  ####  ##### #  ####  #    #" << "\n";
+			GoToXY(36, 8);
+			cout << " #  ##   # #        #   #    # #    # #    #   #   # #    # ##   #" << "\n";
+			GoToXY(36, 9);
+			cout << " #  # #  #  ####    #   #    # #    # #        #   # #    # # #  #" << "\n";
+			GoToXY(36, 10);
+			cout << " #  #  # #      #   #   #####  #    # #        #   # #    # #  # # " << "\n";
+			GoToXY(36, 11);
+			cout << " #  #   ## #    #   #   #   #  #    # #    #   #   # #    # #   ##" << "\n";
+			GoToXY(36, 12);
+			cout << "### #    #  ####    #   #    #  ####   ####    #   #  ####  #    #" << "\n";
+			TextColor(7);
+			GoToXY(61, 15);
+			cout << "Size: 15x15\n";
+			GoToXY(44, 16);
+			cout << "Two players play against each other on 15 x 15\n";
+			GoToXY(51, 17);
+			cout << "Press 'Enter' to check the BOARD\n";
+			GoToXY(43, 18);
+			cout << "W or w-up; A or a-left; S or s-down; D or d-right\n";
+			GoToXY(42, 19);
+			cout << "  If all BOARD are checked, the game ends in draw.\n";
+			Sleep(500);
+
+			if (i >= 15)
+			{
+				i = 1;
+			}
+		} while (i < 15);
+
+		}
 	if (toado == menu.y + 14)
 	{
 		//exit game
