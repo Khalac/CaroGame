@@ -385,7 +385,7 @@ void MainMenu() {
 	int odau = 0;
 
 	demau(menu.x, menu.y - 3, 28, 2, 75, x);
-	while (choice != 3)
+	do
 	{
 		char a = _getch();
 		if (a == 80 || a == 's' || a == 'S' || a == '2')
@@ -458,6 +458,26 @@ void MainMenu() {
 			str = e;
 
 		}
-	}
+	} while (choice != 3);
 	system("cls");
+	if (toado == menu.y - 2)
+	{
+		//start gane
+	}
+	if (toado == menu.y + 2)
+	{
+		//load game
+	}
+	if (toado == menu.y + 6)
+	{
+		//ranking
+	}
+	if (toado == menu.y + 10)
+	{
+		//help
+	}
+	if (toado == menu.y + 14)
+	{
+		//exit game
+	}
 }
