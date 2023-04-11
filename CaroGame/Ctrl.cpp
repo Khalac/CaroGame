@@ -1,6 +1,6 @@
 ﻿#include "Ctrl.h"
-
-void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
+#include "Data.h";
+/*void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 	enum Stone game[15][15];
 	int step1 = 0; int score1 = 0;
      int step2 = 0; int score2 = 0;
@@ -14,7 +14,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 	while (true)
 	{
 		system("cls");
-		displayBoard(game, MAX_SIZE, now, luot);
+		//displayBoard(game, MAX_SIZE, now, luot);
 	    GoToXY(89, 18);
 	    cout << step1;
 	    GoToXY(90, 19);
@@ -100,7 +100,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 			luot = luot % 2 + 1;
 		}
 	}
-}
+}*/
 
 void ExitGame() {
 	system("cls");
@@ -257,9 +257,179 @@ void makeMove(enum Stone board[][15], int size, ToaDo playerMove, int luot) //H�
 	else board[playerMove.i][playerMove.j] = O;
 }
 
-bool checkMakeMove(enum Stone board[][15], int size, ToaDo now) //Kiểm tra ô có hợp lệ để đánh không//
+/*bool checkMakeMove(enum Stone board[][15], int size, ToaDo now) //Kiểm tra ô có hợp lệ để đánh không//
 {
 	if (board[now.i][now.j] != NA)
 		return false;
 	return true;
+}*/
+
+bool CheckMark(mark* z, int x, int y)
+{
+	for (int i = 0; i < 15 * 15; i++)
+	{
+		if (z[i].x == x && z[i].y == y)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+void Ctrl(int& x, int& y)
+{
+	mark* z = new mark[15 * 15];
+	int i = 0;
+	int luot = 0;
+	GoToXY(x, y);
+	//cout << "_";
+	char lenh;
+	while (1)
+	{
+		lenh = _getch();
+		if (lenh == 's' || lenh == 'S')
+		{
+			y += 2;
+			if (CheckMark(z, x, y) == true)
+			{
+				GoToXY(x, y);
+				if (lenh == 13 || lenh == 'e' || lenh == '5')
+				{
+					continue;
+				}
+			}
+			else
+			{
+				GoToXY(x, y);
+			}
+
+		}
+		if (lenh == 'w' || lenh == 'W')
+		{
+
+			y -= 2;
+			if (y < 2)
+			{
+				y = 2;
+			}
+			if (CheckMark(z, x, y) == true)
+			{
+				GoToXY(x, y);
+				if (lenh == 13 || lenh == 'e' || lenh == '5')
+				{
+					continue;
+				}
+
+			}
+			else
+			{
+				GoToXY(x, y);
+			}
+
+
+		}
+		if (lenh == 'a' || lenh == 'a')
+		{
+			x -= 4;
+			if (x < 3)
+			{
+				x = 3;
+			}
+			if (CheckMark(z, x, y) == true)
+			{
+				GoToXY(x, y);
+				if (lenh == 13 || lenh == 'e' || lenh == '5')
+				{
+					continue;
+				}
+			}
+			else
+			{
+				GoToXY(x, y);
+			}
+
+
+		}
+		if (lenh == 'd' || lenh == 'D')
+		{
+			x += 4;
+			if (CheckMark(z, x, y) == true)
+			{
+				GoToXY(x, y);
+				if (lenh == 13 || lenh == 'e' || lenh == '5')
+				{
+					continue;
+				}
+			}
+			else
+			{
+				GoToXY(x, y);
+			}
+
+		}
+		if (lenh == 13 || lenh == 'e' || lenh == '5')
+		{
+			luot++;
+			if (luot % 2 == 1)
+			{
+				if (CheckMark(z, x, y) == true)
+				{
+					luot--;
+					continue;
+				}
+				else
+				{
+					z[i].x = x;
+					z[i].y = y;
+					i++;
+					GoToXY(x, y);
+					TextColor(4);
+					cout << "X";
+					//x += 4;
+					/*if (x > 59)
+					{
+						x = 59;
+						y += 2;
+						if (y > 30)
+						{
+							y = 30;
+						}
+					}*/
+					GoToXY(x, y);
+
+				}
+			}
+			else
+			{
+				if (CheckMark(z, x, y) == true)
+				{
+					luot--;
+					continue;
+				}
+				else
+				{
+					z[i].x = x;
+					z[i].y = y;
+					i++;
+					GoToXY(x, y);
+					TextColor(3);
+					cout << "O";
+					//x += 4;
+					/*if (x > 59)
+					{
+						x = 59;
+						y += 2;
+						if (y > 30)
+						{
+							y = 30;
+						}
+					}*/
+					GoToXY(x, y);
+				}
+
+
+
+
+			}
+		}
+	}
 }

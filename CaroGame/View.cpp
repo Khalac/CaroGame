@@ -29,9 +29,14 @@ void SetColor(int color) {
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, color);
 }
-void TextColor(int x)//X lla ma mau
+/*void TextColor(int x)//X lla ma mau
 {
 
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(h, x);
+}*/
+void TextColor(int x)
+{
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(h, x);
 }
@@ -463,6 +468,7 @@ void MainMenu() {
 	if (toado == menu.y - 2)
 	{
 		//start gane
+		DrawBoard();
 	}
 	if (toado == menu.y + 2)
 	{
@@ -519,4 +525,118 @@ void MainMenu() {
 	{
 		//exit game
 	}
+}
+void DrawBoard()
+{
+	//VE KHUNG NGOAI:
+	for (int i = 0; i <= 31; i++)//ve vien tren cung+tao khoang cach voi le cua console
+	{
+		for (int j = 0; j <= 18; j++)
+		{
+			if (i < 1)//tao khoang cach ben tren
+			{
+				cout << " ";
+			}
+			if (i == 1)//Ve vien tren cung
+			{
+				GoToXY(1, 1);
+				cout << Topleft;
+				GoToXY(61, 1);
+				cout << Topright;
+				for (int k = 2; k < 61; k++)
+				{
+					GoToXY(k, 1);
+					cout << Line;
+				}
+				for (int k = 5; k < 61; )
+				{
+					GoToXY(k, 1);
+					cout << Connecttop;
+					k += 4;
+				}
+			}
+
+			else if (j < 1)//Tao khoang cach ben trai
+			{
+				cout << " ";
+			}
+			cout << endl;
+		}
+	}
+	for (int i = 2; i < 31; i++)//ve vien ben trai
+	{
+		if (i % 2 == 1)
+		{
+			GoToXY(1, i);
+			cout << Connectleft;
+		}
+		if (i % 2 == 0)
+		{
+			GoToXY(1, i);
+			cout << Vertical;
+		}
+	}
+	GoToXY(61, 31);// ve vien ben phai
+	cout << Botright;
+	for (int m = 2; m < 31; m++)
+	{
+		if (m % 2 == 1)
+		{
+			GoToXY(61, m);
+			cout << Connectright;
+		}
+		if (m % 2 == 0)
+		{
+			GoToXY(61, m);
+			cout << Vertical;
+		}
+	}
+	GoToXY(1, 31);//ve vien ben duoi
+	cout << Botleft;
+	for (int k = 2; k < 61; k++)
+	{
+		GoToXY(k, 31);
+		cout << Line;
+
+	}
+	for (int m = 5; m < 61; )
+	{
+		GoToXY(m, 31);
+		cout << Connectbot;
+		m += 4;
+	}
+	//VE BEN CAC DUONG THANG BEN TRONG BAN CO:
+	for (int j = 3; j < 31; j++)//Ve cac duong ngang
+	{
+		if (j % 2 == 1)
+		{
+			for (int i = 2; i < 61;)
+			{
+				GoToXY(i, j);
+				cout << Line << Line << Line;
+				i += 3;
+				GoToXY(i, j);
+				if (i < 61)
+				{
+					cout << Connect;
+					i++;
+				}
+			}
+		}
+	}
+	for (int j = 2; j < 31; j++)//ve cac duong doc
+	{
+		if (j % 2 == 0)
+		{
+			for (int i = 5; i < 61;)
+			{
+				GoToXY(i, j);
+				cout << Vertical;
+				i += 4;
+			}
+		}
+	}
+	cout << endl;
+	cout << endl;
+
 }

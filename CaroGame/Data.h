@@ -93,3 +93,20 @@ struct Bot {
 	char* level;
 };
 
+#define Line (char)196//dau gach:-
+#define Connect (char)197//dau thap gia, noi cac o voi nhau.
+#define Vertical (char)179//dau gach thang: |
+#define Topleft (char)218//dau bo goc tren cung ben trai
+#define Topright (char)191//dau bo goc tren cung ben phai
+#define Botright (char)217//dau bo goc cuoi ben phai
+#define Botleft (char)192//dau bo goc cuoi ben trai
+#define Connecttop (char)194//dau noi cua vien tren, co dang hinh thap gia bi mat canh tren
+#define Connectleft (char)195//dau noi cua vien trai, co dang hinh thap gia bi mat canh ben trai
+#define Connectright (char)180//dau noi cua vien phai, co dang hinh thap gia bi mat canh ben phai
+#define Connectbot (char)193//dau noi cau vien duoi, co dang hinh thap gia bi mat canh duoi
+
+struct mark//dung trong ham Checkmark
+{
+	int x;
+	int y;
+};
