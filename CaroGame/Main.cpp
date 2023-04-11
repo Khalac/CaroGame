@@ -10,6 +10,7 @@ int main()
     bool _TURN =1; //true là lượt người thứ nhất và false là lượt người thứ hai
     int _COMMAND=1; // Biến nhận giá trị phím người dùng nhập
     int _X, _Y; //Tọa độ hiện hành trên màn hình bàn cờ
+    int x = 3; int y = 2;
 
     CreateConsoleWindow(WIDTH, HEIGHT);
     FixConsoleWindow();
@@ -20,9 +21,10 @@ int main()
    // GoToXY(100, 5);
     //cout << (char)65;
     //StartGame(_A, _TURN, _COMMAND);
-    MainMenu();
+    //MainMenu();
     //GoToXY(100, 5);
     //cout << (char)65;
+    //DrawBoard();
     system("pause");
     return 0;
 }
