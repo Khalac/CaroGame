@@ -18,7 +18,7 @@ bool hasWon(enum Stone board[][15], int size, int luot);
 
 void makeMove(enum Stone board[][15], int size, ToaDo playerMove, int luot);
 
-//bool checkMakeMove(enum Stone board[][15], int size, ToaDo now);
+bool checkMakeMove(enum Stone board[][15], int size, ToaDo now);
 bool CheckMark(mark* z, int x, int y);
 
 

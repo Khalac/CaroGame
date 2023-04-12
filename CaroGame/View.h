@@ -20,7 +20,7 @@ void Nocursortype();
 
 //void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot);
 void DrawBoard();
-
+void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot);
 
 void BangTinhDiem();
 

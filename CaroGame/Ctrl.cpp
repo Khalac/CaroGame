@@ -1,6 +1,6 @@
 ﻿#include "Ctrl.h"
 #include "Data.h";
-/*void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
+void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 	enum Stone game[15][15];
 	int step1 = 0; int score1 = 0;
      int step2 = 0; int score2 = 0;
@@ -13,8 +13,8 @@
 	char lenh;
 	while (true)
 	{
-		system("cls");
-		//displayBoard(game, MAX_SIZE, now, luot);
+		GoToXY(0, 0);
+		displayBoard(game, MAX_SIZE, now, luot);
 	    GoToXY(89, 18);
 	    cout << step1;
 	    GoToXY(90, 19);
@@ -100,7 +100,7 @@
 			luot = luot % 2 + 1;
 		}
 	}
-}*/
+}
 
 void ExitGame() {
 	system("cls");
@@ -257,12 +257,12 @@ void makeMove(enum Stone board[][15], int size, ToaDo playerMove, int luot) //H�
 	else board[playerMove.i][playerMove.j] = O;
 }
 
-/*bool checkMakeMove(enum Stone board[][15], int size, ToaDo now) //Kiểm tra ô có hợp lệ để đánh không//
+bool checkMakeMove(enum Stone board[][15], int size, ToaDo now) //Kiểm tra ô có hợp lệ để đánh không//
 {
 	if (board[now.i][now.j] != NA)
 		return false;
 	return true;
-}*/
+}
 
 bool CheckMark(Mark* z, int x, int y)
 {
