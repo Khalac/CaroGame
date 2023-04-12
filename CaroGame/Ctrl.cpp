@@ -264,7 +264,7 @@ void makeMove(enum Stone board[][15], int size, ToaDo playerMove, int luot) //HÃ
 	return true;
 }*/
 
-bool CheckMark(mark* z, int x, int y)
+bool CheckMark(Mark* z, int x, int y)
 {
 	for (int i = 0; i < 15 * 15; i++)
 	{
@@ -277,7 +277,7 @@ bool CheckMark(mark* z, int x, int y)
 }
 void Ctrl(int& x, int& y)
 {
-	mark* z = new mark[15 * 15];
+	Mark* z = new Mark[15 * 15];
 	int i = 0;
 	int luot = 0;
 	GoToXY(x, y);
@@ -433,3 +433,4 @@ void Ctrl(int& x, int& y)
 		}
 	}
 }
+

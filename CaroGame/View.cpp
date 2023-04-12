@@ -526,7 +526,7 @@ void MainMenu() {
 		//exit game
 	}
 }
-void DrawBoard()
+void DrawBoard() //HAM DrawBoard cua Minh!!!!!
 {
 	//VE KHUNG NGOAI:
 	for (int i = 0; i <= 31; i++)//ve vien tren cung+tao khoang cach voi le cua console

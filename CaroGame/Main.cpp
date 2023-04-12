@@ -24,7 +24,11 @@ int main()
     //MainMenu();
     //GoToXY(100, 5);
     //cout << (char)65;
-    //DrawBoard();
+
+    DrawBoard(); //Ham DrawBoard nay de o cuoi cung trong View.cpp 
+    Ctrl(x, y); //Ham Ctrl nay de o cuoi cung trong file Ctrl.cpp
+    // x, y la toa do o dau tien trong ban co
+
     system("pause");
     return 0;
 }

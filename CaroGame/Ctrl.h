@@ -2,6 +2,12 @@
 #include"View.h"
 #include<string.h>
 #include<conio.h>
+struct Mark
+{
+	int x;
+	int y;
+};
+void Ctrl(int& x, int& y); //HAM CTRL CUA UYEN!!!!!!
 
 void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND);
 
