@@ -1,6 +1,8 @@
 ﻿#include "Ctrl.h"
 #include "Data.h";
+#include"View.h"
 void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
+	Nocursortype();
 	enum Stone game[15][15];
 	int step1 = 0; int score1 = 0;
      int step2 = 0; int score2 = 0;
@@ -90,7 +92,8 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 			makeMove(game, MAX_SIZE, now, luot);
 			if (hasWon(game, MAX_SIZE, luot))
 			{
-				system("cls");
+				GoToXY(0, 0);
+				//system("cls");
 				displayBoard(game, MAX_SIZE, now, 0);
 				cout << "Nguoi choi " << luot << " da thang !" << endl;
 				cout << "Nhan phim bat ky de tiep tuc....";
@@ -103,7 +106,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 }
 
 void ExitGame() {
-	system("cls");
+	//system("cls");
 	GabageCollect();
 	//Có thể lưu game trước khi exit
 }

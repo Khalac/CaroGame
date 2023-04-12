@@ -1,4 +1,6 @@
 ﻿#include "View.h"
+#include<iostream>
+using namespace std;
 using namespace std;
 
 void CreateConsoleWindow(int pWidth, int pHeight)
@@ -81,19 +83,44 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 			if (i == now.i && j == now.j)
 			{
 				if (arr[i][j] == NA) cout << " _ " << VERT;
-				SetColor(253);
-				if (arr[i][j] == X)cout << " X " << VERT;
-				SetColor(251);
-				if (arr[i][j] == O) cout << " O " << VERT;
+				if (arr[i][j] == X)
+				{
+					SetColor(253);
+					cout << " X ";
+					SetColor(252);
+					cout << VERT;
+
+					
+				}
+				
+				if (arr[i][j] == O)
+				{
+					SetColor(251);
+					cout << " O ";
+					SetColor(252);
+					cout << VERT;
+				}
 				SetColor(252);
 			}
 			else
 			{
 				if (arr[i][j] == NA) cout << "   " << VERT;
-				SetColor(253);
-				if (arr[i][j] == X)cout << " X " << VERT;
-				SetColor(251);
-				if (arr[i][j] == O) cout << " O " << VERT;
+				
+				if (arr[i][j] == X)
+				{
+					SetColor(253);
+					cout << " X ";
+					SetColor(252);
+					cout << VERT;
+				}
+				
+				if (arr[i][j] == O)
+				{
+					SetColor(251);
+					cout << " O ";
+					SetColor(252);
+					cout << VERT;
+				}
 				SetColor(252);
 			}
 		}
