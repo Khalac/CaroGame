@@ -71,6 +71,7 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 			cout << " " << i + 1 << "  ";
 		else cout << " " << i + 1 << " ";
 	}
+	Nocursortype();
 	cout << endl;
 	cout << "   " << lineString(TL, TM, TR, HORZ, 3, numPerLine) << endl;
 	for (int i = 0; i < size; i++)
