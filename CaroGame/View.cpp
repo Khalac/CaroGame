@@ -653,10 +653,23 @@ void BANGTINHDIEM()//BANG TINH DIEM CUA MINH
 	GoToXY(75, 5);
 	cout << "MOVE:";
 
-	GoToXY(131, 3);
+	GoToXY(88, 7);
 	cout << "PLAYER 2";
-	GoToXY(118, 5);
+	GoToXY(75, 9);
 	cout << "MOVE:";
+
+	GoToXY(130, 3);
+	cout << "HUONG DAN";
+	GoToXY(120, 5);
+	cout << "W: UP";
+	GoToXY(137, 5);
+	cout << "S: DOWN";
+	GoToXY(120, 7);
+	cout << "A: LEFT";
+	GoToXY(137, 7);
+	cout << "D: RIGHT";
+	GoToXY(120, 9);
+	cout << "ENTER: DANH QUAN CO";
 }
 void DrawBoard() //HAM DrawBoard cua Minh!!!!!
 {

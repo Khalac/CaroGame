@@ -20,7 +20,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 		displayBoard(game, MAX_SIZE, now, luot);
 		GoToXY(88, 5);
 		cout << step1;
-		GoToXY(130, 5);
+		GoToXY(88, 9);
 		cout << step2;
 
 		lenh = _getch();
@@ -75,7 +75,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 					step1++;
 					GoToXY(88, 5);
 					cout << step1;
-					GoToXY(130, 5);
+					GoToXY(88, 9);
 					cout << step2;
 					PrintFile("OTURN.txt", 253, 95, 20);
 				}
@@ -92,7 +92,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 					step2++;
 					GoToXY(88, 5);
 					cout << step1;
-					GoToXY(130, 5);
+					GoToXY(88, 9);
 					cout << step2;
 					PrintFile("XTURN.txt", 253, 95, 20);
 				}
@@ -117,7 +117,6 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 	}
 
 }
-
 void ExitGame() {
 	//system("cls");
 	GabageCollect();
