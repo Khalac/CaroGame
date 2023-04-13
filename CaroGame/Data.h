@@ -110,3 +110,5 @@ struct mark//dung trong ham Checkmark
 	int x;
 	int y;
 };
+
+

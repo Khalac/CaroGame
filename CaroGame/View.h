@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Data.h"
 #include "Model.h"
+#include "Ctrl.h"
 
 //Function for console
 void CreateConsoleWindow(int pWidth, int pHeight);
@@ -35,3 +36,4 @@ void demau(int x, int y, int w, int h, int b_color, string nd);
 void MainMenu();
 
 void TextColor(int x);
+void BANGTINHDIEM();

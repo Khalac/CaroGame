@@ -4,27 +4,25 @@
 void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 	Nocursortype();
 	enum Stone game[15][15];
-	int step1 = 0; int score1 = 0;
-     int step2 = 0; int score2 = 0;
-	 int k = 0;
+	int step1 = 0;
+	int step2 = 0;
+	int k = 0;
 	for (int i = 0; i < MAX_SIZE; i++)
 		for (int j = 0; j < MAX_SIZE; j++)
 			game[i][j] = NA;
 	ToaDo now = ToaDo{ 0,0 };
 	int luot = 1;
 	char lenh;
+	PrintFile("XTURN.txt", 253, 95, 20);
 	while (true)
 	{
 		GoToXY(0, 0);
 		displayBoard(game, MAX_SIZE, now, luot);
-	    GoToXY(89, 18);
-	    cout << step1;
-	    GoToXY(90, 19);
-	    cout << score1;
-	    GoToXY(121, 18);
-	    cout << step2;
-	    GoToXY(122, 19);
-	    cout << score2;
+		GoToXY(88, 5);
+		cout << step1;
+		GoToXY(130, 5);
+		cout << step2;
+
 		lenh = _getch();
 		if (lenh == 'W' || lenh == 'w')
 		{
@@ -65,7 +63,6 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 			k++; //CAP NHAT SCORE VA STEP
 
 			//TU DAY TRO XUONG LA HAM CUA UYEN!!!!!
-
 			if (k % 2 != 0)
 			{
 				if (checkMakeMove(game, MAX_SIZE, now) != true)
@@ -75,20 +72,16 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 				}
 				else
 				{
-					step1++; score1++;
-					GoToXY(89, 18);
+					step1++;
+					GoToXY(88, 5);
 					cout << step1;
-					GoToXY(90, 19);
-					cout << score1;
-					GoToXY(121, 18);
+					GoToXY(130, 5);
 					cout << step2;
-					GoToXY(122, 19);
-					cout << score2;
+					PrintFile("OTURN.txt", 253, 95, 20);
 				}
 			}
 			if (k % 2 == 0)
 			{
-
 				if (checkMakeMove(game, MAX_SIZE, now) != true)
 				{
 					k--;
@@ -96,15 +89,12 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 				}
 				else
 				{
-					step2++; score2++;
-					GoToXY(89, 18);
+					step2++;
+					GoToXY(88, 5);
 					cout << step1;
-					GoToXY(90, 19);
-					cout << score1;
-					GoToXY(121, 18);
+					GoToXY(130, 5);
 					cout << step2;
-					GoToXY(122, 19);
-					cout << score2;
+					PrintFile("XTURN.txt", 253, 95, 20);
 				}
 				//TOI DAY LA HET HAM CUA UYEN R NHENNN!!!
 			}
@@ -123,7 +113,9 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 			}
 			luot = luot % 2 + 1;
 		}
+
 	}
+
 }
 
 void ExitGame() {

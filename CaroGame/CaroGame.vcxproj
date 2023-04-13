@@ -134,6 +134,10 @@
     <ClInclude Include="Model.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="OTURN.txt" />
+    <Text Include="XTURN.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -68,17 +68,12 @@ void PrintString(string s, int color, int x, int y)//In text
 void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 {
 	cout << "    ";
-	for (int i = 0; i < size; i++) {
-		if ((i + 1) < 10)
-			cout << " " << i + 1 << "  ";
-		else cout << " " << i + 1 << " ";
-	}
 	Nocursortype();
 	cout << endl;
 	cout << "   " << lineString(TL, TM, TR, HORZ, 3, numPerLine) << endl;
 	for (int i = 0; i < size; i++)
 	{
-		printf("%2d %c", i + 1, VERT);
+		cout << "   " << VERT;
 		for (int j = 0; j < size; j++)
 		{
 			if (i == now.i && j == now.j)
@@ -133,7 +128,7 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 	if (luot != 0)
 		cout << "Luot cua nguoi choi " << luot << "....";
 	GoToXY(69, 1);
-	BangTinhDiem();
+	BANGTINHDIEM();
 }
 void BangTinhDiem()//Ve bang tinh diem
 {
@@ -496,7 +491,9 @@ void MainMenu() {
 	if (toado == menu.y - 2)
 	{
 		//start gane
-		DrawBoard();
+		//DrawBoard();
+		//system("cls");
+		
 	}
 	if (toado == menu.y + 2)
 	{
@@ -553,6 +550,112 @@ void MainMenu() {
 	{
 		//exit game
 	}
+}
+void BANGTINHDIEM()//BANG TINH DIEM CUA MINH
+{
+	//ve o to nhat
+	GoToXY(76, 15);
+	cout << char(201);
+	for (int i = 77; i < 149; i++)//ve duong ngang tren
+	{
+
+		cout << char(205);
+	}
+	GoToXY(149, 15);
+	cout << char(187);
+	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben trai
+	{
+		GoToXY(76, j);
+		cout << char(186);
+	}
+	GoToXY(76, 31);
+	cout << char(200);
+	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben phai
+	{
+		GoToXY(149, j);
+		cout << char(186);
+	}
+	GoToXY(149, 31);
+	cout << char(188);
+	for (int i = 77; i < 149; i++)//ve duong ngang duoi
+	{
+		GoToXY(i, 31);
+		cout << char(205);
+	}
+
+	//VE O NHO BEN TRAI
+	GoToXY(73, 1);
+	cout << char(201);
+	for (int i = 74; i < 109; i++)//ve duong ngang tren
+	{
+
+		cout << char(205);
+	}
+
+	GoToXY(109, 1);
+	cout << char(187);
+	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben trai
+	{
+		GoToXY(73, j);
+		cout << char(186);
+	}
+
+	GoToXY(73, 13);
+	cout << char(200);
+	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben phai
+	{
+		GoToXY(109, j);
+		cout << char(186);
+	}
+
+	GoToXY(109, 13);
+	cout << char(188);
+	for (int i = 74; i < 109; i++)//ve duong ngang duoi
+	{
+		GoToXY(i, 13);
+		cout << char(205);
+	}
+	//VE O NHO BEN PHAI
+	GoToXY(116, 1);
+	cout << char(201);
+	for (int i = 117; i < 152; i++)//ve duong ngang tren
+	{
+		cout << char(205);
+	}
+
+	GoToXY(152, 1);
+	cout << char(187);
+	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben phai
+	{
+		GoToXY(152, j);
+		cout << char(186);
+	}
+
+	GoToXY(152, 13);
+	cout << char(188);
+	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben trai
+	{
+		GoToXY(116, j);
+		cout << char(186);
+	}
+
+
+	GoToXY(116, 13);
+	cout << char(200);
+	for (int i = 117; i < 152; i++)//ve duong ngang duoi
+	{
+		GoToXY(i, 13);
+		cout << char(205);
+	}
+	GoToXY(88, 3);//cap nhat luot danh.
+	cout << "PLAYER 1";
+	GoToXY(75, 5);
+	cout << "MOVE:";
+
+	GoToXY(131, 3);
+	cout << "PLAYER 2";
+	GoToXY(118, 5);
+	cout << "MOVE:";
 }
 void DrawBoard() //HAM DrawBoard cua Minh!!!!!
 {
