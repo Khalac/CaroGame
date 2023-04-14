@@ -70,6 +70,7 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 	cout << "    ";
 	Nocursortype();
 	cout << endl;
+	SetColor(252);
 	cout << "   " << lineString(TL, TM, TR, HORZ, 3, numPerLine) << endl;
 	for (int i = 0; i < size; i++)
 	{
@@ -570,7 +571,7 @@ void BANGTINHDIEM()//BANG TINH DIEM CUA MINH
 	SetColor(230);
 	GoToXY(149, 15);
 	cout << char(187);
-	SetColor(230);
+	SetColor(252);
 	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben trai
 	{
 		SetColor(230);
@@ -588,7 +589,7 @@ void BANGTINHDIEM()//BANG TINH DIEM CUA MINH
 		SetColor(230);
 		GoToXY(149, j);
 		cout << char(186);
-		SetColor(230);
+		SetColor(252);
 	}
 
 	SetColor(230);
