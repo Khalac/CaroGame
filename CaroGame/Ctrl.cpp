@@ -2,6 +2,7 @@
 #include "Data.h";
 #include"View.h"
 void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
+	
 	Nocursortype();
 	enum Stone game[15][15];
 	int step1 = 0;
@@ -440,10 +441,6 @@ void Ctrl(int& x, int& y)
 					}*/
 					GoToXY(x, y);
 				}
-
-
-
-
 			}
 		}
 	}

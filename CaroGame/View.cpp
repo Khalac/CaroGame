@@ -30,7 +30,7 @@ void SetColor(int color) {
 	HANDLE hConsole;
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, color);
-}
+}	
 /*void TextColor(int x)//X lla ma mau
 {
 
@@ -124,8 +124,8 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 			cout << "   " << lineString(VERT_START, VERT_MID, VERT_END, HORZ, 3, numPerLine) << endl;
 	}
 	cout << "   " << lineString(BL, BM, BR, HORZ, 3, numPerLine) << endl;
-	if (luot != 0)
-		cout << "Luot cua nguoi choi " << luot << "....";
+	//if (luot != 0)
+		//cout << "Luot cua nguoi choi " << luot << "....";
 	SetColor(252);
 	GoToXY(69, 1);
 	BANGTINHDIEM();
@@ -376,6 +376,7 @@ void demau(int x, int y, int w, int h, int b_color, string nd)
 	//SetColor(7);
 	GoToXY(x + 1, y + 1);
 	cout << nd;
+	SetColor(253);
 }
 
 void MainMenu() {
@@ -494,9 +495,16 @@ void MainMenu() {
 	system("cls");
 	if (toado == menu.y - 2)
 	{
-		//start gane
-		//DrawBoard();
-		//system("cls");
+		//start gam
+		//SetColor(253);
+		_POINT _A[BOARD_SIZE][BOARD_SIZE]; //Ma trận bàn cờ
+		bool _TURN = 1; //true là lượt người thứ nhất và false là lượt người thứ hai
+		int _COMMAND = 1; // Biến nhận giá trị phím người dùng nhập
+		int _X, _Y; //Tọa độ hiện hành trên màn hình bàn cờ
+		int x = 3; int y = 2;
+		GoToXY(0, 0);
+		SetColor(253);
+		StartGame(_A, _TURN, _COMMAND);
 		
 	}
 	if (toado == menu.y + 2)
@@ -509,45 +517,7 @@ void MainMenu() {
 	}
 	if (toado == menu.y + 10) //Help
 	{
-		int i = 0;
-
-		//system("cls");
-		do
-		{
-			TextColor(i++);
-			system("cls");
-			GoToXY(36, 6);
-			cout << "###" << "\n";
-			GoToXY(36, 7);
-			cout << " #  #    #  ####  ##### #####  #    #  ####  ##### #  ####  #    #" << "\n";
-			GoToXY(36, 8);
-			cout << " #  ##   # #        #   #    # #    # #    #   #   # #    # ##   #" << "\n";
-			GoToXY(36, 9);
-			cout << " #  # #  #  ####    #   #    # #    # #        #   # #    # # #  #" << "\n";
-			GoToXY(36, 10);
-			cout << " #  #  # #      #   #   #####  #    # #        #   # #    # #  # # " << "\n";
-			GoToXY(36, 11);
-			cout << " #  #   ## #    #   #   #   #  #    # #    #   #   # #    # #   ##" << "\n";
-			GoToXY(36, 12);
-			cout << "### #    #  ####    #   #    #  ####   ####    #   #  ####  #    #" << "\n";
-			TextColor(7);
-			GoToXY(61, 15);
-			cout << "Size: 15x15\n";
-			GoToXY(44, 16);
-			cout << "Two players play against each other on 15 x 15\n";
-			GoToXY(51, 17);
-			cout << "Press 'Enter' to check the BOARD\n";
-			GoToXY(43, 18);
-			cout << "W or w-up; A or a-left; S or s-down; D or d-right\n";
-			GoToXY(42, 19);
-			cout << "  If all BOARD are checked, the game ends in draw.\n";
-			Sleep(500);
-
-			if (i >= 15)
-			{
-				i = 1;
-			}
-		} while (i < 15);
+		Instruction();
 
 		}
 	if (toado == menu.y + 14)
@@ -555,172 +525,220 @@ void MainMenu() {
 		//exit game
 	}
 }
+void Instruction()
+{
+	system("cls");
+	int i = 0;
+	do
+	{
+		TextColor(i++);
+		system("cls");
+		GoToXY(36, 6);
+		cout << "###" << "\n";
+		GoToXY(36, 7);
+		cout << " #  #    #  ####  ##### #####  #    #  ####  ##### #  ####  #    #" << "\n";
+		GoToXY(36, 8);
+		cout << " #  ##   # #        #   #    # #    # #    #   #   # #    # ##   #" << "\n";
+		GoToXY(36, 9);
+		cout << " #  # #  #  ####    #   #    # #    # #        #   # #    # # #  #" << "\n";
+		GoToXY(36, 10);
+		cout << " #  #  # #      #   #   #####  #    # #        #   # #    # #  # # " << "\n";
+		GoToXY(36, 11);
+		cout << " #  #   ## #    #   #   #   #  #    # #    #   #   # #    # #   ##" << "\n";
+		GoToXY(36, 12);
+		cout << "### #    #  ####    #   #    #  ####   ####    #   #  ####  #    #" << "\n";
+		TextColor(7);
+		GoToXY(61, 15);
+		cout << "Size: 15x15\n";
+		GoToXY(44, 16);
+		cout << "Two players play against each other on 15 x 15\n";
+		GoToXY(51, 17);
+		cout << "Press 'Enter' to check the BOARD\n";
+		GoToXY(43, 18);
+		cout << "W or w-up; A or a-left; S or s-down; D or d-right\n";
+		GoToXY(42, 19);
+		cout << "  If all BOARD are checked, the game ends in draw.\n";
+		Sleep(500);
+
+		if (i >= 15)
+		{
+			i = 1;
+		}
+	} while (i < 15);
+
+
+}
 void BANGTINHDIEM()//BANG TINH DIEM CUA MINH
 {
 	//ve o to nhat
-	SetColor(230);
+	//SetColor(230);
 	GoToXY(76, 15);
 	cout << char(201);
-	SetColor(252);
+	//SetColor(252);
 	for (int i = 77; i < 149; i++)//ve duong ngang tren
 	{
-		SetColor(230);
+		//SetColor(230);
 		cout << char(205); 
-		SetColor(252);
+		//SetColor(252);
 	}
-	SetColor(230);
+	//SetColor(230);
 	GoToXY(149, 15);
 	cout << char(187);
-	SetColor(252);
+	//SetColor(252);
 	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben trai
 	{
-		SetColor(230);
+		//SetColor(230);
 		GoToXY(76, j);
 		cout << char(186);
-		SetColor(252);
+		//SetColor(252);
 	}
 
-	SetColor(230);
+	//SetColor(230);
 	GoToXY(76, 31);
 	cout << char(200);
-	SetColor(252);
+	//SetColor(252);
 	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben phai
 	{
-		SetColor(230);
+		//SetColor(230);
 		GoToXY(149, j);
 		cout << char(186);
-		SetColor(252);
+		//SetColor(252);
 	}
 
-	SetColor(230);
+	//SetColor(230);
 	GoToXY(149, 31);
 	cout << char(188);
-	SetColor(252);
+	//SetColor(252);
 	for (int i = 77; i < 149; i++)//ve duong ngang duoi
 	{
-		SetColor(230);
+		//SetColor(230);
 		GoToXY(i, 31);
 		cout << char(205);
-		SetColor(252);
+		//SetColor(252);
 	}
 
 	//VE O NHO BEN TRAI
-	TextColor(233);
+	//TextColor(233);
 	GoToXY(73, 1);
 	cout << char(201);
-	TextColor(252);
+	//TextColor(252);
 	for (int i = 74; i < 109; i++)//ve duong ngang tren
 	{
 		//TextColor(178);
-		TextColor(233);
+		//TextColor(233);
 		cout << char(205);
-		TextColor(252);
+		//TextColor(252);
 	}
 	//TextColor(252);
 
-	TextColor(233);
+	//TextColor(233);
 	GoToXY(109, 1);
 	cout << char(187);
-	TextColor(252);
+	//TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben trai
 	{
-		TextColor(233);
+		//TextColor(233);
 		GoToXY(73, j);
 		cout << char(186);
-		TextColor(252);
+		//TextColor(252);
 	}
 
-	TextColor(233);
+	//TextColor(233);
 	GoToXY(73, 13);
 	cout << char(200);
-	TextColor(252);
+	//TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben phai
 	{
-		TextColor(233);
+		//TextColor(233);
 		GoToXY(109, j);
 		cout << char(186);
-		TextColor(252);
+		//TextColor(252);
 	}
 	
 
-	TextColor(233);
+	//TextColor(233);
 	GoToXY(109, 13);
 	cout << char(188);
-	TextColor(252);
+	//TextColor(252);
 	for (int i = 74; i < 109; i++)//ve duong ngang duoi
 	{
-		TextColor(233);
+		//TextColor(233);
 		GoToXY(i, 13);
 		cout << char(205);
-		TextColor(252);
+		//TextColor(252);
 	}
 	//TextColor(252);
 	
 	//VE O NHO BEN PHAI
-	TextColor(233);
+	//TextColor(233);
 	GoToXY(116, 1);
 	cout << char(201);
-	TextColor(252);
+	//TextColor(252);
 	for (int i = 117; i < 152; i++)//ve duong ngang tren
 	{
-		TextColor(233);
+		//TextColor(233);
 		cout << char(205);
-		TextColor(252);
+		//TextColor(252);
 	}
 	
-	TextColor(233);
+	//TextColor(233);
 	GoToXY(152, 1);
 	cout << char(187);
-	TextColor(252);
+	//TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben phai
 	{
-		TextColor(233);
+		//TextColor(233);
 		GoToXY(152, j);
 		cout << char(186);
-		TextColor(252);
+		//TextColor(252);
 	}
 
-	TextColor(233);
+	//TextColor(233);
 	GoToXY(152, 13);
 	cout << char(188);
-	TextColor(252);
+	//TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben trai
 	{
-		TextColor(233);
+		//TextColor(233);
 		GoToXY(116, j);
 		cout << char(186);
-		TextColor(252);
+		//TextColor(252);
 	}
 
-	TextColor(233);
+	//TextColor(233);
 	GoToXY(116, 13);
 	cout << char(200);
-	TextColor(252);
+	//TextColor(252);
 	for (int i = 117; i < 152; i++)//ve duong ngang duoi
 	{
-		TextColor(233);
+		//TextColor(233);
 		GoToXY(i, 13);
 		cout << char(205);
-		TextColor(252);
+		//TextColor(252);
 	}
 
-	
-	GoToXY(88, 3);//cap nhat luot danh.
-	cout << "PLAYER 1";
+	SetColor(234);
+	GoToXY(87, 3);//cap nhat luot danh.
+	cout << " PLAYER 1 ";
+	SetColor(252);
+
+
 	GoToXY(75, 5);
 	cout << "MOVE:";
 
+
 	
-	
-	GoToXY(88, 7);
-	cout << "PLAYER 2";
-	//TextColor(252);
+	SetColor(234);
+	GoToXY(87, 7);
+	cout << " PLAYER 2 ";
+	SetColor(252);
 	GoToXY(75, 9);
 	cout << "MOVE:";
 
-	
+	SetColor(234);
 	GoToXY(130, 3);
 	cout << "HUONG DAN";
+	SetColor(252);
 	GoToXY(120, 5);
 	cout << "W: UP";
 	GoToXY(137, 5);
@@ -731,6 +749,9 @@ void BANGTINHDIEM()//BANG TINH DIEM CUA MINH
 	cout << "D: RIGHT";
 	GoToXY(120, 9);
 	cout << "ENTER: DANH QUAN CO";
+	GoToXY(120, 11);
+	cout << "S: SAVE       E: EXIT";
+
 }
 void DrawBoard() //HAM DrawBoard cua Minh!!!!!
 {

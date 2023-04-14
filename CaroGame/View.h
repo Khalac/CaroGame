@@ -37,3 +37,4 @@ void MainMenu();
 
 void TextColor(int x);
 void BANGTINHDIEM();
+void Instruction();
