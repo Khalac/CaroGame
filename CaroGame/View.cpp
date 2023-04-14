@@ -81,22 +81,20 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 				if (arr[i][j] == NA) cout << " _ " << VERT;
 				if (arr[i][j] == X)
 				{
-					SetColor(253);
+					SetColor(250);
 					cout << " X ";
 					SetColor(252);
-					cout << VERT;
-
-					
+					cout << VERT;	
 				}
 				
 				if (arr[i][j] == O)
 				{
-					SetColor(251);
+					SetColor(250);
 					cout << " O ";
 					SetColor(252);
 					cout << VERT;
 				}
-				SetColor(252);
+				//SetColor(252);
 			}
 			else
 			{
@@ -112,7 +110,7 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 				
 				if (arr[i][j] == O)
 				{
-					SetColor(251);
+					SetColor(240);
 					cout << " O ";
 					SetColor(252);
 					cout << VERT;
