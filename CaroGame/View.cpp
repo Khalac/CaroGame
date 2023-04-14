@@ -147,13 +147,17 @@ void BangTinhDiem()//Ve bang tinh diem
 	cout << TL;
 	for (int j = 2; j < 27; j++)//Ve bien doc ben trai
 	{
+		
 		GoToXY(70, j);
 		cout << C;
+		
 	}
 	for (int i = 71; i < 136; i++)//Ve bien ngang tren
 	{
+		
 		GoToXY(i, 1);
 		cout << R;
+		
 	}
 	GoToXY(135, 1);
 	cout << TR;//Ve goc ben phai
@@ -555,109 +559,167 @@ void MainMenu() {
 void BANGTINHDIEM()//BANG TINH DIEM CUA MINH
 {
 	//ve o to nhat
+	SetColor(230);
 	GoToXY(76, 15);
 	cout << char(201);
+	SetColor(252);
 	for (int i = 77; i < 149; i++)//ve duong ngang tren
 	{
-
-		cout << char(205);
+		SetColor(230);
+		cout << char(205); 
+		SetColor(252);
 	}
+	SetColor(230);
 	GoToXY(149, 15);
 	cout << char(187);
+	SetColor(230);
 	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben trai
 	{
+		SetColor(230);
 		GoToXY(76, j);
 		cout << char(186);
+		SetColor(252);
 	}
+
+	SetColor(230);
 	GoToXY(76, 31);
 	cout << char(200);
+	SetColor(252);
 	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben phai
 	{
+		SetColor(230);
 		GoToXY(149, j);
 		cout << char(186);
+		SetColor(230);
 	}
+
+	SetColor(230);
 	GoToXY(149, 31);
 	cout << char(188);
+	SetColor(252);
 	for (int i = 77; i < 149; i++)//ve duong ngang duoi
 	{
+		SetColor(230);
 		GoToXY(i, 31);
 		cout << char(205);
+		SetColor(252);
 	}
 
 	//VE O NHO BEN TRAI
+	TextColor(233);
 	GoToXY(73, 1);
 	cout << char(201);
+	TextColor(252);
 	for (int i = 74; i < 109; i++)//ve duong ngang tren
 	{
-
+		//TextColor(178);
+		TextColor(233);
 		cout << char(205);
+		TextColor(252);
 	}
+	//TextColor(252);
 
+	TextColor(233);
 	GoToXY(109, 1);
 	cout << char(187);
+	TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben trai
 	{
+		TextColor(233);
 		GoToXY(73, j);
 		cout << char(186);
+		TextColor(252);
 	}
 
+	TextColor(233);
 	GoToXY(73, 13);
 	cout << char(200);
+	TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben phai
 	{
+		TextColor(233);
 		GoToXY(109, j);
 		cout << char(186);
+		TextColor(252);
 	}
+	
 
+	TextColor(233);
 	GoToXY(109, 13);
 	cout << char(188);
+	TextColor(252);
 	for (int i = 74; i < 109; i++)//ve duong ngang duoi
 	{
+		TextColor(233);
 		GoToXY(i, 13);
 		cout << char(205);
+		TextColor(252);
 	}
+	//TextColor(252);
+	
 	//VE O NHO BEN PHAI
+	TextColor(233);
 	GoToXY(116, 1);
 	cout << char(201);
+	TextColor(252);
 	for (int i = 117; i < 152; i++)//ve duong ngang tren
 	{
+		TextColor(233);
 		cout << char(205);
+		TextColor(252);
 	}
-
+	
+	TextColor(233);
 	GoToXY(152, 1);
 	cout << char(187);
+	TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben phai
 	{
+		TextColor(233);
 		GoToXY(152, j);
 		cout << char(186);
+		TextColor(252);
 	}
 
+	TextColor(233);
 	GoToXY(152, 13);
 	cout << char(188);
+	TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben trai
 	{
+		TextColor(233);
 		GoToXY(116, j);
 		cout << char(186);
+		TextColor(252);
 	}
 
-
+	TextColor(233);
 	GoToXY(116, 13);
 	cout << char(200);
+	TextColor(252);
 	for (int i = 117; i < 152; i++)//ve duong ngang duoi
 	{
+		TextColor(233);
 		GoToXY(i, 13);
 		cout << char(205);
+		TextColor(252);
 	}
+
+	
 	GoToXY(88, 3);//cap nhat luot danh.
 	cout << "PLAYER 1";
 	GoToXY(75, 5);
 	cout << "MOVE:";
 
+	
+	
 	GoToXY(88, 7);
 	cout << "PLAYER 2";
+	//TextColor(252);
 	GoToXY(75, 9);
 	cout << "MOVE:";
 
+	
 	GoToXY(130, 3);
 	cout << "HUONG DAN";
 	GoToXY(120, 5);

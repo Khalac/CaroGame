@@ -13,7 +13,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 	ToaDo now = ToaDo{ 0,0 };
 	int luot = 1;
 	char lenh;
-	PrintFile("XTURN.txt", 253, 95, 20);
+	PrintFile("XTURN.txt", 240, 95, 20);
 	while (true)
 	{
 		GoToXY(0, 0);
@@ -77,7 +77,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 					cout << step1;
 					GoToXY(88, 9);
 					cout << step2;
-					PrintFile("OTURN.txt", 253, 95, 20);
+					PrintFile("OTURN.txt", 250, 95, 20);
 				}
 			}
 			if (k % 2 == 0)
@@ -94,7 +94,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 					cout << step1;
 					GoToXY(88, 9);
 					cout << step2;
-					PrintFile("XTURN.txt", 253, 95, 20);
+					PrintFile("XTURN.txt", 240, 95, 20);
 				}
 				//TOI DAY LA HET HAM CUA UYEN R NHENNN!!!
 			}
@@ -107,7 +107,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 				//system("cls");
 				displayBoard(game, MAX_SIZE, now, 0);
 				cout << "Nguoi choi " << luot << " da thang !" << endl;
-				cout << "Nhan phim bat ky de tiep tuc....";
+				//cout << "Nhan phim bat ky de tiep tuc....";
 				lenh = _getch();
 				return;
 			}
