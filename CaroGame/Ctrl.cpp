@@ -107,7 +107,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 				GoToXY(0, 0);
 				//system("cls");
 				displayBoard(game, MAX_SIZE, now, 0);
-				cout << "Nguoi choi " << luot << " da thang !" << endl;
+				//cout << "Nguoi choi " << luot << " da thang !" << endl;
 				//cout << "Nhan phim bat ky de tiep tuc....";
 				lenh = _getch();
 				return;
