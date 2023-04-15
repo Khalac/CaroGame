@@ -1,7 +1,7 @@
 ﻿#include "View.h"
 #include<iostream>
 using namespace std;
-using namespace std;
+
 
 void CreateConsoleWindow(int pWidth, int pHeight)
 {
@@ -423,6 +423,8 @@ void MainMenu() {
 		char a = _getch();
 		if (a == 80 || a == 's' || a == 'S' || a == '2')
 		{
+			PlaySound(TEXT("select-sound-121244.wav"), NULL, SND_FILENAME);
+
 			choice = 1;//nhan nut xuong
 			if (odau == 0)
 			{
@@ -438,6 +440,8 @@ void MainMenu() {
 		}
 		else if (a == 72 || a == 'w' || a == 'W' || a == '8')
 		{
+			PlaySound(TEXT("select-sound-121244.wav"), NULL, SND_FILENAME);
+
 			choice = 2;//nhan nut len
 			if (str != "ERROR" && toado > menu.y - 2)
 			{
@@ -445,7 +449,12 @@ void MainMenu() {
 
 			}
 		}
-		else if (a == 13 || a == 'e' || a == 'e' || a == '5') choice = 3;//nhan nut enter
+		else if (a == 13 || a == 'e' || a == 'e' || a == '5')
+		{
+			PlaySound(TEXT("select-sound-121244.wav"), NULL, SND_FILENAME);
+
+			choice = 3;//nhan nut enter
+		}
 		else choice = 0;//trong truong hop khong phai nut du chuyen cach nhau 4 don vi moi o//tong 19 o
 		if (choice == 1 && toado < menu.y + 13)
 		{

@@ -73,6 +73,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 				}
 				else
 				{
+					PlaySound(TEXT("select-sound-121244.wav"), NULL, SND_FILENAME);
 					step1++;
 					GoToXY(88, 5);
 					cout << step1;
@@ -90,6 +91,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 				}
 				else
 				{
+					PlaySound(TEXT("select-sound-121244.wav"), NULL, SND_FILENAME);
 					step2++;
 					GoToXY(88, 5);
 					cout << step1;

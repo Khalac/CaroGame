@@ -3,6 +3,7 @@
 
 
 #include "Ctrl.h"
+#include "mmsystem.h"
 
 int main()
 {
