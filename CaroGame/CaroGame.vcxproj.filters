@@ -45,5 +45,7 @@
   <ItemGroup>
     <Text Include="XTURN.txt" />
     <Text Include="OTURN.txt" />
+    <Text Include="X win.txt" />
+    <Text Include="Owin.txt" />
   </ItemGroup>
 </Project>

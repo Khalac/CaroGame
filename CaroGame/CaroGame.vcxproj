@@ -137,6 +137,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="OTURN.txt" />
+    <Text Include="Owin.txt" />
+    <Text Include="X win.txt" />
     <Text Include="XTURN.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
