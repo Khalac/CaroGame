@@ -339,6 +339,7 @@ void MainMenu() {
 	}
 	if (toado == menu.y + 10) //Help
 	{
+
 		Instruction();
 	}
 	if (toado == menu.y + 14)
@@ -346,53 +347,84 @@ void MainMenu() {
 		Sleep(1000);
 	}
 }
+void VeKhungChoInstruction()
+{
+	GoToXY(0, 0);//BO GOC TREN TRAI
+	cout << char(201);
+	for (int i = 0; i < 158; i++)//ve duong ngang tren
+	{
+
+		cout << char(205);
+	}
+	GoToXY(158, 0);
+	cout << char(187);//BO GOC TREN PHAI
+	for (int j = 1; j < 39; j++)//ve duong thang xuong duoi ben trai
+	{
+
+		GoToXY(0, j);
+		cout << char(186);
+
+	}
+	GoToXY(0, 39);//BO GOC DUOI TRAI
+	cout << char(200);
+	for (int j = 1; j < 39; j++)//ve duong thang xuong duoi ben phai
+	{
+
+		GoToXY(158, j);
+		cout << char(186);
+
+	}
+
+	for (int i = 1; i < 158; i++)//ve duong ngang duoi
+	{
+
+		GoToXY(i, 39);
+		cout << char(205);
+
+	}
+	GoToXY(158, 39);//BO GOC DUOI PHAI
+	cout << char(188);
+}
+
 void Instruction()
 {
-	system("cls");
-	int i = 0;
-	do
-	{
-		TextColor(i++);
-		system("cls");
-		GoToXY(36, 6);
-		cout << "###" << "\n";
-		GoToXY(36, 7);
-		cout << " #  #    #  ####  ##### #####  #    #  ####  ##### #  ####  #    #" << "\n";
-		GoToXY(36, 8);
-		cout << " #  ##   # #        #   #    # #    # #    #   #   # #    # ##   #" << "\n";
-		GoToXY(36, 9);
-		cout << " #  # #  #  ####    #   #    # #    # #        #   # #    # # #  #" << "\n";
-		GoToXY(36, 10);
-		cout << " #  #  # #      #   #   #####  #    # #        #   # #    # #  # # " << "\n";
-		GoToXY(36, 11);
-		cout << " #  #   ## #    #   #   #   #  #    # #    #   #   # #    # #   ##" << "\n";
-		GoToXY(36, 12);
-		cout << "### #    #  ####    #   #    #  ####   ####    #   #  ####  #    #" << "\n";
-		TextColor(7);
-		GoToXY(61, 15);
-		cout << "Size: 15x15\n";
-		GoToXY(44, 16);
-		cout << "Two players play against each other on 15 x 15\n";
-		GoToXY(51, 17);
-		cout << "Press 'Enter' to check the BOARD\n";
-		GoToXY(43, 18);
-		cout << "W or w-up; A or a-left; S or s-down; D or d-right\n";
-		GoToXY(42, 19);
-		cout << "  If all BOARD are checked, the game ends in draw.\n";
+	do {
+		VeKhungChoInstruction();
+		GoToXY(45, 2);
+		cout << " _   _  _   _  _____  _    _  ______    ____   _____  __    _ \n";
+		GoToXY(45, 3);
+		cout << "|  | |  ||  | |  ||       ||  |  | ||       |  |      | |   _   ||  |  | |\n";
+		GoToXY(45, 4);
+		cout << "|  |_|  ||  | |  ||   _   ||   |_| ||    ___|  |  _    ||  |_|  ||   |_| |\n";
+		GoToXY(45, 5);
+		cout << "|       ||  |_|  ||  | |  ||       ||   | __   | | |   ||       ||       |\n";
+		GoToXY(45, 6);
+		cout << "|       ||       ||  |_|  ||  _    ||   ||  |  | |_|   ||       ||  _    |\n";
+		GoToXY(45, 7);
+		cout << "|   _   ||       ||       || | |   ||   |_| |  |       ||   _   || | |   |\n";
+		GoToXY(45, 8);
+		cout << "|__| |__||_______||_______||_|  |__||_______|  |______| |__| |__||_|  |__|\n";
+		GoToXY(50, 15);
+		cout << "w  or  W:    DI LEN\n";
+		GoToXY(50, 17);
+		cout << "a  or  A:    SANG TRAI\n";
+		GoToXY(90, 15);
+		cout << "s  or  S:    DI XUONG\n";
+		GoToXY(90, 17);
+		cout << "d  or  D:    SANG PHAI\n";
+		GoToXY(75, 19);
+		cout << "ENTER:  CHOOSE\n";
+		GoToXY(50, 21);
+		cout << "LUAT CHOI\n";
 		GoToXY(50, 23);
-		cout << " Press Esc to go to main menu\n";
-		Sleep(500);
-
-		if (i >= 15)
-		{
-			i = 1;
-		}
-		
-		if (_getch() == ESC) {
-			break;
-		}
-
-	} while (i < 15);
+		cout << " -DI CHUYEN DEN O BAN MUON DANH VA NHAN ENTER, SAU DO DEN LUOT NGUOI CHOI KE TIEP.\n";
+		GoToXY(50, 25);
+		cout << " -TRONG 2 NGUOI, AI DANH DUOC 5 DIEM 'X' HAY 5 DIEM 'O' THANG HANG TRUOC THI SE GIANH CHIEN THANG.\n";
+		GoToXY(50, 27);
+		cout << " -NEU BAN MUON DAU HANG, VUI LONG NHAN PHIM 'g' hoac 'G'.\n";
+		GoToXY(70, 29);
+		cout << "An ESC de ve Main Menu'.\n";
+	} while (_getch() != ESC);
 	MainMenu();
 }
 void BANGTINHDIEM()//BANG TINH DIEM
