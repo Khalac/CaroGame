@@ -740,18 +740,15 @@ void LoadGame() {
 			PrintString(filename, 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i);
 			i += 2;
 		}
-		SavedFile.close();
 		fstream SavedFileChoose;
 		string filenameChoose;
-		PrintString("Nhap ten file ban muon load: ", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 2);
-		getline(cin, filenameChoose);
-		filenameChoose += ".txt";
 		do {
+			PrintString("Nhap ten file ban muon load: ", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 2);
+			getline(cin, filenameChoose);
+			filenameChoose += ".txt";
 			if (!CheckFileExists(filenameChoose))
 			{
-				system("cls");
-				PrintString("File khong ton tai moi ban nhap lai", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 4);
-				break;
+				PrintString("File khong ton tai moi ban nhap lai : ", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 4);
 			}
 			else break;
 		} while (true);

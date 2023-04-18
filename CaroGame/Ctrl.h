@@ -1,7 +1,6 @@
 #pragma once
 #include"View.h"
-#include<string.h>
-#include<conio.h>
+
 
 void Ctrl(int& x, int& y); 
 void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2,int playerTurn,int updateStep,ToaDo now,Player P1, Player P2,bool checkLoad);

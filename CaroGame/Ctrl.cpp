@@ -61,6 +61,9 @@ void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pl
 		if (lenh == 'p' || lenh == 'P') {
 			SaveGame(game,step1,step2,luot,k,now,P1,P2);
 		}
+		if (lenh == ESC) {
+			MainMenu();
+		}
 		if (lenh == 13 || lenh == 'e' || lenh == 'E' || lenh == '5')
 		{
 			k++; //CAP NHAT STEP

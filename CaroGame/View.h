@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include "Data.h"
-#include "Model.h"
 #include "Ctrl.h"
 
 //Function for console
