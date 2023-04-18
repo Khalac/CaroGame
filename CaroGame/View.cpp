@@ -1,5 +1,5 @@
 ﻿#include "View.h"
-using namespace std;
+
 
 
 void CreateConsoleWindow(int pWidth, int pHeight)
