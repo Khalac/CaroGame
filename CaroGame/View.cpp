@@ -64,7 +64,7 @@ void PrintString(string s, int color, int x, int y)//In text
 
 }
 
-void displayBoard(enum Stone arr[][15], int size, ToaDo now)
+void displayBoard(enum Stone arr[][15], int size, ToaDo now ,Player P1, Player P2)
 {
 	cout << "    ";
 	Nocursortype();
@@ -125,7 +125,7 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now)
 	cout << "   " << lineString(BL, BM, BR, HORZ, 3, numPerLine) << endl;
 	SetColor(252);
 	GoToXY(69, 1);
-	BANGTINHDIEM();
+	BANGTINHDIEM(P1,P2);
 }
 
 void PrintFile(string filename, int color, int x, int y) //In du lieu tep tin
@@ -326,7 +326,8 @@ void MainMenu() {
 		ToaDo now;
 		now.i = 0;
 		now.j = 0;
-		StartGame(game, 0, 0,1,0,now);
+		Player P1, P2;
+		StartGame(game, 0, 0, 1, 0, now,P1,P2,0);
 		
 	}
 	if (toado == menu.y + 2)
@@ -427,7 +428,7 @@ void Instruction()
 	} while (_getch() != ESC);
 	MainMenu();
 }
-void BANGTINHDIEM()//BANG TINH DIEM
+void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 {
 	//ve o to nhat
 	//SetColor(230);
@@ -578,7 +579,7 @@ void BANGTINHDIEM()//BANG TINH DIEM
 
 	SetColor(234);
 	GoToXY(87, 3);//cap nhat luot danh.
-	cout << " PLAYER 1 ";
+	cout << P1.name;
 	SetColor(252);
 
 
@@ -589,7 +590,7 @@ void BANGTINHDIEM()//BANG TINH DIEM
 	
 	SetColor(234);
 	GoToXY(87, 7);
-	cout << " PLAYER 2 ";
+	cout << P2.name;
 	SetColor(252);
 	GoToXY(75, 9);
 	cout << "MOVE:";
@@ -626,18 +627,18 @@ void DrawBoard()
 			if (i == 1)//Ve vien tren cung
 			{
 				GoToXY(1, 1);
-				cout << Topleft;
+				cout << TL;
 				GoToXY(61, 1);
-				cout << Topright;
+				cout << TR;
 				for (int k = 2; k < 61; k++)
 				{
 					GoToXY(k, 1);
-					cout << Line;
+					cout << HORZ;
 				}
 				for (int k = 5; k < 61; )
 				{
 					GoToXY(k, 1);
-					cout << Connecttop;
+					cout << TM;
 					k += 4;
 				}
 			}
@@ -654,41 +655,41 @@ void DrawBoard()
 		if (i % 2 == 1)
 		{
 			GoToXY(1, i);
-			cout << Connectleft;
+			cout << VERT_START;
 		}
 		if (i % 2 == 0)
 		{
 			GoToXY(1, i);
-			cout << Vertical;
+			cout << VERT;
 		}
 	}
 	GoToXY(61, 31);// ve vien ben phai
-	cout << Botright;
+	cout << BR;
 	for (int m = 2; m < 31; m++)
 	{
 		if (m % 2 == 1)
 		{
 			GoToXY(61, m);
-			cout << Connectright;
+			cout << VERT_END;
 		}
 		if (m % 2 == 0)
 		{
 			GoToXY(61, m);
-			cout << Vertical;
+			cout << VERT;
 		}
 	}
 	GoToXY(1, 31);//ve vien ben duoi
-	cout << Botleft;
+	cout << BL;
 	for (int k = 2; k < 61; k++)
 	{
 		GoToXY(k, 31);
-		cout << Line;
+		cout << HORZ;
 
 	}
 	for (int m = 5; m < 61; )
 	{
 		GoToXY(m, 31);
-		cout << Connectbot;
+		cout << BM;
 		m += 4;
 	}
 	//VE BEN CAC DUONG THANG BEN TRONG BAN CO:
@@ -699,12 +700,12 @@ void DrawBoard()
 			for (int i = 2; i < 61;)
 			{
 				GoToXY(i, j);
-				cout << Line << Line << Line;
+				cout << HORZ << HORZ << HORZ;
 				i += 3;
 				GoToXY(i, j);
 				if (i < 61)
 				{
-					cout << Connect;
+					cout << VERT_MID;
 					i++;
 				}
 			}
@@ -717,7 +718,7 @@ void DrawBoard()
 			for (int i = 5; i < 61;)
 			{
 				GoToXY(i, j);
-				cout << Vertical;
+				cout << VERT;
 				i += 4;
 			}
 		}
@@ -731,6 +732,7 @@ void LoadGame() {
 	system("cls");
 	int stepPlayer1, stepPlayer2, playerTurn, updateStep;
 	ToaDo now;
+	Player P1, P2;
 	enum Stone board[15][15];
 	do {
 		PrintString("[==========Saved Games===========]", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10);
@@ -764,6 +766,8 @@ void LoadGame() {
 		SavedFileChoose >> updateStep;
 		SavedFileChoose >> now.i;
 		SavedFileChoose >> now.j;
+		SavedFileChoose >> P1.name;
+		SavedFileChoose >> P2.name;
 
 
 		for (int i = 0; i < BOARD_SIZE; i++)
@@ -787,19 +791,15 @@ void LoadGame() {
 
 	} while (true);
 	system("cls");
-	StartGame(board, stepPlayer1, stepPlayer2, playerTurn, updateStep,now);
+	StartGame(board, stepPlayer1, stepPlayer2, playerTurn, updateStep,now,P1,P2,1);
 }
 
 void xWin() {
 	system("cls");
 	int i = 240;
-	do {
-		PrintFile("Xwin.txt", i, WIDTH_CENTER -40, HEIGHT_CENTER - 10);
-		i++;
-		if (i > 250) {
-			i = 240;
-		}
-	} while (_getch() != ESC);
+	PrintFile("Xwin.txt", i, WIDTH_CENTER - 40, HEIGHT_CENTER - 10);
+	PlaySound(TEXT("WinSounds.wav"), NULL, SND_FILENAME);
+
 	MainMenu();
 }
 
@@ -814,5 +814,18 @@ void oWin() {
 		}
 	} while (_getch() != ESC);
 	MainMenu();
+}
+
+void inputNameScreen(Player& P1, Player& P2) {
+	system("cls");
+	do {
+		PrintString("Input name for player 1 (1 - 10 characters): ", 240, WIDTH_CENTER - 30, HEIGHT_CENTER);
+		getline(cin, P1.name);
+	} while (P1.name.length() < 2 || P1.name.length() > 10);
+	do {
+
+		PrintString("Input name for player 2 (1 - 10 characters): ", 240, WIDTH_CENTER - 30, HEIGHT_CENTER + 2);
+		getline(cin, P2.name);
+	} while (P2.name.length() < 2 || P2.name.length() > 10 ||P1.name == P2.name);
 }
 

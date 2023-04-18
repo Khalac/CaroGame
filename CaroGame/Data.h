@@ -6,7 +6,7 @@
 #define WIDTH_CENTER WIDTH / 16 +2
 #define HEIGHT_CENTER HEIGHT / 32
 
-#define BOARD_SIZE 12 // Kích thức ma trận bàn cờ
+#define BOARD_SIZE 15 // Kích thức ma trận bàn cờ
 #define LEFT 3 // Tọa độ trái màn hình bàn cờ
 #define TOP 1 // Tọa độ trên màn hình bàn cờ
 #define _CRT_SECURE_NO_WARNINGS
@@ -41,20 +41,6 @@ const char VERT_MID = 197;
 #include <MMsystem.h>
 #include "conio.h"
 using namespace std;
-
-#define Line (char)196//dau gach:-
-#define Connect (char)197//dau thap gia, noi cac o voi nhau.
-#define Vertical (char)179//dau gach thang: |
-#define Topleft (char)218//dau bo goc tren cung ben trai
-#define Topright (char)191//dau bo goc tren cung ben phai
-#define Botright (char)217//dau bo goc cuoi ben phai
-#define Botleft (char)192//dau bo goc cuoi ben trai
-#define Connecttop (char)194//dau noi cua vien tren, co dang hinh thap gia bi mat canh tren
-#define Connectleft (char)195//dau noi cua vien trai, co dang hinh thap gia bi mat canh ben trai
-#define Connectright (char)180//dau noi cua vien phai, co dang hinh thap gia bi mat canh ben phai
-#define Connectbot (char)193//dau noi cau vien duoi, co dang hinh thap gia bi mat canh duoi
-
-
 
 enum Stone { NA, X, O }; //Kiểu dữ liệu tùy biến. Tự động nhận NA=0, X=1, O=2. Kiểu dữ liệu này khi khai báo thì sẽ chỉ nhận các giá trị đã khai báo trước//
 

@@ -2,7 +2,7 @@
 #include "Data.h";
 #include"View.h"
 
-void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep, ToaDo now ) {
+void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep, ToaDo now, Player P1,Player P2,bool checkLoad ) {
 	
 	Nocursortype();
 	int step1 = stepPlayer1;
@@ -10,10 +10,14 @@ void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pl
 	int k = updateStep;
 	int luot = playerTurn;
 	char lenh;
+	if (checkLoad == 0) {
+		inputNameScreen(P1, P2);
+		system("cls");
+	}
 	while (true)
 	{
 		GoToXY(0, 0);
-		displayBoard(game, MAX_SIZE, now);
+		displayBoard(game, MAX_SIZE, now, P1,P2);
 		GoToXY(88, 5);
 		cout << step1;
 		GoToXY(88, 9);
@@ -55,7 +59,7 @@ void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pl
 			return;
 		}
 		if (lenh == 'p' || lenh == 'P') {
-			SaveGame(game,step1,step2,luot,k,now);
+			SaveGame(game,step1,step2,luot,k,now,P1,P2);
 		}
 		if (lenh == 13 || lenh == 'e' || lenh == 'E' || lenh == '5')
 		{
@@ -441,7 +445,7 @@ void Ctrl(int& x, int& y)
 	}
 }
 
-void SaveData(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep,ToaDo now,string filename)
+void SaveData(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep,ToaDo now,Player P1, Player P2,string filename)
 {
 	fstream saveFile;
 	saveFile.open(filename, ios::out);
@@ -452,6 +456,8 @@ void SaveData(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pla
 	saveFile << updateStep << "\n";
 	saveFile << now.i << "\n";
 	saveFile << now.j << "\n";
+	saveFile << P1.name << "\n";
+	saveFile << P2.name << "\n";
 
 
 	for (int i = 0; i < BOARD_SIZE; i++)
@@ -484,7 +490,7 @@ bool CheckFileExists(string filename)
 	return false;
 }
 
-void SaveGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep, ToaDo now) {
+void SaveGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep, ToaDo now,Player P1,Player P2) {
 	string filename;
 	system("cls");
 	PrintString("Nhap ten muon luu game: ", 245, WIDTH_CENTER - 20, HEIGHT_CENTER);
@@ -507,7 +513,7 @@ void SaveGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pla
 	saveFile.open("SavedFile.txt", ios::app);
 	saveFile << filename << "\n";
 	saveFile.close();
-	SaveData(game, stepPlayer1, stepPlayer2, playerTurn, updateStep,now,filename);
+	SaveData(game, stepPlayer1, stepPlayer2, playerTurn, updateStep,now,P1,P2,filename);
 	MainMenu();
 }
 

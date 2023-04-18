@@ -4,7 +4,7 @@
 #include<conio.h>
 
 void Ctrl(int& x, int& y); 
-void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2,int playerTurn,int updateStep,ToaDo now);
+void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2,int playerTurn,int updateStep,ToaDo now,Player P1, Player P2,bool checkLoad);
 
 void ExitGame();
 
@@ -18,8 +18,8 @@ bool CheckMark(Mark* z, int x, int y);
 
 bool CheckFileExists(string filename);
 
-void SaveData(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep,ToaDo now, string filename);
+void SaveData(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep,ToaDo now, Player P1, Player P2, string filename);
 bool CheckFileExists(string filename);
-void SaveGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep, ToaDo now);
+void SaveGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep, ToaDo now, Player P1, Player P2);
 
 
