@@ -1,0 +1,5 @@
+quoc.txt
+kl.txt
+kk.txt
+q.txt
+m.txt

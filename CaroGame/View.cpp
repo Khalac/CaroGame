@@ -1,6 +1,5 @@
 ﻿#include "View.h"
-#include<iostream>
-using namespace std;
+
 
 
 void CreateConsoleWindow(int pWidth, int pHeight)
@@ -65,7 +64,7 @@ void PrintString(string s, int color, int x, int y)//In text
 
 }
 
-void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
+void displayBoard(enum Stone arr[][15], int size, ToaDo now)
 {
 	cout << "    ";
 	Nocursortype();
@@ -124,144 +123,9 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot)
 			cout << "   " << lineString(VERT_START, VERT_MID, VERT_END, HORZ, 3, numPerLine) << endl;
 	}
 	cout << "   " << lineString(BL, BM, BR, HORZ, 3, numPerLine) << endl;
-	//if (luot != 0)
-		//cout << "Luot cua nguoi choi " << luot << "....";
 	SetColor(252);
 	GoToXY(69, 1);
 	BANGTINHDIEM();
-}
-void BangTinhDiem()//Ve bang tinh diem
-{
-	int score1 = 0; int step1 = 0;
-	int score2 = 0; int step2 = 0;
-	char TL = 218;
-	char TR = 191;
-	char BL = 192;
-	char BR = 217;
-	char R = 196;
-	char C = 179;
-	char ngang = 205;
-	char doc = 186;
-	GoToXY(70, 1);
-	cout << TL;
-	for (int j = 2; j < 27; j++)//Ve bien doc ben trai
-	{
-		
-		GoToXY(70, j);
-		cout << C;
-		
-	}
-	for (int i = 71; i < 136; i++)//Ve bien ngang tren
-	{
-		
-		GoToXY(i, 1);
-		cout << R;
-		
-	}
-	GoToXY(135, 1);
-	cout << TR;//Ve goc ben phai
-	for (int j = 2; j < 28; j++)//Ve bien doc ben phai
-	{
-		GoToXY(135, j);
-		cout << C;
-	}
-	for (int i = 70; i < 135; i++)//Ve bien ngang duoi
-	{
-		GoToXY(i, 27);
-		cout << R;
-	}
-	GoToXY(70, 27);//Ve goc ben trai
-	cout << BL;
-	GoToXY(135, 27);
-	cout << BR;
-	for (int i = 71; i < 135; i++)//Chia bang lam 2 theo chieu ngang
-	{
-		GoToXY(i, 8);
-		cout << ngang;
-	}
-	for (int j = 9; j < 13; j++)//Chia bang lam 2 theo chieu doc
-	{
-		GoToXY(103, j);
-		cout << doc;
-	}
-	for (int i = 71; i < 135; i++)//Ke duong ngang cho bang thu 2
-	{
-		GoToXY(i, 15);
-		cout << ngang;
-	}
-	for (int j = 10; j < 23; j++)
-	{
-		GoToXY(103, j);
-		cout << doc;
-	}
-	for (int i = 71; i < 135; i++)
-	{
-		GoToXY(i, 23);
-		cout << ngang;
-	}
-	GoToXY(84, 5);
-	cout << "PLAYER 1\t";
-	GoToXY(117, 5);
-	cout<<"PLAYER 2";
-	//VIET CHU STEP AND SCORE
-	GoToXY(84, 18);
-	cout << "STEP:";
-	GoToXY(89, 18);
-	cout << step1;
-	GoToXY(84, 19);
-	cout << "SCORE:";
-	GoToXY(90, 19);
-	cout << score1;
-	GoToXY(116, 18);
-	cout << "STEP:";
-	GoToXY(121, 18);
-	cout << step2;
-	GoToXY(116, 19);
-	cout << "SCORE:";
-	GoToXY(122, 19);
-	cout << score2;
-
-	/*GoToXY(89, 18);
-	cout << step1;
-	GoToXY(90, 19);
-	cout << score1;
-	GoToXY(121, 18);
-	cout << step2;
-	GoToXY(122, 19);
-	cout << score2;
-	*/
-
-	//GoToXY(68, 9);//VE CHU X
-	//cout << R << "     " << R << "\n";
-	GoToXY(84, 9);
-	cout<<"*     *\n";
-	GoToXY(84, 10);
-	cout << " *   *";
-	GoToXY(84, 11);
-	cout << "  * *";
-	GoToXY(84, 12);
-	cout << "   *";
-	GoToXY(84, 13);
-	cout << "  * *";
-	GoToXY(84, 14);
-	cout << " *   *";
-	//VE CHU O
-	GoToXY(116, 9);//VE CHU O
-	cout<<"  ****\n";
-	GoToXY(116, 10);
-	cout<<" *    *\n";
-	GoToXY(116, 11);
-	cout<<" *    *\n";
-	GoToXY(116, 12);
-	cout<<" *    *\n";
-	GoToXY(116, 13);
-	cout<<" *    *\n";
-	GoToXY(116, 14);
-	cout<<"  ****\n";
-	GoToXY(99, 25);
-	cout<<"GOOD LUCK!!";
-	GoToXY(16, 28);
-	
 }
 
 void PrintFile(string filename, int color, int x, int y) //In du lieu tep tin
@@ -276,34 +140,16 @@ void PrintFile(string filename, int color, int x, int y) //In du lieu tep tin
 		getline(f, line);
 		subline.push_back(line);
 	}
-	for (int i = 0; i < subline.size(); i++)
+	for (int i = 0; i < subline.size(); i++) {
 		PrintString(subline[i], color, x, y++);
+	}
 	f.close();
 }
-void DrawXWIN()
-{
-	cout << " __     __       __ __ __    ________  ___   __" << endl;
-	cout << "/__/\\ /__/\\     /_//_//_/\\  /_______/\\/__/\\ /__/\\" << endl;
-	cout << "\\ \\::\\\\:.\\ \\    \\:\\\\:\\\\:\\ \\ \\__.::._\\/\\::\\_\\\\  \\ \\" << endl;
-	cout << " \\_\\::_\\:_\\/     \\:\\\\:\\\\:\\ \\   \\::\\ \\  \\:. `-\\  \\ \\" << endl;
-	cout << "   _\\/__\\_\\_/\\    \\:\\\\:\\\\:\\ \\  _\\::\\ \\__\\:. _    \\ \\" << endl;
-	cout << "   \\ \\ \\ \\::\\ \\    \\:\\\\:\\\\:\\ \\/__\\::\\__/\\\\. \\`-\\  \\ \\" << endl;
-	cout << "    \\_\\/  \\__\\/     \\_______\\/\\________\\/ \\__\\/ \\__\\/" << endl;
-}
-void DrawOWIN()
-{
-	cout << " ______       __ __ __    ________  ___   __      " << endl;
-	cout << "/_____/\\     /_//_//_/\\  /_______/\\/__/\\ /__/\\    " << endl;
-	cout << "\\:::_ \\ \\    \\:\\\\:\\\\:\\ \\ \\__.::._\\/\\::\\_\\\\  \\ \\   " << endl;
-	cout << " \\:\\ \\ \\ \\    \\:\\\\:\\\\:\\ \\   \\::\\ \\  \\:. `-\\  \\ \\  " << endl;
-	cout << "  \\:\\ \\ \\ \\    \\:\\\\:\\\\:\\ \\  _\\::\\ \\__\\:. _    \\ \\ " << endl;
-	cout << "   \\:\\_\\ \\ \\    \\:\\\\:\\\\:\\ \\/__\\::\\__/\\\\. \\`-\\  \\ \\" << endl;
-	cout << "    \\_____\\/     \\_______\\/\\________\\/ \\__\\/ \\__\\/" << endl;
-}
+
 void LoadingBar()//thanh loading truoc khi di vao giao dien.
 {
 	
-	system("color 01");//blue
+	system("color 94");//blue
 
 	// Initialize char for printing
 	// loading bar
@@ -330,39 +176,6 @@ void LoadingBar()//thanh loading truoc khi di vao giao dien.
 	}
 	system("cls");
 }
-
-
-/*void MainMenu() {
-	Menu menu;
-	
-	menu.choices = 5; // man hinh meny co 5 su lua chon
-	menu.x = WIDTH_CENTER - 15;
-	menu.y = HEIGHT_CENTER;
-
-	system("cls");
-	PrintFile("Carotext.txt",253,40,3);
-
-	PrintString("    Welcome to Caro Game   ", 253, menu.x, menu.y - 2);
-	PrintString("         Start Game        ", 253, menu.x, menu.y +1);
-	PrintString("         Load Game         ", 253, menu.x, menu.y + 2);
-	PrintString("          Ranking          ", 253, menu.x, menu.y + 3);
-	PrintString("        Instruction            ", 253, menu.x, menu.y + 4);
-	PrintString("         Exit Game         ", 253, menu.x, menu.y + 5);
-}*/
-void thanh_sang(int x, int y, int w, int h, int b_color, string nd)//de len de nguoi dung biet dang chon muc nao
-{
-	TextColor(b_color);
-	for (int iy = y + 1; iy <= y + h - 1; iy++)
-	{
-		for (int ix = x + 1; ix <= x + w - 1; ix++)
-		{
-			GoToXY(ix, iy); cout << " ";
-		}
-	}
-	//SetColor(7);
-	GoToXY(x + 1, y + 1);
-	cout << nd;
-}
 void demau(int x, int y, int w, int h, int b_color, string nd)
 {
 	TextColor(b_color);
@@ -380,15 +193,16 @@ void demau(int x, int y, int w, int h, int b_color, string nd)
 }
 
 void MainMenu() {
+
 	Menu menu;
 	Nocursortype();//xoa con tro nhap nhay tren man hinh.
 	menu.choices = 5; // man hinh meny co 5 su lua chon
 	menu.x = WIDTH_CENTER - 15;
 	menu.y = HEIGHT_CENTER;
-
 	system("cls");
+	
 	ShowCursor(0);
-	PrintFile("Carotext.txt", 253, 40, 3);
+	PrintFile("Carotext.txt", 253, 50, 3);
 
 	PrintString("    Welcome to Caro Game   ", 253, menu.x, menu.y - 5);
 
@@ -423,7 +237,7 @@ void MainMenu() {
 		char a = _getch();
 		if (a == 80 || a == 's' || a == 'S' || a == '2')
 		{
-			PlaySound(TEXT("select-sound-121244.wav"), NULL, SND_FILENAME);
+			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
 
 			choice = 1;//nhan nut xuong
 			if (odau == 0)
@@ -440,7 +254,7 @@ void MainMenu() {
 		}
 		else if (a == 72 || a == 'w' || a == 'W' || a == '8')
 		{
-			PlaySound(TEXT("select-sound-121244.wav"), NULL, SND_FILENAME);
+			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
 
 			choice = 2;//nhan nut len
 			if (str != "ERROR" && toado > menu.y - 2)
@@ -451,7 +265,7 @@ void MainMenu() {
 		}
 		else if (a == 13 || a == 'e' || a == 'e' || a == '5')
 		{
-			PlaySound(TEXT("select-sound-121244.wav"), NULL, SND_FILENAME);
+			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
 
 			choice = 3;//nhan nut enter
 		}
@@ -466,28 +280,26 @@ void MainMenu() {
 		}
 		if (toado == menu.y - 2)
 		{
-			//thanh_sang(menu.x, menu.y-3 , 28, 2, 240, x);
+
 			demau(menu.x, menu.y - 3, 28, 2, 75, x);
 
 			str = x;
 		}
 		if (toado == menu.y + 2)
 		{
-			//thanh_sang(menu.x, menu.y + 1, 28, 2, 240, b);
+
 			demau(menu.x, menu.y + 1, 28, 2, 75, b);
 
 			str = b;
 		}
 		if (toado == menu.y + 6)
 		{
-			//thanh_sang(menu.x, menu.y + 5, 28, 2, 240, c);
 			demau(menu.x, menu.y + 5, 28, 2, 75, c);
 			str = c;
 
 		}
 		if (toado == menu.y + 10)
 		{
-			//thanh_sang(menu.x, menu.y + 9, 28, 2, 240, d);
 			demau(menu.x, menu.y + 9, 28, 2, 75, d);
 			str = d;
 
@@ -495,7 +307,6 @@ void MainMenu() {
 		}
 		if (toado == menu.y + 14)
 		{
-			//thanh_sang(menu.x, menu.y + 13, 28, 2, 240, e);
 			demau(menu.x, menu.y + 13, 28, 2, 75, e);
 			str = e;
 
@@ -504,21 +315,23 @@ void MainMenu() {
 	system("cls");
 	if (toado == menu.y - 2)
 	{
-		//start gam
-		//SetColor(253);
-		_POINT _A[BOARD_SIZE][BOARD_SIZE]; //Ma trận bàn cờ
-		bool _TURN = 1; //true là lượt người thứ nhất và false là lượt người thứ hai
-		int _COMMAND = 1; // Biến nhận giá trị phím người dùng nhập
-		int _X, _Y; //Tọa độ hiện hành trên màn hình bàn cờ
-		int x = 3; int y = 2;
+		enum Stone game[15][15];
+		for (int i = 0; i < MAX_SIZE; i++)
+			for (int j = 0; j < MAX_SIZE; j++)
+				game[i][j] = NA;
+		//start game
+		//SetColor(253)
 		GoToXY(0, 0);
 		SetColor(253);
-		StartGame(_A, _TURN, _COMMAND);
+		ToaDo now;
+		now.i = 0;
+		now.j = 0;
+		StartGame(game, 0, 0,1,0,now);
 		
 	}
 	if (toado == menu.y + 2)
 	{
-		//load game
+		LoadGame();
 	}
 	if (toado == menu.y + 6)
 	{
@@ -527,11 +340,10 @@ void MainMenu() {
 	if (toado == menu.y + 10) //Help
 	{
 		Instruction();
-
-		}
+	}
 	if (toado == menu.y + 14)
 	{
-		//exit game
+		Sleep(1000);
 	}
 }
 void Instruction()
@@ -567,17 +379,23 @@ void Instruction()
 		cout << "W or w-up; A or a-left; S or s-down; D or d-right\n";
 		GoToXY(42, 19);
 		cout << "  If all BOARD are checked, the game ends in draw.\n";
+		GoToXY(50, 23);
+		cout << " Press Esc to go to main menu\n";
 		Sleep(500);
 
 		if (i >= 15)
 		{
 			i = 1;
 		}
+		
+		if (_getch() == ESC) {
+			break;
+		}
+
 	} while (i < 15);
-
-
+	MainMenu();
 }
-void BANGTINHDIEM()//BANG TINH DIEM CUA MINH
+void BANGTINHDIEM()//BANG TINH DIEM
 {
 	//ve o to nhat
 	//SetColor(230);
@@ -759,10 +577,10 @@ void BANGTINHDIEM()//BANG TINH DIEM CUA MINH
 	GoToXY(120, 9);
 	cout << "ENTER: DANH QUAN CO";
 	GoToXY(120, 11);
-	cout << "S: SAVE       E: EXIT";
+	cout << "P: SAVE       ESC: EXIT";
 
 }
-void DrawBoard() //HAM DrawBoard cua Minh!!!!!
+void DrawBoard() 
 {
 	//VE KHUNG NGOAI:
 	for (int i = 0; i <= 31; i++)//ve vien tren cung+tao khoang cach voi le cua console
@@ -876,3 +694,93 @@ void DrawBoard() //HAM DrawBoard cua Minh!!!!!
 	cout << endl;
 
 }
+
+void LoadGame() {
+	system("cls");
+	int stepPlayer1, stepPlayer2, playerTurn, updateStep;
+	ToaDo now;
+	enum Stone board[15][15];
+	do {
+		PrintString("[==========Saved Games===========]", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10);
+		fstream SavedFile;
+		string filename;
+		SavedFile.open("SavedFile.txt", ios::in);
+		int i = 3;
+		while (SavedFile >> filename) {
+			PrintString(filename, 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i);
+			i += 2;
+		}
+		SavedFile.close();
+		fstream SavedFileChoose;
+		string filenameChoose;
+		PrintString("Nhap ten file ban muon load: ", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 2);
+		getline(cin, filenameChoose);
+		filenameChoose += ".txt";
+		do {
+			if (!CheckFileExists(filenameChoose))
+			{
+				system("cls");
+				PrintString("File khong ton tai moi ban nhap lai", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 4);
+				break;
+			}
+			else break;
+		} while (true);
+		SavedFileChoose.open(filenameChoose, ios::in);
+		SavedFileChoose >> stepPlayer1;
+		SavedFileChoose >> stepPlayer2;
+		SavedFileChoose >> playerTurn;
+		SavedFileChoose >> updateStep;
+		SavedFileChoose >> now.i;
+		SavedFileChoose >> now.j;
+
+
+		for (int i = 0; i < BOARD_SIZE; i++)
+		{
+			for (int j = 0; j < BOARD_SIZE; j++)
+			{
+				int k;
+				SavedFileChoose >> k ;
+				if (k == 0) {
+					board[i][j] = NA;
+				}
+				else if (k == 1) {
+					board[i][j] = X;
+				}
+				else {
+					board[i][j] = O;
+				}
+			}
+		}
+		break;
+
+	} while (true);
+	system("cls");
+	StartGame(board, stepPlayer1, stepPlayer2, playerTurn, updateStep,now);
+}
+
+void xWin() {
+	system("cls");
+	int i = 240;
+	do {
+		PrintFile("Xwin.txt", i, WIDTH_CENTER -40, HEIGHT_CENTER - 10);
+		i++;
+		if (i > 250) {
+			i = 240;
+		}
+	} while (_getch() != ESC);
+	MainMenu();
+}
+
+void oWin() {
+	system("cls");
+	int i = 240;
+	do {
+		PrintFile("Owin.txt", i, WIDTH_CENTER - 40, HEIGHT_CENTER - 10);
+		i++;
+		if (i > 250) {
+			i = 240;
+		}
+	} while (_getch() != ESC);
+	MainMenu();
+}
+

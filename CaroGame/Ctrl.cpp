@@ -1,24 +1,19 @@
 ﻿#include "Ctrl.h"
 #include "Data.h";
 #include"View.h"
-void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
+
+void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep, ToaDo now ) {
 	
 	Nocursortype();
-	enum Stone game[15][15];
-	int step1 = 0;
-	int step2 = 0;
-	int k = 0;
-	for (int i = 0; i < MAX_SIZE; i++)
-		for (int j = 0; j < MAX_SIZE; j++)
-			game[i][j] = NA;
-	ToaDo now = ToaDo{ 0,0 };
-	int luot = 1;
+	int step1 = stepPlayer1;
+	int step2 = stepPlayer2;
+	int k = updateStep;
+	int luot = playerTurn;
 	char lenh;
-	PrintFile("XTURN.txt", 240, 95, 20);
 	while (true)
 	{
 		GoToXY(0, 0);
-		displayBoard(game, MAX_SIZE, now, luot);
+		displayBoard(game, MAX_SIZE, now);
 		GoToXY(88, 5);
 		cout << step1;
 		GoToXY(88, 9);
@@ -59,11 +54,12 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 			lenh = _getch();
 			return;
 		}
-		if (lenh == 13 || lenh == 'e' || lenh == 'e' || lenh == '5')
+		if (lenh == 'p' || lenh == 'P') {
+			SaveGame(game,step1,step2,luot,k,now);
+		}
+		if (lenh == 13 || lenh == 'e' || lenh == 'E' || lenh == '5')
 		{
-			k++; //CAP NHAT SCORE VA STEP
-
-			//TU DAY TRO XUONG LA HAM CUA UYEN!!!!!
+			k++; //CAP NHAT STEP
 			if (k % 2 != 0)
 			{
 				if (checkMakeMove(game, MAX_SIZE, now) != true)
@@ -73,7 +69,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 				}
 				else
 				{
-					PlaySound(TEXT("select-sound-121244.wav"), NULL, SND_FILENAME);
+					PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
 					step1++;
 					GoToXY(88, 5);
 					cout << step1;
@@ -91,7 +87,7 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 				}
 				else
 				{
-					PlaySound(TEXT("select-sound-121244.wav"), NULL, SND_FILENAME);
+					PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
 					step2++;
 					GoToXY(88, 5);
 					cout << step1;
@@ -99,20 +95,20 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 					cout << step2;
 					PrintFile("XTURN.txt", 240, 95, 20);
 				}
-				//TOI DAY LA HET HAM CUA UYEN R NHENNN!!!
 			}
 			if (checkMakeMove(game, MAX_SIZE, now) != true)
 				continue;
+
 			makeMove(game, MAX_SIZE, now, luot);
-			if (hasWon(game, MAX_SIZE, luot))
+
+			if (hasWon(game, MAX_SIZE, luot) == true)
 			{
-				GoToXY(0, 0);
-				//system("cls");
-				displayBoard(game, MAX_SIZE, now, 0);
-				//cout << "Nguoi choi " << luot << " da thang !" << endl;
-				//cout << "Nhan phim bat ky de tiep tuc....";
-				lenh = _getch();
-				return;
+				if (luot == 1) {
+					xWin();
+				}
+				else {
+					oWin();
+				}
 			}
 			luot = luot % 2 + 1;
 		}
@@ -121,9 +117,6 @@ void StartGame(_POINT _A[BOARD_SIZE][BOARD_SIZE], bool _TURN, int _COMMAND) {
 
 }
 void ExitGame() {
-	//system("cls");
-	GabageCollect();
-	//Có thể lưu game trước khi exit
 }
 
 
@@ -447,4 +440,75 @@ void Ctrl(int& x, int& y)
 		}
 	}
 }
+
+void SaveData(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep,ToaDo now,string filename)
+{
+	fstream saveFile;
+	saveFile.open(filename, ios::out);
+
+	saveFile << stepPlayer1 << "\n";
+	saveFile << stepPlayer2 << "\n";
+	saveFile << playerTurn << "\n";
+	saveFile << updateStep << "\n";
+	saveFile << now.i << "\n";
+	saveFile << now.j << "\n";
+
+
+	for (int i = 0; i < BOARD_SIZE; i++)
+	{
+		for (int j = 0; j < BOARD_SIZE; j++)
+		{
+			saveFile << game[i][j] << " ";
+		}
+		saveFile << "\n";
+	}
+
+	saveFile.close();
+}
+
+bool CheckFileExists(string filename)
+{
+	string nameSave; 
+	fstream savedFile;
+	savedFile.open("SavedFile.txt", ios::in);
+
+	while (savedFile >> nameSave)
+	{
+		if (nameSave == filename)
+		{
+			savedFile.close();
+			return true;
+		}
+	}
+	savedFile.close();
+	return false;
+}
+
+void SaveGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep, ToaDo now) {
+	string filename;
+	system("cls");
+	PrintString("Nhap ten muon luu game: ", 245, WIDTH_CENTER - 20, HEIGHT_CENTER);
+	getline(cin, filename);
+	filename += ".txt";
+	do
+	{
+		if (CheckFileExists(filename))
+		{
+			system("cls");
+			PrintString("Ten da ton tai", 245, WIDTH_CENTER - 20, HEIGHT_CENTER );
+			PrintString("Ban hay nhap ten khac: ", 245, WIDTH_CENTER - 20, HEIGHT_CENTER + 2);
+			getline(cin, filename);
+			filename += ".txt";
+		}
+		else break;
+	} while (true);
+
+	fstream saveFile;
+	saveFile.open("SavedFile.txt", ios::app);
+	saveFile << filename << "\n";
+	saveFile.close();
+	SaveData(game, stepPlayer1, stepPlayer2, playerTurn, updateStep,now,filename);
+	MainMenu();
+}
+
 

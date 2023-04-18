@@ -21,7 +21,7 @@ void Nocursortype();
 
 //void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot);
 void DrawBoard();
-void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot);
+void displayBoard(enum Stone arr[][15], int size, ToaDo now);
 
 void BangTinhDiem();
 
@@ -31,6 +31,7 @@ void DrawOWIN();
 void LoadingBar();
 
 void PrintFile(string filename, int color, int x, int y); //In du lieu file txt
+void PrintString(string s, int color, int x, int y);
 void thanh_sang(int x, int y, int w, int h, int b_color, string nd);
 void demau(int x, int y, int w, int h, int b_color, string nd);
 void MainMenu();
@@ -38,3 +39,8 @@ void MainMenu();
 void TextColor(int x);
 void BANGTINHDIEM();
 void Instruction();
+
+void LoadGame();
+
+void xWin();
+void oWin();

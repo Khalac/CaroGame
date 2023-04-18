@@ -1,6 +1,7 @@
 ﻿#pragma once
+
 // Kính thước màn hình console
-#define WIDTH 1200 
+#define WIDTH 1320 
 #define HEIGHT 700
 #define WIDTH_CENTER WIDTH / 16 +2
 #define HEIGHT_CENTER HEIGHT / 32
@@ -11,6 +12,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #define MAX_SIZE 15
+#define ESC 27
+
 const char HORZ = 196;
 const char VERT = 179;
 const char TL = 218;
@@ -25,17 +28,6 @@ const int numPerLine = 15;
 const char VERT_START = 195;
 const char VERT_END = 180;
 const char VERT_MID = 197;
-enum Stone { NA, X, O }; //Kiểu dữ liệu tùy biến. Tự động nhận NA=0, X=1, O=2. Kiểu dữ liệu này khi khai báo thì sẽ chỉ nhận các giá trị đã khai báo trước//
-struct ToaDo
-{
-	int i;
-	int j;
-};
-struct Move {
-	int row;
-	int col;
-	enum Stone stone;
-};
 
 #include <iostream>
 #include <Windows.h>
@@ -48,9 +40,35 @@ struct Move {
 #include <iomanip>
 #include <MMsystem.h>
 #include "conio.h"
-
-
 using namespace std;
+
+#define Line (char)196//dau gach:-
+#define Connect (char)197//dau thap gia, noi cac o voi nhau.
+#define Vertical (char)179//dau gach thang: |
+#define Topleft (char)218//dau bo goc tren cung ben trai
+#define Topright (char)191//dau bo goc tren cung ben phai
+#define Botright (char)217//dau bo goc cuoi ben phai
+#define Botleft (char)192//dau bo goc cuoi ben trai
+#define Connecttop (char)194//dau noi cua vien tren, co dang hinh thap gia bi mat canh tren
+#define Connectleft (char)195//dau noi cua vien trai, co dang hinh thap gia bi mat canh ben trai
+#define Connectright (char)180//dau noi cua vien phai, co dang hinh thap gia bi mat canh ben phai
+#define Connectbot (char)193//dau noi cau vien duoi, co dang hinh thap gia bi mat canh duoi
+
+
+
+enum Stone { NA, X, O }; //Kiểu dữ liệu tùy biến. Tự động nhận NA=0, X=1, O=2. Kiểu dữ liệu này khi khai báo thì sẽ chỉ nhận các giá trị đã khai báo trước//
+
+struct ToaDo
+{
+	int i;
+	int j;
+};
+struct Move {
+	int row;
+	int col;
+	enum Stone stone;
+};
+
 static char* lineString(char left, char mid, char right, char horz, int wcell, int ncell) {
 	static char result[100];
 	strcpy(result, "");
@@ -72,9 +90,6 @@ static char* lineString(char left, char mid, char right, char horz, int wcell, i
 	return result;
 } //Một hàng của ma trận//
 
-struct _POINT { 
-	int x, y, c; // x: tọa độ dòng, y: tọa độ cột, c: đánh dấu
-}; 
 
 struct Menu
 {
@@ -84,32 +99,17 @@ struct Menu
 };
 
 struct Player {
-	char* name;
+	string name;
 	int score;
 };
 
-struct Bot {
-	int score;
-	char* level;
-};
-
-#define Line (char)196//dau gach:-
-#define Connect (char)197//dau thap gia, noi cac o voi nhau.
-#define Vertical (char)179//dau gach thang: |
-#define Topleft (char)218//dau bo goc tren cung ben trai
-#define Topright (char)191//dau bo goc tren cung ben phai
-#define Botright (char)217//dau bo goc cuoi ben phai
-#define Botleft (char)192//dau bo goc cuoi ben trai
-#define Connecttop (char)194//dau noi cua vien tren, co dang hinh thap gia bi mat canh tren
-#define Connectleft (char)195//dau noi cua vien trai, co dang hinh thap gia bi mat canh ben trai
-#define Connectright (char)180//dau noi cua vien phai, co dang hinh thap gia bi mat canh ben phai
-#define Connectbot (char)193//dau noi cau vien duoi, co dang hinh thap gia bi mat canh duoi
-
-struct mark//dung trong ham Checkmark
+struct Mark//dung trong ham Checkmark
 {
 	int x;
 	int y;
 };
+
+
 
 
 
