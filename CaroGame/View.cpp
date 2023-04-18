@@ -1,5 +1,5 @@
 ﻿#include "View.h"
-
+using namespace std;
 
 
 void CreateConsoleWindow(int pWidth, int pHeight)
@@ -216,14 +216,14 @@ void MainMenu() {
 	string b = "         LOAD GAME         ";
 	demau(menu.x, menu.y + 1, 28, 2, 94, b);
 
-	string c = "          RANKING          ";
+	string c = "           HELP            ";
 	demau(menu.x, menu.y + 5, 28, 2, 94, c);
 
-	string d = "           HELP            ";
+	string d = "         EXITGAME          ";
 	demau(menu.x, menu.y + 9, 28, 2, 94, d);
 
-	string e = "         EXITGAME          ";
-	demau(menu.x, menu.y + 13, 28, 2, 94, e);
+	/*string e = "         EXITGAME          ";
+	demau(menu.x, menu.y + 13, 28, 2, 94, e);*/
 	
 
 	string str = "ERROR";//luu giu string cua toa do dang tro toi
@@ -305,12 +305,12 @@ void MainMenu() {
 
 
 		}
-		if (toado == menu.y + 14)
+		/*if (toado == menu.y + 14)
 		{
 			demau(menu.x, menu.y + 13, 28, 2, 75, e);
 			str = e;
 
-		}
+		}*/
 	} while (choice != 3);
 	system("cls");
 	if (toado == menu.y - 2)
@@ -336,17 +336,17 @@ void MainMenu() {
 	}
 	if (toado == menu.y + 6)
 	{
-		//ranking
+		Instruction();
 	}
 	if (toado == menu.y + 10) //Help
 	{
 
-		Instruction();
-	}
-	if (toado == menu.y + 14)
-	{
 		Sleep(1000);
 	}
+	/*if (toado == menu.y + 14)
+	{
+		Sleep(1000);
+	}*/
 }
 void VeKhungChoInstruction()
 {
@@ -431,50 +431,46 @@ void Instruction()
 void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 {
 	//ve o to nhat
-	//SetColor(230);
+	
 	GoToXY(76, 15);
 	cout << char(201);
-	//SetColor(252);
+	
 	for (int i = 77; i < 149; i++)//ve duong ngang tren
 	{
-		//SetColor(230);
 		cout << char(205); 
-		//SetColor(252);
 	}
-	//SetColor(230);
 	GoToXY(149, 15);
 	cout << char(187);
-	//SetColor(252);
+
 	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben trai
 	{
-		//SetColor(230);
+
 		GoToXY(76, j);
 		cout << char(186);
-		//SetColor(252);
+		
 	}
 
-	//SetColor(230);
+	
 	GoToXY(76, 31);
 	cout << char(200);
-	//SetColor(252);
+	
 	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben phai
 	{
-		//SetColor(230);
+		
 		GoToXY(149, j);
 		cout << char(186);
-		//SetColor(252);
+	
 	}
 
-	//SetColor(230);
+	
 	GoToXY(149, 31);
 	cout << char(188);
-	//SetColor(252);
+
 	for (int i = 77; i < 149; i++)//ve duong ngang duoi
 	{
-		//SetColor(230);
 		GoToXY(i, 31);
 		cout << char(205);
-		//SetColor(252);
+		
 	}
 
 	//VE O NHO BEN TRAI
