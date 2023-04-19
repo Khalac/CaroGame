@@ -1,2 +1,3 @@
 huhu.txt
 savegame.txt
+input.txt
