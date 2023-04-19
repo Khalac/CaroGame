@@ -513,7 +513,7 @@ bool CheckFileExists(string filename)
 void SaveGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep, ToaDo now,Player P1,Player P2) {
 	string filename;
 	system("cls");
-	PrintString("Nhap ten muon luu game: ", 245, WIDTH_CENTER - 20, HEIGHT_CENTER);
+	PrintString("Nhap ten muon luu game (2 - 10 characters): ", 245, WIDTH_CENTER - 20, HEIGHT_CENTER);
 	getline(cin, filename);
 	filename += ".txt";
 	do
@@ -522,6 +522,13 @@ void SaveGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pla
 		{
 			system("cls");
 			PrintString("Ten da ton tai", 245, WIDTH_CENTER - 20, HEIGHT_CENTER );
+			PrintString("Ban hay nhap ten khac: ", 245, WIDTH_CENTER - 20, HEIGHT_CENTER + 2);
+			getline(cin, filename);
+			filename += ".txt";
+		}
+		else if (filename.length() <= 5 || filename.length() >= 14) {
+			system("cls");
+			PrintString("Ten khong dung quy dinh!!!", 245, WIDTH_CENTER - 20, HEIGHT_CENTER);
 			PrintString("Ban hay nhap ten khac: ", 245, WIDTH_CENTER - 20, HEIGHT_CENTER + 2);
 			getline(cin, filename);
 			filename += ".txt";

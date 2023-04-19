@@ -634,27 +634,33 @@ void LoadGame() {
 	ToaDo now;
 	Player P1, P2;
 	enum Stone board[15][15];
+	fstream SavedFile;
+	string filename;
+	fstream SavedFileChoose;
+	string filenameChoose;
 	do {
-		PrintString("[==========Saved Games===========]", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10);
-		fstream SavedFile;
-		string filename;
-		SavedFile.open("SavedFile.txt", ios::in);
-		int i = 3;
-		while (SavedFile >> filename) {
-			PrintString(filename, 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i);
-			i += 2;
-		}
-		fstream SavedFileChoose;
-		string filenameChoose;
 		do {
-			PrintString("Nhap ten file ban muon load: ", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 2);
-			getline(cin, filenameChoose);
-			filenameChoose += ".txt";
-			if (!CheckFileExists(filenameChoose))
-			{
-				PrintString("File khong ton tai moi ban nhap lai : ", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 4);
+			PrintString("[==========Saved Games===========]", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10);
+			SavedFile.open("SavedFile.txt", ios::in);
+			int i = 3;
+			while (SavedFile >> filename) {
+				PrintString(filename, 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i);
+				i += 2;
 			}
-			else break;
+			PrintString("Nhap e/E de thoat ra man hinh Menu", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 6);
+			do {
+				PrintString("Nhap ten file ban muon load: ", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 2);
+				getline(cin, filenameChoose);
+				if (filenameChoose == "e" || filenameChoose == "E") MainMenu();
+				filenameChoose += ".txt";
+				if (!CheckFileExists(filenameChoose))
+				{
+					system("cls");
+					PrintString("File khong ton tai moi ban nhap lai", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 4);
+					break;
+				}
+				else break;
+			} while (true);
 		} while (true);
 		SavedFileChoose.open(filenameChoose, ios::in);
 		SavedFileChoose >> stepPlayer1;
