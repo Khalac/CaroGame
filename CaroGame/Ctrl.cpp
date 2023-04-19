@@ -98,6 +98,11 @@ void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pl
 
 			makeMove(game, MAX_SIZE, now, luot);
 
+			if (checkdraw(game) == true) {
+				drawnmatch();
+				break;
+			}
+
 			if (hasWon(game, MAX_SIZE, luot) == true)
 			{
 				if (luot == 1) {
