@@ -30,12 +30,7 @@ void SetColor(int color) {
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, color);
 }	
-/*void TextColor(int x)//X lla ma mau
-{
 
-	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(h, x);
-}*/
 void TextColor(int x)
 {
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -638,6 +633,7 @@ void LoadGame() {
 	string filename;
 	fstream SavedFileChoose;
 	string filenameChoose;
+	bool check = false;
 	do {
 		do {
 			PrintString("[==========Saved Games===========]", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10);
@@ -659,8 +655,12 @@ void LoadGame() {
 					PrintString("File khong ton tai moi ban nhap lai", 253, WIDTH_CENTER - 20, HEIGHT_CENTER - 10 + i + 4);
 					break;
 				}
-				else break;
+				else {
+					check = true;
+					break;
+				}
 			} while (true);
+			if (check) break;
 		} while (true);
 		SavedFileChoose.open(filenameChoose, ios::in);
 		SavedFileChoose >> stepPlayer1;
