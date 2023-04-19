@@ -297,7 +297,6 @@ void MainMenu() {
 	}
 	if (toado == menu.y + 10) //Exit game
 	{
-		system("cls");
 		return ExitGame();
 	}
 }

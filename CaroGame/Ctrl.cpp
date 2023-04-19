@@ -122,6 +122,7 @@ void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pl
 	}
 
 }
+
 void ExitGame() {
 	exit(0);
 }
