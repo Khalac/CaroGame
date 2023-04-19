@@ -9,7 +9,7 @@ int main()
     FixConsoleWindow();
   
     MainMenu();
- 
+
     system("pause");
     return 0;
 }

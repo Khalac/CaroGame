@@ -47,3 +47,4 @@ void drawnmatch();
 
 
 void inputNameScreen(Player& P1, Player& P2);
+void AfterGame();

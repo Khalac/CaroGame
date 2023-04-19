@@ -244,7 +244,7 @@ void MainMenu() {
 			{
 				demau(menu.x, menu.y - 3, 28, 2, 94, x);
 			}
-			else if (str != "ERROR" && toado < menu.y + 13)//de dua o tro ve trang thai binh thuong 
+			else if (str != "ERROR" && toado < menu.y + 9)//de dua o tro ve trang thai binh thuong //+13
 			{
 				demau(menu.x, toado - 1, 28, 2, 94, str);
 
@@ -270,7 +270,7 @@ void MainMenu() {
 			choice = 3;//nhan nut enter
 		}
 		else choice = 0;//trong truong hop khong phai nut du chuyen cach nhau 4 don vi moi o//tong 19 o
-		if (choice == 1 && toado < menu.y + 13)
+		if (choice == 1 && toado < menu.y + 9)
 		{
 			toado += 4;
 		}
@@ -302,8 +302,6 @@ void MainMenu() {
 		{
 			demau(menu.x, menu.y + 9, 28, 2, 75, d);
 			str = d;
-
-
 		}
 		/*if (toado == menu.y + 14)
 		{
@@ -793,7 +791,7 @@ void xWin() {
 	PrintFile("Xwin.txt", i, WIDTH_CENTER - 40, HEIGHT_CENTER - 10);
 	PlaySound(TEXT("WinSounds.wav"), NULL, SND_FILENAME);
 
-	MainMenu();
+	AfterGame();
 }
 void drawnmatch()
 {
@@ -802,7 +800,7 @@ void drawnmatch()
 	PrintFile("Drawnmatch.txt", i, WIDTH_CENTER - 40, HEIGHT_CENTER - 10);
 	PlaySound(TEXT("drawnsound.wav"), NULL, SND_FILENAME);
 
-	MainMenu();
+	AfterGame();
 }
 
 void oWin() {
@@ -829,5 +827,112 @@ void inputNameScreen(Player& P1, Player& P2) {
 		PrintString("Input name for player 2 (1 - 10 characters): ", 240, WIDTH_CENTER - 30, HEIGHT_CENTER + 2);
 		getline(cin, P2.name);
 	} while (P2.name.length() < 2 || P2.name.length() > 10 ||P1.name == P2.name);
+}
+
+void AfterGame()
+{
+
+	Menu menu;
+	Nocursortype();//xoa con tro nhap nhay tren man hinh.
+	menu.choices = 5; // man hinh meny co 5 su lua chon
+	menu.x = WIDTH_CENTER - 15;
+	menu.y = HEIGHT_CENTER;
+	system("cls");
+	Nocursortype();
+	PrintString("BAN CO MUON CHOI LAI KHONG", 253, WIDTH_CENTER-10 , HEIGHT_CENTER-10);
+	PrintString("Nhan phim YES de choi lai", 253, WIDTH_CENTER - 10, HEIGHT_CENTER - 8);
+	PrintString("Nhan phim NO de quay lai MAINMENU", 253, WIDTH_CENTER - 10, HEIGHT_CENTER - 7);
+	string s =  "     YES     ";
+	string no = "      NO     ";
+	demau(menu.x-5, menu.y - 3, 14, 2, 236, s);
+	demau(menu.x + 30, menu.y - 3, 14, 2, 236, no);
+	
+	
+
+	string str = "ERROR";//luu giu string cua toa do dang tro toi
+	int choice = 0;//lua chon 
+	int toado = menu.x - 4;//luu giu toa do
+	int odau = 0;
+
+	demau(menu.x-5, menu.y - 3, 14, 2, 75, s);//dang de con tro mau o o YES
+	do
+	{
+		char a = _getch();
+		if ( a == 'D' || a == 'd' || a == '6')
+		{
+			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
+			choice = 1;//nhan phim qua ben phai
+			if (odau == 0)
+			{
+				demau(menu.x - 5, menu.y - 3, 14, 2, 236, s);
+			}
+			else if (str != "ERROR" && toado < menu.x + 31)//de dua o tro ve trang thai binh thuong 
+			{
+				demau(toado-1, menu.y - 3, 14, 2, 236, str);
+			}
+			odau += 1;
+
+		}
+		else if ( a == 'a' || a == 'A' || a == '4')
+		{
+			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
+			choice = 2;//nhan phim qua trai
+			if (str != "ERROR" && toado > menu.x-4)
+			{
+				demau(toado-1, menu.y-3, 14, 2, 236, str);
+			}
+		}
+		else if (a == 13 || a == 'e' || a == 'e' || a == '5')
+		{
+			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
+			choice = 3;//nhan nut enter
+		}
+		else choice = 0;//trong truong hop khong phai nut du chuyen cach nhau 4 don vi moi o//tong 19 o
+		if (choice == 1 && toado < menu.x + 31)
+		{
+			toado += 35;
+		}
+		if (choice == 2 && toado > menu.x-4)
+		{
+			toado -= 35;
+		}
+		if (toado == menu.x - 4)
+		{
+
+			demau(menu.x-5, menu.y - 3, 14, 2, 75, s);
+			str = s;
+		}
+		if (toado == menu.x+31)
+		{
+
+			demau(menu.x+30, menu.y -3, 14, 2, 75, no);
+			str = no;
+		}
+		
+
+	} while (choice != 3);
+	system("cls");
+	if (toado == menu.x - 4)
+	{
+		//Choi lai game
+		enum Stone game[15][15];
+		for (int i = 0; i < MAX_SIZE; i++)
+			for (int j = 0; j < MAX_SIZE; j++)
+				game[i][j] = NA;
+
+		GoToXY(0, 0);
+		SetColor(253);
+		ToaDo now;
+		now.i = 0;
+		now.j = 0;
+		Player P1, P2;
+		StartGame(game, 0, 0, 1, 0, now, P1, P2, 0);
+
+	}
+	if (toado == menu.x + 31)
+	{
+		MainMenu();
+	}
+	
 }
 
