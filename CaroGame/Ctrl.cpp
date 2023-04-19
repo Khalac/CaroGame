@@ -48,7 +48,7 @@ void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pl
 			if (now.j > MAX_SIZE - 1)
 				now.j = MAX_SIZE - 1;
 		}
-		if (lenh == 'G' || lenh == 'g')
+		/*if (lenh == 'G' || lenh == 'g')
 		{
 			cout << endl;
 			cout << "Nguoi choi " << luot << " da dau hang !" << endl;
@@ -57,7 +57,7 @@ void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pl
 			cout << "Nhan phim bat ky de tiep tuc....";
 			lenh = _getch();
 			return;
-		}
+		}*/
 		if (lenh == 'p' || lenh == 'P') {
 			SaveGame(game,step1,step2,luot,k,now,P1,P2);
 		}
