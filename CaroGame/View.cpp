@@ -350,12 +350,12 @@ void VeKhungChoInstruction()
 {
 	GoToXY(0, 0);//BO GOC TREN TRAI
 	cout << char(201);
-	for (int i = 0; i < 158; i++)//ve duong ngang tren
+	for (int i = 0; i < 170; i++)//ve duong ngang tren
 	{
 
 		cout << char(205);
 	}
-	GoToXY(158, 0);
+	GoToXY(170, 0);
 	cout << char(187);//BO GOC TREN PHAI
 	for (int j = 1; j < 39; j++)//ve duong thang xuong duoi ben trai
 	{
@@ -369,19 +369,18 @@ void VeKhungChoInstruction()
 	for (int j = 1; j < 39; j++)//ve duong thang xuong duoi ben phai
 	{
 
-		GoToXY(158, j);
+		GoToXY(170, j);
 		cout << char(186);
 
 	}
-
-	for (int i = 1; i < 158; i++)//ve duong ngang duoi
+	for (int i = 1; i < 170; i++)//ve duong ngang duoi
 	{
 
 		GoToXY(i, 39);
 		cout << char(205);
 
 	}
-	GoToXY(158, 39);//BO GOC DUOI PHAI
+	GoToXY(170, 39);//BO GOC DUOI PHAI
 	cout << char(188);
 }
 
@@ -389,39 +388,39 @@ void Instruction()
 {
 	do {
 		VeKhungChoInstruction();
-		GoToXY(45, 2);
-		cout << " _   _  _   _  _____  _    _  ______    ____   _____  __    _ \n";
-		GoToXY(45, 3);
+		GoToXY(50, 2);
+		cout << "  _   _    _   _    _____   __    __  ______     ____     _____   __    _ \n";
+		GoToXY(50, 3);
 		cout << "|  | |  ||  | |  ||       ||  |  | ||       |  |      | |   _   ||  |  | |\n";
-		GoToXY(45, 4);
+		GoToXY(50, 4);
 		cout << "|  |_|  ||  | |  ||   _   ||   |_| ||    ___|  |  _    ||  |_|  ||   |_| |\n";
-		GoToXY(45, 5);
+		GoToXY(50, 5);
 		cout << "|       ||  |_|  ||  | |  ||       ||   | __   | | |   ||       ||       |\n";
-		GoToXY(45, 6);
+		GoToXY(50, 6);
 		cout << "|       ||       ||  |_|  ||  _    ||   ||  |  | |_|   ||       ||  _    |\n";
-		GoToXY(45, 7);
+		GoToXY(50, 7);
 		cout << "|   _   ||       ||       || | |   ||   |_| |  |       ||   _   || | |   |\n";
-		GoToXY(45, 8);
+		GoToXY(50, 8);
 		cout << "|__| |__||_______||_______||_|  |__||_______|  |______| |__| |__||_|  |__|\n";
-		GoToXY(50, 15);
+		GoToXY(55, 15);
 		cout << "w  or  W:    DI LEN\n";
-		GoToXY(50, 17);
+		GoToXY(55, 17);
 		cout << "a  or  A:    SANG TRAI\n";
-		GoToXY(90, 15);
+		GoToXY(95, 15);
 		cout << "s  or  S:    DI XUONG\n";
-		GoToXY(90, 17);
+		GoToXY(95, 17);
 		cout << "d  or  D:    SANG PHAI\n";
-		GoToXY(75, 19);
+		GoToXY(80, 19);
 		cout << "ENTER:  CHOOSE\n";
-		GoToXY(50, 21);
+		GoToXY(55, 21);
 		cout << "LUAT CHOI\n";
-		GoToXY(50, 23);
+		GoToXY(55, 23);
 		cout << " -DI CHUYEN DEN O BAN MUON DANH VA NHAN ENTER, SAU DO DEN LUOT NGUOI CHOI KE TIEP.\n";
-		GoToXY(50, 25);
+		GoToXY(55, 25);
 		cout << " -TRONG 2 NGUOI, AI DANH DUOC 5 DIEM 'X' HAY 5 DIEM 'O' THANG HANG TRUOC THI SE GIANH CHIEN THANG.\n";
-		GoToXY(50, 27);
+		GoToXY(55, 27);
 		cout << " -NEU BAN MUON DAU HANG, VUI LONG NHAN PHIM 'g' hoac 'G'.\n";
-		GoToXY(70, 29);
+		GoToXY(75, 29);
 		cout << "An ESC de ve Main Menu'.\n";
 	} while (_getch() != ESC);
 	MainMenu();
