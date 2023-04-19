@@ -41,5 +41,6 @@
     <Text Include="OTURN.txt" />
     <Text Include="X win.txt" />
     <Text Include="Owin.txt" />
+    <Text Include="Drawnmatch.txt" />
   </ItemGroup>
 </Project>

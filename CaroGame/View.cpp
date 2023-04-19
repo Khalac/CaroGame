@@ -315,12 +315,12 @@ void MainMenu() {
 	system("cls");
 	if (toado == menu.y - 2)
 	{
+		//start game
 		enum Stone game[15][15];
 		for (int i = 0; i < MAX_SIZE; i++)
 			for (int j = 0; j < MAX_SIZE; j++)
 				game[i][j] = NA;
-		//start game
-		//SetColor(253)
+	
 		GoToXY(0, 0);
 		SetColor(253);
 		ToaDo now;
@@ -338,7 +338,7 @@ void MainMenu() {
 	{
 		Instruction();
 	}
-	if (toado == menu.y + 10) //Help
+	if (toado == menu.y + 10) //Exit game
 	{
 
 		Sleep(1000);
@@ -792,6 +792,15 @@ void xWin() {
 	int i = 240;
 	PrintFile("Xwin.txt", i, WIDTH_CENTER - 40, HEIGHT_CENTER - 10);
 	PlaySound(TEXT("WinSounds.wav"), NULL, SND_FILENAME);
+
+	MainMenu();
+}
+void drawnmatch()
+{
+	system("cls");
+	int i = 240;
+	PrintFile("Drawnmatch.txt", i, WIDTH_CENTER - 40, HEIGHT_CENTER - 10);
+	PlaySound(TEXT("drawnsound.wav"), NULL, SND_FILENAME);
 
 	MainMenu();
 }

@@ -43,5 +43,7 @@ void LoadGame();
 
 void xWin();
 void oWin();
+void drawnmatch();
+
 
 void inputNameScreen(Player& P1, Player& P2);

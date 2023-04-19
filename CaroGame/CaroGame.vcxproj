@@ -134,6 +134,7 @@
     <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Drawnmatch.txt" />
     <Text Include="OTURN.txt" />
     <Text Include="Owin.txt" />
     <Text Include="X win.txt" />
