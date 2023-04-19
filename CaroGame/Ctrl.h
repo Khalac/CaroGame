@@ -21,4 +21,6 @@ void SaveData(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pla
 bool CheckFileExists(string filename);
 void SaveGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int playerTurn, int updateStep, ToaDo now, Player P1, Player P2);
 
+bool checkdraw(enum Stone game[15][15]);
+
 
