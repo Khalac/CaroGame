@@ -796,22 +796,18 @@ void drawnmatch()
 {
 	system("cls");
 	int i = 240;
-	PrintFile("Drawnmatch.txt", i, WIDTH_CENTER - 40, HEIGHT_CENTER - 10);
-	PlaySound(TEXT("drawnsound.wav"), NULL, SND_FILENAME);
-
+	do {
+		PrintFile("Drawnmatch.txt", i, WIDTH_CENTER - 40, HEIGHT_CENTER - 10);
+		PlaySound(TEXT("drawnsound.wav"), NULL, SND_FILENAME);
+	} while (_getch() != ESC);
 	AfterGame();
 }
 
 void oWin() {
 	system("cls");
 	int i = 240;
-	do {
-		PrintFile("Owin.txt", i, WIDTH_CENTER - 40, HEIGHT_CENTER - 10);
-		i++;
-		if (i > 250) {
-			i = 240;
-		}
-	} while (_getch() != ESC);
+	PrintFile("Owin.txt", i, WIDTH_CENTER - 40, HEIGHT_CENTER - 10);
+	PlaySound(TEXT("WinSounds.wav"), NULL, SND_FILENAME);
 	AfterGame();
 }
 
