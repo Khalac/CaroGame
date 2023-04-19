@@ -110,6 +110,12 @@ void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pl
 					
 				}
 			}
+
+			if (checkdraw(game) == true) {
+				drawnmatch();
+				break;
+			}
+
 			luot = luot % 2 + 1;
 		}
 
@@ -286,6 +292,22 @@ bool CheckMark(Mark* z, int x, int y)
 	}
 	return false;
 }
+
+bool checkdraw(enum Stone game[15][15]) {
+	int count = 0;
+	for (int i = 0; i < 15; i++) {
+		for (int j = 0; j < 15; j++) {
+			if (game[i][j] == NA) {
+				count += 1;
+			}
+		}
+	}
+	if (count == 0) {
+		return true;
+	}
+	return false;
+}
+
 void Ctrl(int& x, int& y)
 {
 	Mark* z = new Mark[15 * 15];
@@ -338,7 +360,7 @@ void Ctrl(int& x, int& y)
 
 
 		}
-		if (lenh == 'a' || lenh == 'a')
+		if (lenh == 'A' || lenh == 'a')
 		{
 			x -= 4;
 			if (x < 3)

@@ -228,7 +228,7 @@ void MainMenu() {
 
 			}
 		}
-		else if (a == 13 || a == 'e' || a == 'e' || a == '5')
+		else if (a == 13 || a == 'e' || a == 'E' || a == '5')
 		{
 			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
 
@@ -789,7 +789,7 @@ void AfterGame()
 				demau(toado-1, menu.y-3, 14, 2, 236, str);
 			}
 		}
-		else if (a == 13 || a == 'e' || a == 'e' || a == '5')
+		else if (a == 13 || a == 'E' || a == 'e' || a == '5')
 		{
 			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
 			choice = 3;//nhan nut enter
