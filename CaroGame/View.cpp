@@ -146,36 +146,7 @@ void PrintFile(string filename, int color, int x, int y) //In du lieu tep tin
 	f.close();
 }
 
-void LoadingBar()//thanh loading truoc khi di vao giao dien.
-{
-	
-	system("color 94");//blue
 
-	// Initialize char for printing
-	// loading bar
-	char a = 177, b = 219;
-
-	cout << "\n\n\n\n";
-	cout << "\n\n\n\n\t\t\t\t\t";
-	cout << "LOADING...\n\n";
-	cout << "\t\t\t\t\t";
-
-	// Print initial loading bar
-	for (int i = 0; i < 26; i++)
-		cout << a;
-
-	// Set the cursor again starting
-	// point of loading bar
-	cout << "\r";
-	cout << "\t\t\t\t\t";
-
-	// Print loading bar progress
-	for (int i = 0; i < 26; i++) {
-		cout << b;
-		Sleep(100);
-	}
-	system("cls");
-}
 void demau(int x, int y, int w, int h, int b_color, string nd)
 {
 	TextColor(b_color);
@@ -209,9 +180,7 @@ void MainMenu() {
 	int background_bright = 75;
 	//ve cac hop co chua chu truoc
 	string x = "         START GAME        ";
-
 	demau(menu.x, menu.y - 3, 28, 2, 94, x);//chu duoc in o x+1 va y+1
-
 
 	string b = "         LOAD GAME         ";
 	demau(menu.x, menu.y + 1, 28, 2, 94, b);
@@ -222,9 +191,6 @@ void MainMenu() {
 	string d = "         EXITGAME          ";
 	demau(menu.x, menu.y + 9, 28, 2, 94, d);
 
-	/*string e = "         EXITGAME          ";
-	demau(menu.x, menu.y + 13, 28, 2, 94, e);*/
-	
 
 	string str = "ERROR";//luu giu string cua toa do dang tro toi
 	int choice = 0;//lua chon 
@@ -250,7 +216,6 @@ void MainMenu() {
 
 			}
 			odau += 1;
-
 		}
 		else if (a == 72 || a == 'w' || a == 'W' || a == '8')
 		{
@@ -303,12 +268,6 @@ void MainMenu() {
 			demau(menu.x, menu.y + 9, 28, 2, 75, d);
 			str = d;
 		}
-		/*if (toado == menu.y + 14)
-		{
-			demau(menu.x, menu.y + 13, 28, 2, 75, e);
-			str = e;
-
-		}*/
 	} while (choice != 3);
 	system("cls");
 	if (toado == menu.y - 2)
@@ -341,10 +300,6 @@ void MainMenu() {
 
 		Sleep(1000);
 	}
-	/*if (toado == menu.y + 14)
-	{
-		Sleep(1000);
-	}*/
 }
 void VeKhungChoInstruction()
 {
@@ -428,17 +383,14 @@ void Instruction()
 void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 {
 	//ve o to nhat
-	
 	GoToXY(76, 15);
 	cout << char(201);
-	
 	for (int i = 77; i < 149; i++)//ve duong ngang tren
 	{
 		cout << char(205); 
 	}
 	GoToXY(149, 15);
 	cout << char(187);
-
 	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben trai
 	{
 
@@ -446,11 +398,8 @@ void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 		cout << char(186);
 		
 	}
-
-	
 	GoToXY(76, 31);
 	cout << char(200);
-	
 	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben phai
 	{
 		
@@ -458,11 +407,8 @@ void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 		cout << char(186);
 	
 	}
-
-	
 	GoToXY(149, 31);
 	cout << char(188);
-
 	for (int i = 77; i < 149; i++)//ve duong ngang duoi
 	{
 		GoToXY(i, 31);
@@ -471,103 +417,65 @@ void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 	}
 
 	//VE O NHO BEN TRAI
-	//TextColor(233);
 	GoToXY(73, 1);
 	cout << char(201);
-	//TextColor(252);
 	for (int i = 74; i < 109; i++)//ve duong ngang tren
 	{
-		//TextColor(178);
-		//TextColor(233);
 		cout << char(205);
-		//TextColor(252);
 	}
-	//TextColor(252);
-
-	//TextColor(233);
 	GoToXY(109, 1);
 	cout << char(187);
-	//TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben trai
 	{
-		//TextColor(233);
 		GoToXY(73, j);
 		cout << char(186);
-		//TextColor(252);
 	}
-
-	//TextColor(233);
 	GoToXY(73, 13);
 	cout << char(200);
-	//TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben phai
 	{
-		//TextColor(233);
 		GoToXY(109, j);
 		cout << char(186);
-		//TextColor(252);
 	}
 	
-
-	//TextColor(233);
 	GoToXY(109, 13);
 	cout << char(188);
-	//TextColor(252);
 	for (int i = 74; i < 109; i++)//ve duong ngang duoi
 	{
-		//TextColor(233);
 		GoToXY(i, 13);
 		cout << char(205);
-		//TextColor(252);
 	}
-	//TextColor(252);
 	
 	//VE O NHO BEN PHAI
-	//TextColor(233);
 	GoToXY(116, 1);
 	cout << char(201);
-	//TextColor(252);
 	for (int i = 117; i < 152; i++)//ve duong ngang tren
 	{
-		//TextColor(233);
 		cout << char(205);
-		//TextColor(252);
 	}
 	
-	//TextColor(233);
 	GoToXY(152, 1);
 	cout << char(187);
-	//TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben phai
 	{
-		//TextColor(233);
 		GoToXY(152, j);
 		cout << char(186);
-		//TextColor(252);
 	}
 
-	//TextColor(233);
 	GoToXY(152, 13);
 	cout << char(188);
-	//TextColor(252);
 	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben trai
 	{
-		//TextColor(233);
 		GoToXY(116, j);
 		cout << char(186);
-		//TextColor(252);
 	}
 
-	//TextColor(233);
 	GoToXY(116, 13);
 	cout << char(200);
-	//TextColor(252);
 	for (int i = 117; i < 152; i++)//ve duong ngang duoi
 	{
-		//TextColor(233);
 		GoToXY(i, 13);
 		cout << char(205);
-		//TextColor(252);
 	}
 
 	SetColor(234);
