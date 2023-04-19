@@ -812,7 +812,7 @@ void oWin() {
 			i = 240;
 		}
 	} while (_getch() != ESC);
-	MainMenu();
+	AfterGame();
 }
 
 void inputNameScreen(Player& P1, Player& P2) {

@@ -103,6 +103,7 @@ void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pl
 				if (luot == 1) {
 					xWin();
 					
+					
 				}
 				else {
 					oWin();
