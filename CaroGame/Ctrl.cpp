@@ -358,7 +358,7 @@ void Ctrl(int& x, int& y)
 
 
 		}
-		if (lenh == 'a' || lenh == 'a')
+		if (lenh == 'A' || lenh == 'a')
 		{
 			x -= 4;
 			if (x < 3)
