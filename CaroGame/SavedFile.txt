@@ -1,5 +1,0 @@
-huhu.txt
-savegame.txt
-input.txt
-BanVan.txt
-ABC.txt
