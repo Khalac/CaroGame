@@ -299,12 +299,12 @@ void VeKhungChoInstruction()
 {
 	GoToXY(0, 0);//BO GOC TREN TRAI
 	cout << char(201);
-	for (int i = 0; i < 170; i++)//ve duong ngang tren
+	for (int i = 0; i < 177; i++)//ve duong ngang tren
 	{
 
 		cout << char(205);
 	}
-	GoToXY(170, 0);
+	GoToXY(177, 0);
 	cout << char(187);//BO GOC TREN PHAI
 	for (int j = 1; j < 39; j++)//ve duong thang xuong duoi ben trai
 	{
@@ -318,18 +318,18 @@ void VeKhungChoInstruction()
 	for (int j = 1; j < 39; j++)//ve duong thang xuong duoi ben phai
 	{
 
-		GoToXY(170, j);
+		GoToXY(177, j);//170
 		cout << char(186);
 
 	}
-	for (int i = 1; i < 170; i++)//ve duong ngang duoi
+	for (int i = 1; i < 177; i++)//ve duong ngang duoi
 	{
 
 		GoToXY(i, 39);
 		cout << char(205);
 
 	}
-	GoToXY(170, 39);//BO GOC DUOI PHAI
+	GoToXY(177, 39);//BO GOC DUOI PHAI
 	cout << char(188);
 }
 

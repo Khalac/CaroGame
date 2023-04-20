@@ -33,6 +33,7 @@ void MainMenu();
 
 
 void BANGTINHDIEM(Player P1, Player P2);
+void VeKhungChoInstruction();
 void Instruction();
 
 void LoadGame();
