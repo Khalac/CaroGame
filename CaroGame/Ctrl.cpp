@@ -56,7 +56,7 @@ void StartGame(enum Stone game[15][15], int stepPlayer1, int stepPlayer2, int pl
 		}
 		if (lenh == 13 || lenh == 'e' || lenh == 'E' || lenh == '5')
 		{
-			k++; //CAP NHAT STEP
+			k++; 
 			if (k % 2 != 0)
 			{
 				if (checkMakeMove(game, MAX_SIZE, now) != true)
