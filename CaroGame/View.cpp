@@ -297,7 +297,7 @@ void MainMenu() {
 	}
 	if (toado == menu.y + 10) //Exit game
 	{
-		return ExitGame();
+		ExitGame();
 	}
 }
 void VeKhungChoInstruction()
