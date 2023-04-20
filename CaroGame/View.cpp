@@ -89,7 +89,6 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now ,Player P1, Player P
 					SetColor(252);
 					cout << VERT;
 				}
-				//SetColor(252);
 			}
 			else
 			{
@@ -316,7 +315,7 @@ void VeKhungChoInstruction()
 	for (int j = 1; j < 39; j++)//ve duong thang xuong duoi ben phai
 	{
 
-		GoToXY(177, j);//170
+		GoToXY(177, j);
 		cout << char(186);
 
 	}
@@ -472,11 +471,8 @@ void BANGTINHDIEM(Player P1, Player P2)
 	cout << P1.name;
 	SetColor(252);
 
-
 	GoToXY(75, 5);
 	cout << "MOVE:";
-
-
 	
 	SetColor(234);
 	GoToXY(87, 7);
