@@ -128,7 +128,7 @@ void ExitGame() {
 }
 
 
-bool hasWon(enum Stone board[][15], int size, int luot) //Kiểm tra điều kiện thắng thua//
+bool hasWon(enum Stone board[][15], int size, int luot) 
 {
 	int h = 0, i, j, m, n, e, bd, kt;
 	enum Stone b, d;
@@ -269,14 +269,14 @@ bool hasWon(enum Stone board[][15], int size, int luot) //Kiểm tra điều ki�
 	return false;
 }
 
-void makeMove(enum Stone board[][15], int size, ToaDo playerMove, int luot) //Hàm đổi lượt chơi//
+void makeMove(enum Stone board[][15], int size, ToaDo playerMove, int luot) 
 {
 	if (luot == 1)
 		board[playerMove.i][playerMove.j] = X;
 	else board[playerMove.i][playerMove.j] = O;
 }
 
-bool checkMakeMove(enum Stone board[][15], int size, ToaDo now) //Kiểm tra ô có hợp lệ để đánh không//
+bool checkMakeMove(enum Stone board[][15], int size, ToaDo now) 
 {
 	if (board[now.i][now.j] != NA)
 		return false;
@@ -316,7 +316,6 @@ void Ctrl(int& x, int& y)
 	int i = 0;
 	int luot = 0;
 	GoToXY(x, y);
-	//cout << "_";
 	char lenh;
 	while (1)
 	{
@@ -419,16 +418,6 @@ void Ctrl(int& x, int& y)
 					GoToXY(x, y);
 					TextColor(4);
 					cout << "X";
-					//x += 4;
-					/*if (x > 59)
-					{
-						x = 59;
-						y += 2;
-						if (y > 30)
-						{
-							y = 30;
-						}
-					}*/
 					GoToXY(x, y);
 
 				}
@@ -448,16 +437,6 @@ void Ctrl(int& x, int& y)
 					GoToXY(x, y);
 					TextColor(3);
 					cout << "O";
-					//x += 4;
-					/*if (x > 59)
-					{
-						x = 59;
-						y += 2;
-						if (y > 30)
-						{
-							y = 30;
-						}
-					}*/
 					GoToXY(x, y);
 				}
 			}

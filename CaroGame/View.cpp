@@ -51,7 +51,7 @@ void UnNocursortype()
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
 }
 
-void PrintString(string s, int color, int x, int y)//In text
+void PrintString(string s, int color, int x, int y)
 {
 	GoToXY(x, y);
 	SetColor(color);
@@ -123,7 +123,7 @@ void displayBoard(enum Stone arr[][15], int size, ToaDo now ,Player P1, Player P
 	BANGTINHDIEM(P1,P2);
 }
 
-void PrintFile(string filename, int color, int x, int y) //In du lieu tep tin
+void PrintFile(string filename, int color, int x, int y) 
 {
 	fstream f;
 	f.open(filename, ios::in);
@@ -152,7 +152,6 @@ void demau(int x, int y, int w, int h, int b_color, string nd)
 			GoToXY(ix, iy); cout << " ";
 		}
 	}
-	//SetColor(7);
 	GoToXY(x + 1, y + 1);
 	cout << nd;
 	SetColor(253);
@@ -161,8 +160,8 @@ void demau(int x, int y, int w, int h, int b_color, string nd)
 void MainMenu() {
 
 	Menu menu;
-	Nocursortype();//xoa con tro nhap nhay tren man hinh.
-	menu.choices = 5; // man hinh meny co 5 su lua chon
+	Nocursortype();
+	menu.choices = 5; 
 	menu.x = WIDTH_CENTER - 15;
 	menu.y = HEIGHT_CENTER;
 	system("cls");
@@ -175,7 +174,7 @@ void MainMenu() {
 	int background_bright = 75;
 	//ve cac hop co chua chu truoc
 	string x = "         START GAME        ";
-	demau(menu.x, menu.y - 3, 28, 2, 94, x);//chu duoc in o x+1 va y+1
+	demau(menu.x, menu.y - 3, 28, 2, 94, x);
 
 	string b = "         LOAD GAME         ";
 	demau(menu.x, menu.y + 1, 28, 2, 94, b);
@@ -187,9 +186,9 @@ void MainMenu() {
 	demau(menu.x, menu.y + 9, 28, 2, 94, d);
 
 
-	string str = "ERROR";//luu giu string cua toa do dang tro toi
-	int choice = 0;//lua chon 
-	int toado = menu.y - 2;//luu giu toa do
+	string str = "ERROR";
+	int choice = 0;
+	int toado = menu.y - 2;
 	int odau = 0;
 
 	demau(menu.x, menu.y - 3, 28, 2, 75, x);
@@ -200,12 +199,12 @@ void MainMenu() {
 		{
 			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
 
-			choice = 1;//nhan nut xuong
+			choice = 1;
 			if (odau == 0)
 			{
 				demau(menu.x, menu.y - 3, 28, 2, 94, x);
 			}
-			else if (str != "ERROR" && toado < menu.y + 9)//de dua o tro ve trang thai binh thuong //+13
+			else if (str != "ERROR" && toado < menu.y + 9)
 			{
 				demau(menu.x, toado - 1, 28, 2, 94, str);
 
@@ -216,7 +215,7 @@ void MainMenu() {
 		{
 			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
 
-			choice = 2;//nhan nut len
+			choice = 2;
 			if (str != "ERROR" && toado > menu.y - 2)
 			{
 				demau(menu.x, toado - 1, 28, 2, 94, str);
@@ -227,9 +226,9 @@ void MainMenu() {
 		{
 			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
 
-			choice = 3;//nhan nut enter
+			choice = 3;
 		}
-		else choice = 0;//trong truong hop khong phai nut du chuyen cach nhau 4 don vi moi o//tong 19 o
+		else choice = 0;
 		if (choice == 1 && toado < menu.y + 9)
 		{
 			toado += 4;
@@ -267,7 +266,6 @@ void MainMenu() {
 	system("cls");
 	if (toado == menu.y - 2)
 	{
-		//start game
 		enum Stone game[15][15];
 		for (int i = 0; i < MAX_SIZE; i++)
 			for (int j = 0; j < MAX_SIZE; j++)
@@ -290,7 +288,7 @@ void MainMenu() {
 	{
 		Instruction();
 	}
-	if (toado == menu.y + 10) //Exit game
+	if (toado == menu.y + 10) 
 	{
 		ExitGame();
 	}
@@ -372,18 +370,17 @@ void Instruction()
 	} while (_getch() != ESC);
 	MainMenu();
 }
-void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
+void BANGTINHDIEM(Player P1, Player P2)
 {
-	//ve o to nhat
 	GoToXY(76, 15);
 	cout << char(201);
-	for (int i = 77; i < 149; i++)//ve duong ngang tren
+	for (int i = 77; i < 149; i++)
 	{
 		cout << char(205); 
 	}
 	GoToXY(149, 15);
 	cout << char(187);
-	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben trai
+	for (int j = 16; j < 31; j++)
 	{
 
 		GoToXY(76, j);
@@ -392,7 +389,7 @@ void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 	}
 	GoToXY(76, 31);
 	cout << char(200);
-	for (int j = 16; j < 31; j++)//ve duong thang xuong duoi ben phai
+	for (int j = 16; j < 31; j++)
 	{
 		
 		GoToXY(149, j);
@@ -401,30 +398,30 @@ void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 	}
 	GoToXY(149, 31);
 	cout << char(188);
-	for (int i = 77; i < 149; i++)//ve duong ngang duoi
+	for (int i = 77; i < 149; i++)
 	{
 		GoToXY(i, 31);
 		cout << char(205);
 		
 	}
 
-	//VE O NHO BEN TRAI
+	
 	GoToXY(73, 1);
 	cout << char(201);
-	for (int i = 74; i < 109; i++)//ve duong ngang tren
+	for (int i = 74; i < 109; i++)
 	{
 		cout << char(205);
 	}
 	GoToXY(109, 1);
 	cout << char(187);
-	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben trai
+	for (int j = 2; j < 13; j++)
 	{
 		GoToXY(73, j);
 		cout << char(186);
 	}
 	GoToXY(73, 13);
 	cout << char(200);
-	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben phai
+	for (int j = 2; j < 13; j++)
 	{
 		GoToXY(109, j);
 		cout << char(186);
@@ -432,23 +429,23 @@ void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 	
 	GoToXY(109, 13);
 	cout << char(188);
-	for (int i = 74; i < 109; i++)//ve duong ngang duoi
+	for (int i = 74; i < 109; i++)
 	{
 		GoToXY(i, 13);
 		cout << char(205);
 	}
 	
-	//VE O NHO BEN PHAI
+	
 	GoToXY(116, 1);
 	cout << char(201);
-	for (int i = 117; i < 152; i++)//ve duong ngang tren
+	for (int i = 117; i < 152; i++)
 	{
 		cout << char(205);
 	}
 	
 	GoToXY(152, 1);
 	cout << char(187);
-	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben phai
+	for (int j = 2; j < 13; j++)
 	{
 		GoToXY(152, j);
 		cout << char(186);
@@ -456,7 +453,7 @@ void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 
 	GoToXY(152, 13);
 	cout << char(188);
-	for (int j = 2; j < 13; j++)//ve duong thang xuong duoi ben trai
+	for (int j = 2; j < 13; j++)
 	{
 		GoToXY(116, j);
 		cout << char(186);
@@ -464,14 +461,14 @@ void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 
 	GoToXY(116, 13);
 	cout << char(200);
-	for (int i = 117; i < 152; i++)//ve duong ngang duoi
+	for (int i = 117; i < 152; i++)
 	{
 		GoToXY(i, 13);
 		cout << char(205);
 	}
 
 	SetColor(234);
-	GoToXY(87, 3);//cap nhat luot danh.
+	GoToXY(87, 3);
 	cout << P1.name;
 	SetColor(252);
 
@@ -508,16 +505,16 @@ void BANGTINHDIEM(Player P1, Player P2)//BANG TINH DIEM
 }
 void DrawBoard() 
 {
-	//VE KHUNG NGOAI:
-	for (int i = 0; i <= 31; i++)//ve vien tren cung+tao khoang cach voi le cua console
+	
+	for (int i = 0; i <= 31; i++)
 	{
 		for (int j = 0; j <= 18; j++)
 		{
-			if (i < 1)//tao khoang cach ben tren
+			if (i < 1)
 			{
 				cout << " ";
 			}
-			if (i == 1)//Ve vien tren cung
+			if (i == 1)
 			{
 				GoToXY(1, 1);
 				cout << TL;
@@ -536,14 +533,14 @@ void DrawBoard()
 				}
 			}
 
-			else if (j < 1)//Tao khoang cach ben trai
+			else if (j < 1)
 			{
 				cout << " ";
 			}
 			cout << endl;
 		}
 	}
-	for (int i = 2; i < 31; i++)//ve vien ben trai
+	for (int i = 2; i < 31; i++)
 	{
 		if (i % 2 == 1)
 		{
@@ -556,7 +553,7 @@ void DrawBoard()
 			cout << VERT;
 		}
 	}
-	GoToXY(61, 31);// ve vien ben phai
+	GoToXY(61, 31);
 	cout << BR;
 	for (int m = 2; m < 31; m++)
 	{
@@ -571,7 +568,7 @@ void DrawBoard()
 			cout << VERT;
 		}
 	}
-	GoToXY(1, 31);//ve vien ben duoi
+	GoToXY(1, 31);
 	cout << BL;
 	for (int k = 2; k < 61; k++)
 	{
@@ -585,8 +582,8 @@ void DrawBoard()
 		cout << BM;
 		m += 4;
 	}
-	//VE BEN CAC DUONG THANG BEN TRONG BAN CO:
-	for (int j = 3; j < 31; j++)//Ve cac duong ngang
+	
+	for (int j = 3; j < 31; j++)
 	{
 		if (j % 2 == 1)
 		{
@@ -604,7 +601,7 @@ void DrawBoard()
 			}
 		}
 	}
-	for (int j = 2; j < 31; j++)//ve cac duong doc
+	for (int j = 2; j < 31; j++)
 	{
 		if (j % 2 == 0)
 		{
@@ -739,8 +736,8 @@ void AfterGame()
 {
 
 	Menu menu;
-	Nocursortype();//xoa con tro nhap nhay tren man hinh.
-	menu.choices = 5; // man hinh meny co 5 su lua chon
+	Nocursortype();
+	menu.choices = 5; 
 	menu.x = WIDTH_CENTER - 15;
 	menu.y = HEIGHT_CENTER;
 	system("cls");
@@ -755,24 +752,24 @@ void AfterGame()
 	
 	
 
-	string str = "ERROR";//luu giu string cua toa do dang tro toi
-	int choice = 0;//lua chon 
-	int toado = menu.x - 4;//luu giu toa do
+	string str = "ERROR";
+	int choice = 0;
+	int toado = menu.x - 4;
 	int odau = 0;
 
-	demau(menu.x-5, menu.y - 3, 14, 2, 75, s);//dang de con tro mau o o YES
+	demau(menu.x-5, menu.y - 3, 14, 2, 75, s);
 	do
 	{
 		char a = _getch();
 		if ( a == 'D' || a == 'd' || a == '6')
 		{
 			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
-			choice = 1;//nhan phim qua ben phai
+			choice = 1;
 			if (odau == 0)
 			{
 				demau(menu.x - 5, menu.y - 3, 14, 2, 236, s);
 			}
-			else if (str != "ERROR" && toado < menu.x + 31)//de dua o tro ve trang thai binh thuong 
+			else if (str != "ERROR" && toado < menu.x + 31) 
 			{
 				demau(toado-1, menu.y - 3, 14, 2, 236, str);
 			}
@@ -782,7 +779,7 @@ void AfterGame()
 		else if ( a == 'a' || a == 'A' || a == '4')
 		{
 			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
-			choice = 2;//nhan phim qua trai
+			choice = 2;
 			if (str != "ERROR" && toado > menu.x-4)
 			{
 				demau(toado-1, menu.y-3, 14, 2, 236, str);
@@ -791,9 +788,9 @@ void AfterGame()
 		else if (a == 13 || a == 'E' || a == 'e' || a == '5')
 		{
 			PlaySound(TEXT("move_pointer.wav"), NULL, SND_FILENAME);
-			choice = 3;//nhan nut enter
+			choice = 3;
 		}
-		else choice = 0;//trong truong hop khong phai nut du chuyen cach nhau 4 don vi moi o//tong 19 o
+		else choice = 0;
 		if (choice == 1 && toado < menu.x + 31)
 		{
 			toado += 35;
@@ -820,7 +817,7 @@ void AfterGame()
 	system("cls");
 	if (toado == menu.x - 4)
 	{
-		//Choi lai game
+		
 		enum Stone game[15][15];
 		for (int i = 0; i < MAX_SIZE; i++)
 			for (int j = 0; j < MAX_SIZE; j++)
