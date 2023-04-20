@@ -42,7 +42,7 @@ const char VERT_MID = 197;
 #include "conio.h"
 using namespace std;
 
-enum Stone { NA, X, O }; //Kiểu dữ liệu tùy biến. Tự động nhận NA=0, X=1, O=2. Kiểu dữ liệu này khi khai báo thì sẽ chỉ nhận các giá trị đã khai báo trước//
+enum Stone { NA, X, O }; 
 
 struct ToaDo
 {
@@ -74,14 +74,14 @@ static char* lineString(char left, char mid, char right, char horz, int wcell, i
 	strncat(cellRight, &right, 1);
 	strcat(result, cellRight);
 	return result;
-} //Một hàng của ma trận//
+} 
 
 
 struct Menu
 {
-	int choices;	//So chuc nang menu
-	int x;			 // Toa do cua diem bat 
-	int y;			 //dau cua chuc nang dau tien
+	int choices;	
+	int x;			
+	int y;			 
 };
 
 struct Player {
@@ -89,7 +89,7 @@ struct Player {
 	int score;
 };
 
-struct Mark//dung trong ham Checkmark
+struct Mark
 {
 	int x;
 	int y;

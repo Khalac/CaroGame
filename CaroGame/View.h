@@ -2,11 +2,11 @@
 #include "Data.h"
 #include "Ctrl.h"
 
-//Function for console
+
 void CreateConsoleWindow(int pWidth, int pHeight);
 void FixConsoleWindow();
 
-//Move cursor pointer
+
 void GoToXY(int x, int y);
 
 
@@ -20,13 +20,13 @@ void UnNocursortype();
 void Nocursortype();
 
 
-//void displayBoard(enum Stone arr[][15], int size, ToaDo now, int luot);
+
 void DrawBoard();
 void displayBoard(enum Stone arr[][15], int size, ToaDo now, Player P1, Player P2);
 
 
 
-void PrintFile(string filename, int color, int x, int y); //In du lieu file txt
+void PrintFile(string filename, int color, int x, int y); 
 void PrintString(string s, int color, int x, int y);
 void demau(int x, int y, int w, int h, int b_color, string nd);
 void MainMenu();
