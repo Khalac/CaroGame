@@ -367,9 +367,7 @@ void Instruction()
 		cout << " -DI CHUYEN DEN O BAN MUON DANH VA NHAN ENTER, SAU DO DEN LUOT NGUOI CHOI KE TIEP.\n";
 		GoToXY(55, 25);
 		cout << " -TRONG 2 NGUOI, AI DANH DUOC 5 DIEM 'X' HAY 5 DIEM 'O' THANG HANG TRUOC THI SE GIANH CHIEN THANG.\n";
-		GoToXY(55, 27);
-		cout << " -NEU BAN MUON DAU HANG, VUI LONG NHAN PHIM 'g' hoac 'G'.\n";
-		GoToXY(75, 29);
+		GoToXY(75, 27);
 		cout << "An ESC de ve Main Menu'.\n";
 	} while (_getch() != ESC);
 	MainMenu();
